@@ -153,8 +153,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- ======================= Signin Form =========================-->
         <form action="log.php" method="post" class="sign-in-form">
           <h2 class="title">Login</h2>
+          <?php if ($error != ""): ?>
+            <p style="color:red; text-align:center; margin-bottom:10px;">
+              <?php echo $error; ?>
+            </p>
+          <?php endif; ?>
           <div class="input-field">
             <i class="fas fa-user"></i>
+            <!-- Display login errors (if any) -->
             <input type="text" name="username" placeholder="User name" required />
           </div>
           <div class="input-field">
@@ -162,15 +168,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" placeholder="Password" id="id_password" required />
             <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
           </div>
-          <a class="pass" href="#">Forgot your password?</a>
+
           <input type="submit" value="Login" name="btnLogin" class="btn solid" />
-          <p class="social-text">You can login with:</p>
-          <div class="social-media">
-            <a href="#" class="social-icon" aria-label="Login with Google"><i class="fab fa-google"></i></a>
-            <a href="#" class="social-icon" aria-label="Login with Discord"><i class="fab fa-discord"></i></a>
-            <a href="#" class="social-icon" aria-label="Login with Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="Login with Facebook"><i class="fab fa-facebook-f"></i></a>
-          </div>
+
           <div class="social-media">
             <a class="icon-mode" onclick="toggleTheme('dark');"><i class="fas fa-moon"></i></a>
             <a class="icon-mode" onclick="toggleTheme('light');"><i class="fas fa-sun"></i></a>
@@ -182,6 +182,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- ======================= Registration Form =========================-->
         <form action="log.php" method="post" class="sign-up-form">
           <h2 class="title">Register</h2>
+          <!-- Display registration messages (if any) -->
+          <?php if ($regMessage != ""): ?>
+            <div style="text-align:center; margin-bottom:10px;">
+              <?php echo $regMessage; ?>
+            </div>
+          <?php endif; ?>
           <!-- User Information -->
           <div class="input-field">
             <i class="fas fa-user"></i>
