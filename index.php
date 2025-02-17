@@ -94,73 +94,238 @@ include('includes/header.php');
             <img src="img/robot.jpg" alt="AI Legal Advisor" class="w-96">
         </div>
     </div> -->
-    <div
-        class="max-w-6xl mx-auto flex items-center justify-between py-16 px-8 bg-purple-700 rounded-[30px] mt-[60px] transition-transform duration-400 transform hover:-translate-y-4">
-        <div class="text-left max-w-xl">
-            <h2 class="text-4xl font-bold text-yellow-400 mb-4">AI Legal Advisor :</h2>
-            <p class="text-3xl text-white font-semibold">your personal legal AI assistant</p>
+    <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between py-16 px-6 bg-purple-700 rounded-[30px] mt-[60px]">
+    
+    <!-- Left Text Section -->
+    <div class="text-center lg:text-left max-w-xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">AI Legal Advisor :</h2>
+        <p class="text-xl md:text-3xl text-white font-semibold">your personal legal AI assistant</p>
 
-            <div class="mt-6 flex space-x-4">
-                <button class="bg-gray-300 text-black px-6 py-2 rounded-lg">For Consumers</button>
-                <button class="bg-gray-300 text-black px-6 py-2 rounded-lg">For Lawyers</button>
-            </div>
+        <!-- Buttons for Consumers & Lawyers -->
+        <div class="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+            <button class="bg-gray-300 text-black px-6 py-2 rounded-lg transition-colors duration-300 font-semibold shadow-lg hover:bg-yellow-400">
+                For Consumers
+            </button>
 
-            <div class="mt-8">
-                <button onclick="window.location.href='chatbot1.php'"
-                    class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg">
-                    AI Legal Advisor
-                </button>
-            </div>
+            <button class="bg-gray-300 text-black px-6 py-2 rounded-lg transition-colors duration-300 font-semibold shadow-lg hover:bg-yellow-400">
+                For Lawyers
+            </button>
         </div>
 
-        <div class="flex justify-end w-1/2 ">
-            <img src="img/robot.jpg" alt="AI Legal Advisor" class="w-96 rounded-[30px]">
+        <!-- AI Legal Advisor Button -->
+        <div class="mt-8">
+            <button onclick="window.location.href='chatbot1.php'" class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg">
+                AI Legal Advisor
+            </button>
         </div>
     </div>
 
+    <!-- Right Image Section -->
+    <div class="flex justify-center lg:justify-end w-full lg:w-1/2 mb-8 lg:mb-0">
+        <img src="img/robot.jpg" alt="AI Legal Advisor" class="w-64 sm:w-80 md:w-96 rounded-[30px] transition-transform duration-500 hover:scale-110">
+    </div>
+
+</div>
 
 
+
+
+    <section class="text-center py-16">
+        <!-- <button class="bg-purple-600 text-white px-6 py-2 rounded-lg border border-gray-600 flex item-center gap-2 mx-auto"><span class="material-symbols-outlined">group</span> Users</button> -->
+        <h2 class="text-4xl font-semibold mt-6">Who is Legal Advisor AI for?</h2>
+        <p class="text-xl font-semibold text-black mt-2 w-[50%] mx-auto">
+            Our goal is simple: to make justice widely available. Whether you're a consumer, practicing law, or studying it, we're here for you.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-12 px-4">
+    <!-- Card 1 -->
+    <div class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
+        <div class="text-2xl"><span class="material-symbols-outlined text-white">person</span></div>
+        <h3 class="text-lg font-semibold text-white">AI for Legal Consumers</h3>
+        <p class="text-white">
+            From deciphering complex terms to understanding rights, we've got you covered.
+        </p>
+        <img src="img/consumer.jpg" alt="AI for Legal Consumers" class="w-40 h-40 mx-auto rounded-full">
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
+        <div class="text-2xl"><span class="material-symbols-outlined text-white">balance</span></div>
+        <h3 class="text-lg font-semibold text-white">AI for Lawyers</h3>
+        <p class="text-white">
+            Let us handle the research and paperwork while you elevate client relationships.
+        </p>
+        <img src="img/lawyer.jpg" alt="AI for Lawyers" class="w-40 h-40 mx-auto rounded-full">
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
+        <div class="text-2xl"><span class="material-symbols-outlined text-white">home</span></div>
+        <h3 class="text-lg font-semibold text-white">AI for Law Firms</h3>
+        <p class="text-white">
+            Streamlining processes and boosting efficiency, we're revolutionizing the way law firms operate.
+        </p>
+        <img src="img/firm.jpg" alt="AI for Law Firms" class="w-40 h-40 mx-auto rounded-full">
+    </div>
+
+    <!-- Card 4 -->
+    <div class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
+        <div class="text-2xl"><span class="material-symbols-outlined text-white">import_contacts</span></div>
+        <h3 class="text-lg font-semibold text-white">AI for Law Students</h3>
+        <p class="text-white">
+            We've made a perfect learning tool. It helps students prepare for a career in law.
+        </p>
+        <img src="img/student.jpg" alt="AI for Law Students" class="w-40 h-40 mx-auto rounded-full">
+    </div>
+</div>
+
+    </section>
+
+
+    <section class="text-white py-5 px-6">
     <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 mt-[35px]">What is AI Legal Advisor?</h2>
-        <h4 class="text-2xl font-bold text-gray-800 mb-8 mt-[35px]">Our goal is simple: to make justice widely
-            available. Whether you're a consumer, practicing law, or studying it, we're here for you.</h4>
+        <button class="border-2 bg-purple-700  px-6 py-2 rounded-full text-lg font-semibold mb-4 text-white ">
+            + Advantages
+        </button>
+        <h2 class="text-3xl md:text-4xl text-black font-bold">Why our AI in law is better?</h2>
+        <p class="text-xl text-black mt-2">
+            In contrast to others, our LegalTech software is quick, easy, and wallet-friendly.
+        </p>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Service 1 -->
-            <div
-                class="bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300 transform hover:-translate-y-4">
-                <div class="text-4xl">👨‍⚖️</div>
-                <h3 class="text-lg font-semibold mt-4 text-gray-800">Expert Legal Guidance</h3>
-                <p class="text-gray-600 mt-2">Get personalized legal advice from experienced professionals</p>
-            </div>
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mt-12">
+    <!-- Fast -->
+    <div class="bg-purple-700 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+        <span class="text-5xl">⚡</span>
+        <h3 class="text-xl font-semibold mt-3 text-white">Fast</h3>
+        <p class="text-white mt-2">
+            The fastest online lawyer service, ideal for avoiding expenses and appointments.
+        </p>
+    </div>
 
-            <!-- Service 2 -->
-            <div
-                class="bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300 transform hover:-translate-y-4">
-                <div class="text-4xl">📚</div>
-                <h3 class="text-lg font-semibold mt-4 text-gray-800">Legal Resources</h3>
-                <p class="text-gray-600 mt-2">Access comprehensive legal information and resources</p>
-            </div>
+    <!-- Cost-effective -->
+    <div class="bg-purple-700 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+        <span class="text-5xl">💲</span>
+        <h3 class="text-xl font-semibold mt-3 text-white">Cost-effective</h3>
+        <p class="text-white mt-2">
+            Forget the high costs of the traditional law market. The artificial intelligence lawyer is budget-friendly.
+        </p>
+    </div>
 
-            <!-- Service 3 -->
-            <div
-                class="bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300 transform hover:-translate-y-4">
-                <div class="text-4xl">🤝</div>
-                <h3 class="text-lg font-semibold mt-4 text-gray-800">Lawyer Directory</h3>
-                <p class="text-gray-600 mt-2">Find and connect with qualified lawyers in your area</p>
+    <!-- 24/7 Support -->
+    <div class="bg-purple-700 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+        <span class="text-5xl">⚽</span>
+        <h3 class="text-xl font-semibold mt-3 text-white">24/7 Support</h3>
+        <p class="text-white mt-2">
+            Our customer support team is always available to assist you with any questions about the platform.
+        </p>
+    </div>
+
+    <!-- Private -->
+    <div class="bg-purple-700 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+        <span class="text-5xl">🔒</span>
+        <h3 class="text-xl font-semibold mt-3 text-white">Private</h3>
+        <p class="text-white mt-2">
+            We stand firm on privacy, ensuring that users' conversations remain secure and anonymous.
+        </p>
+    </div>
+</div>
+
+</section>
+
+<div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Right to Equality</h2>
             </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 14:</span> Equality before the law and equal protection of the laws within India.</li>
+                <li><span class="font-semibold text-xl">Article 15:</span> Prohibition of discrimination on grounds of religion, race, caste, sex, or place of birth.</li>
+                <li><span class="font-semibold text-xl">Article 16:</span> Equality of opportunity in matters of public employment.</li>
+                <li><span class="font-semibold text-xl">Article 17:</span> Abolition of untouchability and prohibition of its practice.</li>
+                <li><span class="font-semibold text-xl">Article 18:</span> Abolition of titles (except academic and military distinctions).</li>
+            </ul>
         </div>
     </div>
 
 
-    <!-- Hero Section -->
-    <!-- <div class="bg-blue-800 text-white text-center py-16">
-        <h1 class="text-3xl font-bold">Need Legal Assistance?</h1>
-        <p class="text-lg mt-2">Our platform connects you with experienced legal professionals</p>
-        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg">
-            Join as a Lawyer
-        </button>
-    </div> -->
+    <div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Right to Freedom</h2>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 19:</span>  Six freedoms including speech, assembly, association, movement, residence, and profession.</li>
+                <li><span class="font-semibold text-xl">Article 20:</span> Protection in respect of conviction for offenses (no double jeopardy, no ex post facto law).</li>
+                <li><span class="font-semibold text-xl">Article 21:</span> Right to life and personal liberty.</li>
+                <li><span class="font-semibold text-xl">Article 22:</span>  Right to education (free and compulsory education for children aged 6–14 years).</li>
+                <li><span class="font-semibold text-xl">Article 23:</span>  Protection against arrest and detention in certain cases.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Right against Exploitation</h2>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 23:</span> Prohibition of human trafficking and forced labor.</li>
+                <li><span class="font-semibold text-xl">Article 24:</span> Prohibition of child labor in hazardous industries and occupations.</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Right to Freedom of Religion</h2>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 25:</span> Freedom of conscience and the right to freely profess, practice, and propagate religion.</li>
+                <li><span class="font-semibold text-xl">Article 26:</span> Freedom to manage religious affairs.</li>
+                <li><span class="font-semibold text-xl">Article 27:</span> Freedom from payment of taxes for promotion of any religion.</li>
+                <li><span class="font-semibold text-xl">Article 28:</span> Freedom from attending religious instruction in educational institutions wholly funded by the State.</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Cultural and Educational Rights</h2>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 29:</span> Protection of the interests of minorities to preserve their culture, language, or script.</li>
+                <li><span class="font-semibold text-xl">Article 30:</span> Right of minorities to establish and administer educational institutions.</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full">
+        <div class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
+            <div class="flex items-center mb-4">
+            <span class="text-blue-400 text-2xl ">🛡️</span>
+                <h2 class="text-2xl font-semibold text-yellow-400">Right to Constitutional Remedies</h2>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-white">
+                <li><span class="font-semibold text-xl">Article 32:</span> Right to approach the Supreme Court or High Courts for enforcement of Fundamental Rights.</li>
+
+            </ul>
+        </div>
+    </div>
+    
+    
 
     <!-- Footer -->
     <footer class="bg-purple-900 text-white py-10 mt-10">

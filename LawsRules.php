@@ -49,7 +49,7 @@ include('includes/header.php');
 
       <!-- Drop-Down for Category Selection -->
       <div class="p-6">
-        <select>
+        <select id="categorySelect" class="w-full p-3 border rounded-lg focus:outline-none focus:border-purple-600">
           <option value="All">All Categories</option>
           <option value="Criminal Law">Criminal Law</option>
           <option value="Civil Law">Civil Law</option>
