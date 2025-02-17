@@ -97,7 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $UserName, $Password, $Email);
 
         if ($stmt->execute()) {
-          $regMessage = "<p style='color:green;'>Registered Successfully!</p>";
+          // $regMessage = "<p style='color:green;'>Registered Successfully!</p>";
+          echo "<script>alert('Registration Successful!');</script>";
         } else {
           $regMessage = "<p style='color:red;'>Registration Failed.</p>";
         }

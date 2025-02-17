@@ -54,18 +54,43 @@
                 <span class="material-symbols-outlined">home</span>
                 <span>Home</span>
             </a>
+
             <a href="chatbot1.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
-                  hover:bg-purple-200">
+                  hover:bg-purple-200" id="legal">
                 <span class="material-symbols-outlined">chat</span>
                 <span>Get Legal Guidance</span>
             </a>
+            <script>
+                document.getElementById("legal").addEventListener("click", function (event) {
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        // Prevent the link's default behavior
+                        event.preventDefault();
+                        alert('Login Required!');
+                        // Redirect to the login page after the alert
+                        window.location.href = 'log.php';
+                    <?php } ?>
+                    // If session is set, no extra JavaScript runs and the link behaves normally.
+                });
+            </script>
             <a href="lawyerDirectory.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
-                  hover:bg-purple-200">
+                  hover:bg-purple-200" id="lawyer">
                 <span class="material-symbols-outlined">group</span>
                 <span>Lawyer Directory</span>
             </a>
+            <script>
+                document.getElementById("lawyer").addEventListener("click", function (event) {
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        // Prevent the link's default behavior
+                        event.preventDefault();
+                        alert('Login Required!');
+                        // Redirect to the login page after the alert
+                        window.location.href = 'log.php';
+                    <?php } ?>
+                    // If session is set, no extra JavaScript runs and the link behaves normally.
+                });
+            </script>
             <a href="lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200">
@@ -74,7 +99,7 @@
             </a>
 
             <?php if (isset($_SESSION['user'])) { ?>
-                
+
                 <a href="logout.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200">
@@ -91,7 +116,7 @@
                     <span class="material-symbols-outlined">login</span>
                     <span>Login</span>
                 </a>
-                
+
             <?php } ?>
 
             <button onclick="toggleMoreSidebar()" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
@@ -112,12 +137,14 @@
 
     <!-- Sidebar for More Button -->
     <div id="moreSidebar"
-        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-lg shadow-lg transform -translate-x-full transition-transform p-4">
-        <button onclick="toggleMoreSidebar()" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-[15px] shadow-lg transform -translate-x-full transition-transform p-4 ">
+        <div class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-500 gap-3">
-            <span class="text-xl">✖</span> Close
-        </button>
+            <button onclick="toggleMoreSidebar()">
+                <span class="text-xl">✖</span> Close
+            </button>
+        </div>
 
         <ul class="mt-4 space-y-4">
             <li><a href="AboutUs.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
@@ -148,7 +175,7 @@
     <!-- Sidebar -->
     <div id="sidebar"
         class="fixed left-0 top-0 w-64 bg-white h-full shadow-lg transform -translate-x-full transition-transform p-4 md:hidden">
-        <button onclick="toggleSidebar()" class="text-gray-600">&times; Close</button>
+        <button onclick="toggleSidebar()" class="text-purple-900">&times; Close</button>
         <ul class="mt-4 space-y-4">
             <li><a href="chatbot1.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
