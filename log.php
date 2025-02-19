@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // The user clicked on the Login button
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $UserType = $_POST["UserType"];
 
     // Simple (insecure) approach without password hashing
     $sql = "SELECT * FROM usermaster WHERE UserName = ? AND Password = ?";
@@ -71,12 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   */
   if (isset($_POST['btnRegister'])) {
     // The user clicked on the Register button
-    $firstName = $_POST["first-name"];
-    $lastName = $_POST["last-name"];
+    $FullName = $_POST["FullName"];
     $Email = $_POST["Email"];
+    $UserType = $_POST["UserType"];
     $UserName = $_POST["UserName"];
     $Password = $_POST["Password"];
-    $CPassword = $_POST["re_pass"];
+    $CPassword = $_POST["CPassword"];
 
     // Check if username or email already exists
     $checkSql = "SELECT * FROM usermaster WHERE UserName = ? OR Email = ?";
@@ -169,6 +170,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" placeholder="Password" id="id_password" required />
             <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
           </div>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <select class="select-container" name="UserType" value="UserType" placeholder="User Type" required>
+              <option>Select User Type</option>
+              <option values="User">User</option>
+              <option value="Lawyer">Lawyer</option>
+            </select>
+          </div>
 
           <input type="submit" value="Login" name="btnLogin" class="btn solid" />
 
@@ -192,15 +201,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <!-- User Information -->
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" name="first-name" placeholder="First name" required />
-          </div>
-          <div class="input-field">
-            <i class="fas fa-user"></i>
-            <input type="text" name="last-name" placeholder="Last name" required />
+            <input type="text" name="FullName" placeholder="Full name" required />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
             <input type="email" name="Email" placeholder="Email" required />
+          </div>
+          <!-- User Type -->
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <select name="UserType" value="UserType" Placeholder="UserType" required">
+              <option>Select User Type</option>
+              <option values="User">User</option>
+              <option value="Lawyer">Lawyer</option>
+            </select>
           </div>
           <!-- Account Credentials -->
           <div class="input-field">
@@ -215,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <!-- Confirm password name matches what we use in PHP ($CPassword = $_POST["re_pass"]) -->
-            <input type="password" name="re_pass" placeholder="Confirm Password" id="id_reg2" required />
+            <input type="password" name="CPassword" placeholder="Confirm Password" id="id_reg2" required />
             <i class="far fa-eye" id="toggleReg2" style="cursor: pointer;"></i>
           </div>
           <label class="check">

@@ -56,7 +56,47 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
+   /* =========================
+   STYLES FOR SELECT FIELDS
+   ========================= */
+.select-container {
+  /* Match the existing input-field look */
+  width: 85%;
+  height: 55px;
+  background-color: var(--bg-input);
+  margin: 10px 0;
+  border-radius: 55px;
   
+  /* Use a grid to position icon (left), select (middle), and optional icon (right) */
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  padding: 0 0.4rem;
+}
+
+.select-container i {
+  text-align: center;
+  line-height: 55px;           /* Vertically center icon */
+  color: var(--input-icon);    /* Same icon color as other inputs */
+  font-size: 1.1rem;
+}
+
+/* Style the <select> similarly to your <input> fields */
+.select-container select {
+  background: none;          /* Transparent so background shows through */
+  outline: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--input);
+  cursor: pointer;           /* Show pointer on hover */
+}
+
+/* Optional: Customize the option text colors */
+.select-container select option {
+  color: var(--input);
+  background: #ffffff;
+}
+
   .container {
     position: relative;
     width: 100%;
@@ -573,3 +613,5 @@
       z-index: 1;
     }
   }
+
+  

@@ -3,7 +3,87 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include('includes/header.php');
+include('includes/db.php');
 
+
+$LawyerID = "";
+$FullName = "";
+$BarRegistration = "";
+$Specialization = "";
+$Experience = "";
+$StateMasterID = "";
+$CityMasterID = "";
+$Email = "";
+$Phone = "";
+$ConsultationFee = "";
+$HourlyRate = "";
+$Bio = "";
+$RecentCases = "";
+$ProfilePicture = "";
+$CreatedAt = "";
+$btn = "Register";
+$message = "";
+
+if (isset($_POST['btnRegister'])) {
+    if ('Register' == $_POST["btnRegister"]) {
+
+        $FullName = $_POST["FullName"];
+        $BarRegistration = $_POST["BarRegistration"];
+        $Specialization = $_POST["Specialization"];
+        $Experience = $_POST["Experience"];
+        $StateName = $_POST["StateName"];
+        $CityName = $_POST["CityName"];
+        $Email = $_POST["Email"];
+        $Phone = $_POST["Phone"];
+        $ConsultationFee = $_POST["ConsultationFee"];
+        $HourlyRate = $_POST["HourlyRate"];
+        $Bio = $_POST["Bio"];
+        $RecentCases = $_POST["RecentCases"];
+        $ProfilePicture = $_POST["ProfilePicture"];
+        // $CreatedAt = $_POST["CreatedAt"];
+
+        // Check for duplicates
+        $duplicate_message = "";
+        $fields = [
+            "Email" => $Email,
+            "Phone" => $Phone,
+            "BarRegistration" => $BarRegistration
+        ];
+
+        foreach ($fields as $column => $value) {
+            $query = "SELECT 1 FROM lawyers WHERE $column = ?";
+            $stmt = mysqli_prepare($conn, $query);
+            mysqli_stmt_bind_param($stmt, "s", $value);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+
+            if (mysqli_stmt_num_rows($stmt) > 0) {
+                $duplicate_message .= ucfirst(str_replace("_", " ", $column)) . " already exists! ";
+            }
+            mysqli_stmt_close($stmt);
+        }
+
+        if (!empty($duplicate_message)) {
+            echo "<script>alert('$duplicate_message'); window.history.back();</script>";
+            exit();
+        }
+
+
+        $stmt = "Insert into lawyers(FullName,BarRegistration,Specialization,Experience,StateMasterID,
+        CityMasterID,Email,Phone,ConsultationFee,HourlyRate,Bio,RecentCases,ProfilePicture)values
+        ('" . $FullName . "','" . $BarRegistration . "','" . $Specialization . "','" . $Experience . "'
+        ,'" . $StateName . "','" . $CityName . "','" . $Email . "','" . $Phone . "','" . $ConsultationFee . "'
+        , '" . $HourlyRate . "','" . $Bio . "','" . $RecentCases . "','" . $ProfilePicture . "' ) ";
+
+
+        if ($conn->query($stmt) === true) {
+            echo "<script>alert('Registration Successful!'); window.location.href='lawyerRegistration.php';</script>";
+
+        } else {
+            echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.history.back();</script>";
+        }
+    }
+}
 ?>
 
 
@@ -40,33 +120,99 @@ include('includes/header.php');
 
     <div class="max-w-4xl mx-auto bg-white p-8 mt-10 rounded shadow">
         <h2 class="text-2xl font-bold">Lawyer Registration</h2>
-        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="register_lawyer.php">
-            <input type="text" placeholder="Full Name" name="name" class="border p-2 rounded" required>
-            <input type="text" placeholder="Bar Council Registration Number" name="registration_number"
+        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="lawyerRegistration.php">
+
+            <input type="text" placeholder="Full Name" name="FullName" class="border p-2 rounded" required>
+
+            <input type="text" placeholder="Bar Council Registration Number" name="BarRegistration"
                 class="border p-2 rounded" minlength="10" maxlength="15" required>
-            <select class="border p-2 rounded " name="specialization">
+            <select class="border p-2 rounded " name="Specialization">
                 <option>Select Specialization</option>
                 <option values="Criminal Law">Criminal Law</option>
                 <option value="Civil Rights">Civil Rights</option>
                 <option value="Corporate Law">Corporate Law</option>
             </select>
-            <input type="number" name="experience" placeholder="Years of Experience" class="border p-2 rounded"
+            <input type="number" name="Experience" placeholder="Years of Experience" class="border p-2 rounded"
                 required>
-            <input type="text" name="city" placeholder="City" class="border p-2 rounded" required>
-            <input type="text" name="state" placeholder="State" class="border p-2 rounded" required>
-            <input type="email" name="email" placeholder="Email" class="border p-2 rounded" required>
-            <input type="tel" name="phone" placeholder="Phone" class="border p-2 rounded" minlength="10" maxlength="10">
-            <input type="number" name="fee" placeholder="Consultation Fee " class="border p-2 rounded">
-            <input type="number" name="hourly_rate" placeholder="Hourly Rate " class="border p-2 rounded">
-            <textarea placeholder="Professional Bio" name="bio" class="border p-2 rounded col-span-2"></textarea>
+
+            <select id="S1" name="StateName" required="" class="border p-2 rounded "
+                value=" <?php echo $StateMasterID; ?>">
+                <option>----State----</option>
+
+            </select>
+            <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    function loadData(type, StateMasterID) {
+                        $.ajax({
+                            url: "load-cs.php",
+                            type: "POST",
+                            data: { type: type, id: StateMasterID },
+                            success: function (data) {
+                                if (type == "CityData") {
+                                    $("#S2").html(data);
+                                } else {
+                                    $("#S1").append(data);
+                                }
+
+                            }
+                        });
+                    }
+
+                    loadData();
+
+                    $("#S1").on("change", function () {
+                        var country = $("#S1").val();
+
+                        if (country != "") {
+                            loadData("CityData", country);
+                        } else {
+                            $("#S2").html("");
+                        }
+
+
+                    })
+                });
+
+                /*$.ajax({
+                    url: 'Loadtable.php',
+                    type: 'POST',
+                    data: {Sel: v1,FID: v},
+                    beforeSend: function(){
+                        $('#loader').show();
+                    },
+                    success: function(data) {
+                        $('#a1').html(data);
+                    },
+                    complete: function(){
+                        $('#loader').hide();
+                    }
+                 });*/
+            </script>
+
+
+            <select name="CityName" required="" class="border p-2 rounded " id="S2"
+                value="<?php echo "$CityMasterID"; ?>">
+                <option value="" selected>-----All City Name-----</option>
+
+            </select>
+            <input type="email" name="Email" placeholder="Email" class="border p-2 rounded" required>
+            <input type="tel" name="Phone" placeholder="Phone" class="border p-2 rounded" minlength="10" maxlength="10">
+            <input type="number" name="ConsultationFee" placeholder="Consultation Fee " class="border p-2 rounded">
+            <input type="number" name="HourlyRate" placeholder="Hourly Rate " class="border p-2 rounded">
+            <textarea placeholder="Professional Bio" name="Bio" class="border p-2 rounded col-span-2"></textarea>
+            <textarea placeholder="About Recent Cases" name="RecentCases"
+                class="border p-2 rounded col-span-2"></textarea>
             <div class="border-dashed border-2 p-4 rounded col-span-2 text-center">
                 <p class="text-gray-600">Upload a file or drag and drop</p>
                 <p class="text-sm text-gray-400">PNG, JPG, GIF up to 10MB</p>
-                <input type="file" name="profile_picture" class="mt-2">
+                <input type="file" name="ProfilePicture" class="mt-2">
             </div>
-            <button type="submit" class="bg-purple-700 text-white py-2 rounded col-span-2">Register</button>
+            <button type="Submit" name="btnRegister" value="Register"
+                class="bg-purple-700 text-white py-2 rounded col-span-2">Register</button>
+
         </form>
-    </div>
+        </form>
 </body>
 
 </html>

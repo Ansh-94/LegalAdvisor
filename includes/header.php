@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Advisor</title>
+    <title>AI Legal Advisor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
@@ -45,8 +45,7 @@
                 <span>LegalAI Advisor</span>
             </a>
         </h1>
-
-        <div class="hidden md:flex space-x-6">
+        <nav class="hidden md:flex space-x-6">
 
             <a href="index.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
@@ -54,8 +53,7 @@
                 <span class="material-symbols-outlined">home</span>
                 <span>Home</span>
             </a>
-
-            <a href="chatbot1.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+            <a href="chatbot.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200" id="legal">
                 <span class="material-symbols-outlined">chat</span>
@@ -70,7 +68,6 @@
                         // Redirect to the login page after the alert
                         window.location.href = 'log.php';
                     <?php } ?>
-                    // If session is set, no extra JavaScript runs and the link behaves normally.
                 });
             </script>
             <a href="lawyerDirectory.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
@@ -97,12 +94,11 @@
                 <span class="material-symbols-outlined">person_add</span>
                 <span>Lawyer Registration</span>
             </a>
-
             <?php if (isset($_SESSION['user'])) { ?>
 
                 <a href="logout.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
-                 text-purple-700 font-bold hover:text-purple-900 
-                  hover:bg-purple-200">
+ text-purple-700 font-bold hover:text-purple-900 
+  hover:bg-purple-200">
                     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
                     <span class="material-symbols-outlined">logout</span>
                     <span>Logout</span>
@@ -110,15 +106,14 @@
 
             <?php } else { ?>
                 <a href="log.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
-                 text-purple-700 font-bold hover:text-purple-900 
-                  hover:bg-purple-200">
+ text-purple-700 font-bold hover:text-purple-900 
+  hover:bg-purple-200">
                     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
                     <span class="material-symbols-outlined">login</span>
                     <span>Login</span>
                 </a>
 
             <?php } ?>
-
             <button onclick="toggleMoreSidebar()" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200">
@@ -127,17 +122,16 @@
                 </span>
                 <span>More</span>
             </button>
-            </nav>
+        </nav>
 
-            <button class="md:hidden text-indigo-600" onclick="toggleSidebar()">
-                &#9776;
-            </button>
-        </div>
+        <button class="md:hidden text-indigo-600" onclick="toggleSidebar()">
+            &#9776;
+        </button>
     </header>
 
     <!-- Sidebar for More Button -->
     <div id="moreSidebar"
-        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-[15px] shadow-lg transform -translate-x-full transition-transform p-4 ">
+        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-lg shadow-lg transform -translate-x-full transition-transform p-4">
         <div class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-500 gap-3">
@@ -145,7 +139,6 @@
                 <span class="text-xl">✖</span> Close
             </button>
         </div>
-
         <ul class="mt-4 space-y-4">
             <li><a href="AboutUs.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
@@ -174,10 +167,10 @@
     <!-- Full Sidebar for Small Screens -->
     <!-- Sidebar -->
     <div id="sidebar"
-        class="fixed left-0 top-0 w-64 bg-white h-full shadow-lg transform -translate-x-full transition-transform p-4 md:hidden">
-        <button onclick="toggleSidebar()" class="text-purple-900">&times; Close</button>
+        class="fixed left-0 top-0 w-64 bg-purple-200 h-full shadow-lg transform -translate-x-full transition-transform p-4 md:hidden">
+        <button onclick="toggleSidebar()" class="text-gray-600">&times; Close</button>
         <ul class="mt-4 space-y-4">
-            <li><a href="chatbot1.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+            <li><a href="chatbot.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200 gap-3"><span class="material-symbols-outlined">chat</span>Get Legal Guidance</a>
             </li>
@@ -212,3 +205,24 @@
                     </span>FAQ</a></li>
         </ul>
     </div>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("-translate-x-full");
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        }
+        function toggleMoreSidebar() {
+            document.getElementById('moreSidebar').classList.toggle('-translate-x-full');
+        }
+    </script>
+
+
+
+</body>
+
+</html>

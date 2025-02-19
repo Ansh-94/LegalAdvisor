@@ -1,0 +1,22 @@
+
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.bot-message
+{
+  flex-direction: row;
+}
+.user-message {
+  justify-content: flex-end;
+}
+
+.chat-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+

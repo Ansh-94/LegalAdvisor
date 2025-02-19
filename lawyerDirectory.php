@@ -84,62 +84,94 @@ include('includes/db.php');
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="lawyer-list">
             <?php
-            $query = "SELECT * FROM lawyers";
+            $query = "SELECT 
+                      l.LawyerID,
+                      l.FullName,
+                      l.BarRegistration,
+                      l.Specialization,
+                      l.Experience,
+                      sm.StateName,
+                      cm.CityName,
+                      l.Email,
+                      l.Phone,
+                      l.ConsultationFee,
+                      l.HourlyRate,
+                      l.Bio,
+                      l.RecentCases,
+                      l.ProfilePicture  
+                      FROM lawyers l
+                      INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
+                      INNER JOIN citymaster cm ON l.CityMasterID = cm.CityMasterID";
             $result = mysqli_query($conn, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
-                // Check if 'profile_image' exists in the array and is not empty
-                $profile_image = isset($row['profile_image']) && !empty($row['profile_image'])
-                    ? $row['profile_image']
-                    : 'img/advocate.png'; // Use default image if missing
-            
-                echo "<div class='bg-white rounded-lg shadow-md p-4 flex space-x-4' data-state='{$row['state']}' data-city='{$row['city']}'>";
-                echo "<img src='{$profile_image}' class='rounded-lg w-24 h-24' alt='Profile Image'>";
-                echo "<div>";
-                echo "<h3 class='text-lg font-bold'>{$row['full_name']}</h3>";
-                echo "<p class='text-gray-500'>{$row['specialization']}</p>";
-                echo "<p class='text-gray-500'>{$row['city']}, {$row['state']} | {$row['experience']} years experience</p>";
-                echo "<p class='text-gray-500'>✉️ {$row['email']}</p>";
-                echo "<p class='text-gray-500'>📞 {$row['phone']}</p>";
-                echo "<p class='font-semibold'>Consultation Fee: \${$row['consultation_fee']} | Hourly Rate: \${$row['hourly_rate']}/hr</p>";
-                echo "</div></div>";
+                // Use the provided profile image, or a default image if missing
+                $profile_image = (!empty($row['profile_image'])) ? $row['profile_image'] : 'img/advocate.png';
+                ?>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="flex justify-between items-center" data-state="<?= $row['StateName'] ?>"
+                        data-city="<?= $row['CityName'] ?>">
+                        <!-- Lawyer Details -->
+                        <div class="flex space-x-4">
+                            <img src="<?= $profile_image ?>" class="rounded-lg w-24 h-24" alt="Profile Image">
+                            <div>
+                                <h3 class="text-lg font-bold"><?= $row['FullName'] ?></h3>
+                                <p class="text-gray-500"><?= $row['Specialization'] ?></p>
+                                <p class="text-gray-500">
+                                    <?= $row['CityName'] ?> | <?= $row['StateName'] ?> <br>
+                                    <?= $row['Experience'] ?> years experience
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Side Centered Button -->
+                        <form action="lawyerprofile.php" method="POST">
+                            <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
+                            <button type="submit"
+                                class="bg-purple-700 text-white rounded-lg text-lg px-4 py-2 hover:bg-purple-500 transition">
+                                View More
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <?php
             }
             ?>
-
         </div>
-    </div>
 
-    <script>
-        // Get necessary DOM elements
-        const stateDropdown = document.getElementById('state');
-        const searchInput = document.getElementById('search');
-        const lawyerCards = document.querySelectorAll('#lawyer-list > div');
 
-        // Filter Lawyers based on Search and State
-        function filterLawyers() {
-            const query = searchInput.value.toLowerCase().trim();
-            const selectedState = stateDropdown.value.toLowerCase(); // Convert to lowercase for case-insensitive matching
 
-            lawyerCards.forEach(card => {
-                const name = card.innerText.toLowerCase(); // Convert card content to lowercase
-                const state = card.getAttribute('data-state').toLowerCase(); // Convert to lowercase for matching
+        <script>
+            // Get necessary DOM elements
+            const stateDropdown = document.getElementById('state');
+            const searchInput = document.getElementById('search');
+            const lawyerCards = document.querySelectorAll('#lawyer-list > div');
 
-                // Check if the card matches the search query and selected state
-                const matchesSearch = name.includes(query);
-                const matchesState = selectedState === "" || state === selectedState;
+            // Filter Lawyers based on Search and State
+            function filterLawyers() {
+                const query = searchInput.value.toLowerCase().trim();
+                const selectedState = stateDropdown.value.toLowerCase(); // Convert to lowercase for case-insensitive matching
 
-                card.style.display = (matchesSearch && matchesState) ? 'flex' : 'none';
-            });
-        }
+                lawyerCards.forEach(card => {
+                    const name = card.innerText.toLowerCase(); // Convert card content to lowercase
+                    const state = card.getAttribute('data-state').toLowerCase(); // Convert to lowercase for matching
 
-        // Attach filter function to search input and state dropdown
-        searchInput.addEventListener('input', filterLawyers);
-        stateDropdown.addEventListener('change', filterLawyers);
+                    // Check if the card matches the search query and selected state
+                    const matchesSearch = name.includes(query);
+                    const matchesState = selectedState === "" || state === selectedState;
 
-        // Populate states on page load
-        populateStates();
+                    card.style.display = (matchesSearch && matchesState) ? 'flex' : 'none';
+                });
+            }
 
-    </script>
+            // Attach filter function to search input and state dropdown
+            searchInput.addEventListener('input', filterLawyers);
+            stateDropdown.addEventListener('change', filterLawyers);
+
+            // Populate states on page load
+            populateStates();
+
+        </script>
 
 
 </body>

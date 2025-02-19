@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2025 at 06:44 PM
+-- Generation Time: Feb 18, 2025 at 07:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -562,34 +562,40 @@ INSERT INTO `citymaster` (`CityMasterID`, `StateMasterID`, `CityName`, `Flag`) V
 --
 
 CREATE TABLE `lawyers` (
-  `id` int(11) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `bar_registration` varchar(255) NOT NULL,
-  `specialization` varchar(100) NOT NULL,
-  `experience` int(11) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `state` varchar(100) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `consultation_fee` decimal(10,2) DEFAULT NULL,
-  `hourly_rate` decimal(10,2) DEFAULT NULL,
-  `bio` text DEFAULT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `LawyerID` int(11) NOT NULL,
+  `FullName` varchar(255) NOT NULL,
+  `BarRegistration` varchar(255) NOT NULL,
+  `Specialization` varchar(100) NOT NULL,
+  `Experience` int(11) NOT NULL,
+  `StateMasterID` int(10) NOT NULL,
+  `CityMasterID` int(10) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Phone` varchar(20) NOT NULL,
+  `ConsultationFee` decimal(10,2) DEFAULT NULL,
+  `HourlyRate` decimal(10,2) DEFAULT NULL,
+  `Bio` text DEFAULT NULL,
+  `RecentCases` varchar(255) NOT NULL,
+  `ProfilePicture` varchar(255) DEFAULT NULL,
+  `CreatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `lawyers`
 --
 
-INSERT INTO `lawyers` (`id`, `full_name`, `bar_registration`, `specialization`, `experience`, `city`, `state`, `email`, `phone`, `consultation_fee`, `hourly_rate`, `bio`, `profile_picture`, `created_at`) VALUES
-(3, 'Nai Aryan', '76786786', 'Criminal Law', 5, 'ahmedabad', 'Gujarat', 'scacas@gmail.com', '6484894854', 510000.00, 1000.00, 'ewhuehwiughuew', '', '2025-02-16 07:54:44'),
-(4, 'ansh meghani', '5544545454', 'Criminal Law', 5, 'ahmedabad', 'Gujarat', '1248@sbcsrbox.com', '6484894857', 10000000.00, 1000.00, 'efhuewhuewhuew', '', '2025-02-16 08:13:16'),
-(5, 'kartik', '4645465484', 'Civil Rights', 4, 'surat', 'gujarat', 'hixav73307@daypey.com', '6445454545', 10000000.00, 11111.00, 'fdndfndfndfn', '', '2025-02-16 08:15:47'),
-(6, 'paresh kukadiya', '6487468484', 'Criminal Law', 7, 'bhavnagar', 'Gujarat', '1150@sbcsrbox.com', '27684687846', 300000.00, 300.00, 'mehgbvdsjgfchvsmn bcvefrjkekvsdkjvgjerbgvjkhsgdvjkvb', '', '2025-02-16 09:05:18'),
-(7, 'Microsoft', '78645353', 'Criminal Law', 44, 'bhavnagar', 'Gujarat', 'meghaniansh942005@gmail.com', '27684687846', 654654.00, 0.00, '', '', '2025-02-16 10:09:27'),
-(15, 'kamlesh', '987645654654646', 'Corporate Law', 5, 'valsad', 'Gujarat', 'asa@gmail.com', '2768468784', 365.00, 465.00, 'fgdgl;sndfg;lhdf;rkdjhtgjklrntdh', '', '2025-02-16 12:41:43'),
-(16, 'rakesh', '545465468465489', 'Civil Rights', 45, 'somnath', 'Gujarat', 'xsdfyz@gmail.com', '1546546546', 4242.00, 4524.00, 'sjdfvjksvdfsabbfjogsajfasdfhasvfysgafhsbauygfjbwafkgufsakbfuysgfhkwgjabuy', '', '2025-02-16 12:44:43');
+INSERT INTO `lawyers` (`LawyerID`, `FullName`, `BarRegistration`, `Specialization`, `Experience`, `StateMasterID`, `CityMasterID`, `Email`, `Phone`, `ConsultationFee`, `HourlyRate`, `Bio`, `RecentCases`, `ProfilePicture`, `CreatedAt`) VALUES
+(3, 'Nai Aryan', '76786786', 'Criminal Law', 5, 0, 0, 'scacas@gmail.com', '6484894854', 510000.00, 1000.00, 'ewhuehwiughuew', '', '', '2025-02-16 07:54:44'),
+(4, 'ansh meghani', '5544545454', 'Criminal Law', 5, 0, 0, '1248@sbcsrbox.com', '6484894857', 10000000.00, 1000.00, 'efhuewhuewhuew', '', '', '2025-02-16 08:13:16'),
+(5, 'kartik', '4645465484', 'Civil Rights', 4, 0, 0, 'hixav73307@daypey.com', '6445454545', 10000000.00, 11111.00, 'fdndfndfndfn', '', '', '2025-02-16 08:15:47'),
+(6, 'paresh kukadiya', '6487468484', 'Criminal Law', 7, 0, 0, '1150@sbcsrbox.com', '27684687846', 300000.00, 300.00, 'mehgbvdsjgfchvsmn bcvefrjkekvsdkjvgjerbgvjkhsgdvjkvb', '', '', '2025-02-16 09:05:18'),
+(7, 'Microsoft', '78645353', 'Criminal Law', 44, 0, 0, 'meghaniansh942005@gmail.com', '27684687846', 654654.00, 0.00, '', '', '', '2025-02-16 10:09:27'),
+(15, 'kamlesh', '987645654654646', 'Corporate Law', 5, 0, 0, 'asa@gmail.com', '2768468784', 365.00, 465.00, 'fgdgl;sndfg;lhdf;rkdjhtgjklrntdh', '', '', '2025-02-16 12:41:43'),
+(16, 'rakesh', '545465468465489', 'Civil Rights', 45, 0, 0, 'xsdfyz@gmail.com', '1546546546', 4242.00, 4524.00, 'sjdfvjksvdfsabbfjogsajfasdfhasvfysgafhsbauygfjbwafkgufsakbfuysgfhkwgjabuy', '', '', '2025-02-16 12:44:43'),
+(17, 'Vivek Vara', '684665798764', 'civil', 5, 7, 1, 'vhsd@gmail.com', '8978456245', 6456554.00, NULL, NULL, '', NULL, '2025-02-18 18:07:40'),
+(20, 'Vivek Vara', '6835247586', 'civil', 5, 7, 159, 'vhasd@gmail.com', '8979456245', 6456554.00, 321.00, 'sdafgasgfdiasyufgsagdu', '', NULL, '2025-02-18 18:09:50'),
+(21, 'gsdgsfd', '987654321852147', 'civil', 4, 1, 1, 'fuy@gmail.com', '4653219781', 978465.00, 4654.00, 'fgdhfdghfdh', 'dfghfgdhfh', '\".$ProfilePicture.\"', '2025-02-18 18:45:12'),
+(22, '', '', '', 0, 0, 0, '', '', 0.00, 0.00, '', '', '', '2025-02-18 18:46:22'),
+(23, 'zdzdfvd xz', '656545665446546', 'Criminal Law', 65, 15, 396, 'Kartxvcik@gmail.com', '6786786554', 99999999.99, 465.00, 'fhdfhdfghdfgsfg', 'fghfghfghdfghd', '', '2025-02-18 18:46:51');
 
 -- --------------------------------------------------------
 
@@ -673,9 +679,9 @@ ALTER TABLE `citymaster`
 -- Indexes for table `lawyers`
 --
 ALTER TABLE `lawyers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `bar_registration` (`bar_registration`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`LawyerID`),
+  ADD UNIQUE KEY `bar_registration` (`BarRegistration`),
+  ADD UNIQUE KEY `email` (`Email`);
 
 --
 -- Indexes for table `statemaster`
@@ -705,7 +711,7 @@ ALTER TABLE `citymaster`
 -- AUTO_INCREMENT for table `lawyers`
 --
 ALTER TABLE `lawyers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `LawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `statemaster`

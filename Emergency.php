@@ -143,8 +143,33 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-XYZ-1234</p>
             </div>
           </div>
+          <!-- Sexual Harassment Helpline -->
+          <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
+            <span class="text-3xl">🙅</span>
+            <div>
+              <h3 class="text-lg font-bold">Sexual Harassment Helpline</h3>
+              <p class="text-sm text-gray-600">Call: 181</p>
+            </div>
+          </div>
+          <!-- Domestic Violence Helpline -->
+          <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
+            <span class="text-3xl">🚫</span>
+            <div>
+              <h3 class="text-lg font-bold">Domestic Violence Helpline</h3>
+              <p class="text-sm text-gray-600">Call: 181</p>
+            </div>
+          </div>
+          <!-- Anti-Ragging Helpline -->
+          <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
+            <span class="text-3xl">🎓</span>
+            <div>
+              <h3 class="text-lg font-bold">Anti-Ragging Helpline</h3>
+              <p class="text-sm text-gray-600">Call: 1800-180-5522</p>
+            </div>
+          </div>
         </div>
       </div>
+
 
       <!-- Footer with 5px Purple Rounded Border -->
       <footer class="bg-purple-700 text-white py-4 w-full"
