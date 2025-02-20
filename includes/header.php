@@ -131,7 +131,7 @@
 
     <!-- Sidebar for More Button -->
     <div id="moreSidebar"
-        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-lg shadow-lg transform -translate-x-full transition-transform p-4">
+        class="fixed left-0 top-0 w-64 bg-purple-200 h-full rounded-lg shadow-lg transform -translate-x-full transition-transform p-4 z-10">
         <div class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-500 gap-3">
