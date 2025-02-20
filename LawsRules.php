@@ -47,23 +47,42 @@ include('includes/header.php');
         </p>
       </div>
 
-      <!-- Drop-Down for Category Selection -->
+
+
       <div class="p-6">
-        <select id="categorySelect" class="w-full p-3 border rounded-lg focus:outline-none focus:border-purple-600">
-          <option value="All">All Categories</option>
-          <option value="Criminal Law">Criminal Law</option>
-          <option value="Civil Law">Civil Law</option>
-          <option value="Family Law">Family Law</option>
-          <option value="Cyber Law">Cyber Law</option>
-          <option value="Labor Law">Labor Law</option>
-          <option value="Consumer Protection Law">Consumer Protection Law</option>
+        <select id="lawSelect" class="w-full p-3 border rounded-lg focus:outline-none focus:border-purple-600">
+          <option value="">All Categories</option>
+
+          <option value="Law\ida\ida.php">Indian Divorce Act</option>
+          <option value="Law\iea\iea.php">Indian Evidence Act</option>
+          <option value="Law\mva\mva.php">Motor Vehicles Act</option>
+          <option value="Law\nia\nia.php">Negotiable Instruments Act</option>
+          <option value="Law\crpc\crpc.php">Code of Criminal Procedure</option>
         </select>
       </div>
 
+      <script>
+        function navigateToCategory() {
+          let select = document.getElementById("lawSelect");
+          select.addEventListener("change", function () {
+            let selectedValue = select.value;
+            if (selectedValue) {
+              window.location.href = selectedValue; // Redirect to selected page
+            }
+          });
+        }
+
+        navigateToCategory()
+      </script>
+
+
+
       <!-- Laws Categories Section -->
       <div id="laws-container" class="p-6 space-y-4 text-purple-700">
-        <!-- Laws will be dynamically loaded here -->
+
       </div>
+
+
 
       <!-- Footer with 10px Curviness -->
       <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
@@ -121,7 +140,7 @@ include('includes/header.php');
         };
 
         const lawsContainer = document.getElementById("laws-container");
-        const categorySelect = document.getElementById("categorySelect");
+        // const categorySelect = document.getElementById("categorySelect");
 
         function displayLaws(categoryFilter = "All") {
           lawsContainer.innerHTML = "";
@@ -147,9 +166,7 @@ include('includes/header.php');
 
         displayLaws();
 
-        categorySelect.addEventListener("change", (e) => {
-          displayLaws(e.target.value);
-        });
+
       });
     </script>
 </body>

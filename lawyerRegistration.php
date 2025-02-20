@@ -39,7 +39,13 @@ if (isset($_POST['btnRegister'])) {
         $HourlyRate = $_POST["HourlyRate"];
         $Bio = $_POST["Bio"];
         $RecentCases = $_POST["RecentCases"];
-        $ProfilePicture = $_POST["ProfilePicture"];
+        $ProfilePicture = $_FILES["ProfilePicture"]['name'];
+        $target_dir = 'uploads/';
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        move_uploaded_file($_FILES['ProfilePicture']['tmp_name'], $target_dir . $ProfilePicture);
+
         // $CreatedAt = $_POST["CreatedAt"];
 
         // Check for duplicates
@@ -120,7 +126,8 @@ if (isset($_POST['btnRegister'])) {
 
     <div class="max-w-4xl mx-auto bg-white p-8 mt-10 rounded shadow">
         <h2 class="text-2xl font-bold">Lawyer Registration</h2>
-        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="lawyerRegistration.php">
+        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="lawyerRegistration.php"
+            enctype="multipart/form-data">
 
             <input type="text" placeholder="Full Name" name="FullName" class="border p-2 rounded" required>
 
@@ -206,7 +213,7 @@ if (isset($_POST['btnRegister'])) {
             <div class="border-dashed border-2 p-4 rounded col-span-2 text-center">
                 <p class="text-gray-600">Upload a file or drag and drop</p>
                 <p class="text-sm text-gray-400">PNG, JPG, GIF up to 10MB</p>
-                <input type="file" name="ProfilePicture" class="mt-2">
+                <input type="file" name="ProfilePicture" accept="image/*" class="mt-2">
             </div>
             <button type="Submit" name="btnRegister" value="Register"
                 class="bg-purple-700 text-white py-2 rounded col-span-2">Register</button>

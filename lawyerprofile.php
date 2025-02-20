@@ -81,8 +81,8 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div class="flex flex-wrap md:flex-nowrap gap-6 items-start">
                 <!-- Lawyer Image -->
                 <div class="w-40 h-40 flex-shrink-0">
-                    <img src="<?= !empty($lawyerprofile['ProfilePicture']) ? '../1_Admin_Panel/uploads/' . htmlspecialchars($lawyerprofile['ProfilePicture']) : './assets/img/unknown.jpg' ?>"
-                        alt="Lawyer Image" class="w-full h-full rounded-lg object-cover shadow-md border">
+                    <img src="uploads/<?= htmlspecialchars($lawyerprofile['ProfilePicture']) ?>" alt="Lawyer Image"
+                        class="w-full h-full rounded-lg object-cover shadow-md border">
                 </div>
 
                 <!-- Lawyer Details -->

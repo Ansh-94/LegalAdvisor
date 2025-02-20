@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +47,7 @@
                         d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z"
                         stroke="currentColor" stroke-width="1.5" />
                 </svg>
-                <span>LegalAI Advisor</span>
+                <span>AILegal Advisor</span>
             </a>
         </h1>
         <nav class="hidden md:flex space-x-6">
@@ -88,12 +93,29 @@
                     // If session is set, no extra JavaScript runs and the link behaves normally.
                 });
             </script>
-            <a href="lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+            <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
+
+                <a href="lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200">
-                <span class="material-symbols-outlined">person_add</span>
-                <span>Lawyer Registration</span>
-            </a>
+                    <span class="material-symbols-outlined">person_add</span>
+                    <span>Lawyer Registration</span>
+                </a>
+            <?php } else { ?>
+                <script>
+                    document.getElementById("lawyer").addEventListener("click", function (event) {
+                        <?php if (!isset($_SESSION['user'])) { ?>
+                            // Prevent the link's default behavior
+                            event.preventDefault();
+                            alert('Login Required!');
+                            // Redirect to the login page after the alert
+                            window.location.href = 'log.php';
+                        <?php } ?>
+                        // If session is set, no extra JavaScript runs and the link behaves normally.
+                    });
+                </script>
+            <?php } ?>
+
             <?php if (isset($_SESSION['user'])) { ?>
 
                 <a href="logout.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
@@ -136,7 +158,7 @@
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-500 gap-3">
             <button onclick="toggleMoreSidebar()">
-                <span class="text-xl">✖</span> Close
+                <span class="text-xl mr-[7px]">✖</span> Close
             </button>
         </div>
         <ul class="mt-4 space-y-4">

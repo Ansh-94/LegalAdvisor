@@ -70,14 +70,15 @@ include('includes/db.php');
 
             while ($row = mysqli_fetch_assoc($result)) {
                 // Use the provided profile image, or a default image if missing
-                $profile_image = (!empty($row['profile_image'])) ? $row['profile_image'] : 'img/advocate.png';
+                // $ProfilePicture = (!empty($row['ProfilePicture'])) ? $row['ProfilePicture'] : 'img/advocate.png';
                 ?>
                 <div class="bg-white rounded-lg shadow-md p-4">
                     <div class="flex justify-between w-full items-center" data-state="<?= $row['StateName'] ?>"
                         data-city="<?= $row['CityName'] ?>">
                         <!-- Lawyer Details -->
                         <div class="flex space-x-4">
-                            <img src="<?= $profile_image ?>" class="rounded-lg w-24 h-24" alt="Profile Image">
+                            <img src="uploads/<?= htmlspecialchars($row['ProfilePicture']) ?>" class="rounded-lg w-24 h-24"
+                                alt="Profile Image">
                             <div>
                                 <h3 class="text-lg font-bold"><?= $row['FullName'] ?></h3>
                                 <p class="text-gray-500"><?= $row['Specialization'] ?></p>

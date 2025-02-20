@@ -1,9 +1,13 @@
 <?php
-
+ob_start();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include('includes/header.php');
+if (time() - $_SESSION['LoginActivity'] > 3600) {
+    echo "<script>alert('Session Expired Please Login Again!');</script>";
+    echo '<script>window.location.href=`log.php`</script>  ';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +16,7 @@ include('includes/header.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Advisor</title>
+    <title>AILegal Advisor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
@@ -74,10 +78,10 @@ include('includes/header.php');
                     For Consumers
                 </span>
 
-                <button
+                <span
                     class="bg-gray-300 text-black px-6 py-2 rounded-lg transition-colors duration-300 font-semibold shadow-lg hover:bg-yellow-400">
                     For Lawyers
-                </button>
+                </span>
             </div>
 
             <!-- AI Legal Advisor Button -->

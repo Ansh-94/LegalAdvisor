@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $UserType = $_POST["UserType"];
 
     // Simple (insecure) approach without password hashing
-    $sql = "SELECT * FROM usermaster WHERE UserName = ? AND Password = ?";
+    $sql = "SELECT * FROM usermaster WHERE UserName = ? AND Password = ? AND UserType = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("sss", $username, $password, $UserType);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -31,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Check password (insecure plain text)
       if ($password == $user['Password']) {
         $_SESSION['user'] = $user['UserName'];
+        $_SESSION['UserType'] = $user['UserType'];
+        $_SESSION['LoginActivity'] = time();
         header("Location: index.php");
         exit;
       } else {
@@ -93,9 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // If not existing, continue
       if ($Password === $CPassword) {
         // Insecure approach (plain text)
-        $sql = "INSERT INTO usermaster (UserName, Password, Email) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO usermaster (UserName, Password, Email, UserType) VALUES (?, ?, ? ,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $UserName, $Password, $Email);
+        $stmt->bind_param("ssss", $UserName, $Password, $Email, $UserType);
 
         if ($stmt->execute()) {
           // $regMessage = "<p style='color:green;'>Registered Successfully!</p>";
@@ -172,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <select class="select-container" name="UserType" value="UserType" placeholder="User Type" required>
+            <select name="UserType" value="UserType" placeholder="User Type" required>
               <option>Select User Type</option>
               <option values="User">User</option>
               <option value="Lawyer">Lawyer</option>
