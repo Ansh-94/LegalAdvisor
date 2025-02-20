@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +29,10 @@
     </style>
 </head>
 include('includes/header.php');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
 <body class="bg-purple-100 flex items-center justify-center min-h-screen p-5">
 
     <div class="container mx-auto">
@@ -33,6 +41,7 @@ include('includes/header.php');
     </div>
 
     <script>
+<<<<<<< HEAD
         document.addEventListener("DOMContentLoaded", function () {
             fetch("crpc.json") // Replace with actual JSON file if using locally
                 .then(response => response.json())
@@ -45,6 +54,20 @@ include('includes/header.php');
 
                         card.innerHTML = `
                     <div class="flex items-center space-x-3">
+=======
+       document.addEventListener("DOMContentLoaded", function () {
+    fetch("crpc.json") // Replace with actual JSON file if using locally
+        .then(response => response.json())
+        .then(data => {
+            let container = document.getElementById("data-container");
+
+            data.forEach(section => {
+                let card = document.createElement("div");
+                card.className = "bg-white p-6 rounded-xl shadow-md border border-gray-300 hover:shadow-lg transition transform hover:scale-105";
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+>>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
                         <div>
                             <h2 class="text-xl font-bold text-black">Chapter ${section.chapter}, Section ${section.section}</h2>
                             <p class="text-gray-600 text-sm">${section.section_title}</p>
@@ -64,6 +87,7 @@ include('includes/header.php');
                     </button>
                 `;
 
+<<<<<<< HEAD
                         container.appendChild(card);
 
                         // Add event listener for toggle button
@@ -77,6 +101,21 @@ include('includes/header.php');
                 })
                 .catch(error => console.error("Error fetching JSON:", error));
         });
+=======
+                container.appendChild(card);
+
+                // Add event listener for toggle button
+                let toggleBtn = card.querySelector(".toggle-btn");
+                let description = card.querySelector(".scrollable-content");
+
+                toggleBtn.addEventListener("click", function () {
+                    description.classList.toggle("hidden");
+                });
+            });
+        })
+        .catch(error => console.error("Error fetching JSON:", error));
+});
+>>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
 
 
     </script>
