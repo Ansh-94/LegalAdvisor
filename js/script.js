@@ -9,126 +9,139 @@ const API_KEY = "AIzaSyAJkHi7zMVqLSpsQrsAkF1yNBjeL2mk4aU";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
-    message: null
-}
+  message: null,
+};
 
 const chatHistory = [];
 
 // Create message element with dynamic classes & return it
 const createMessageElement = (content, ...classes) => {
-    const div = document.createElement("div");
-    div.classList.add("message", ...classes);
-    div.innerHTML = content;
-    return div;
-}
+  const div = document.createElement("div");
+  div.classList.add("message", ...classes);
+  div.innerHTML = content;
+  return div;
+};
 
 // Generate Response using bot API
 const generateBotResponse = async (incomingMessageDiv) => {
-    const messageElement = incomingMessageDiv.querySelector(".text-box");
-    
-     // Add user message to chat history
+  const messageElement = incomingMessageDiv.querySelector(".text-box");
+
+  // Add user message to chat history
+  chatHistory.push({
+    role: "user",
+    parts: [{ text: userData.message }],
+  });
+
+  // API request options
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: chatHistory,
+    }),
+  };
+
+  try {
+    //Fetch bot response from API
+    const response = await fetch(API_URL, requestOptions);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error.message);
+
+    // Extract and display bot's response text
+    const apiResponseText = data.candidates[0].content.parts[0].text
+      .replace(/\*\*(.*?)\*\*/g, "$1")
+      .trim();
+    messageElement.innerText = apiResponseText;
+
+    // Add bot response to chat history
     chatHistory.push({
-        role:"user",
-        parts: [{text:userData.message}]
+      role: "model",
+      parts: [{ text: apiResponseText }],
     });
-
-    // API request options
-    const requestOptions = {
-        method : "POST",
-        headers : {"Content-Type":"application/json"},
-        body : JSON.stringify({
-            contents:chatHistory
-        })
-    }
-
-    try{
-        //Fetch bot response from API
-        const response = await fetch(API_URL,requestOptions);
-        const data = await response.json();
-        if(!response.ok) throw new Error(data.error.message);
-
-        // Extract and display bot's response text
-        const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim();
-        messageElement.innerText = apiResponseText;
-
-        // Add bot response to chat history
-        chatHistory.push({
-            role:"model",
-            parts: [{text:apiResponseText}]
-        });
-
-    } catch(error){
-        // Handle error in API response
-        console.log(error);
-        messageElement.innerText = error.message;
-        messageElement.style.color = "#ff0000";
-    } finally{
-        incomingMessageDiv.classList.remove("thinking");
-        chatBody.scrollTo({top: chatBody.scrollHeight,behavior:"smooth"});
-    }
-}
+  } catch (error) {
+    // Handle error in API response
+    console.log(error);
+    messageElement.innerText = error.message;
+    messageElement.style.color = "#ff0000";
+  } finally {
+    incomingMessageDiv.classList.remove("thinking");
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+  }
+};
 
 // Handle Outgoing user messages
 const handleOutgoingMessage = (e) => {
-    e.preventDefault();
-    userData.message = messageInput.value.trim();
-    messageInput.value = "";
+  e.preventDefault();
+  userData.message = messageInput.value.trim();
+  messageInput.value = "";
 
-    // Create and display user message
-    const messageContent = `<div class="text-box"><p></p></div>`;
+  // Create and display user message
+  const messageContent = `<div class="text-box bg-purple-600 rounded-full text-white  px-4 p-2"><p></p></div>`;
 
-    const outgoingMessageDiv = createMessageElement(messageContent,"user-message");
-    outgoingMessageDiv.querySelector(".text-box").textContent = userData.message;
-    chatBody.appendChild(outgoingMessageDiv);
-    chatBody.scrollTo({top: chatBody.scrollHeight,behavior:"smooth"});
+  const outgoingMessageDiv = createMessageElement(
+    messageContent,
+    "user-message"
+  );
+  outgoingMessageDiv.querySelector(".text-box").textContent = userData.message;
+  chatBody.appendChild(outgoingMessageDiv);
+  chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
 
-    // Simulate bot response with thinking indicator after a delay
-    setTimeout(() => {
-        const messageContent = `<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" class="chat-icon">
+  // Simulate bot response with thinking indicator after a delay
+  setTimeout(() => {
+    const messageContent = `<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" class="chat-icon">
         <div class="text-box">
           <div class="thinking-indicator">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <div style="display: flex; gap: 5px;">
+        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230);  border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0s;"></div>
+        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230); border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0.2s;"></div>
+        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230); border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0.4s;"></div>
+    </div>
           </div>
         </div>`;
 
-        const incomingMessageDiv = createMessageElement(messageContent,"bot-message","thinking");
-        chatBody.appendChild(incomingMessageDiv);
-        chatBody.scrollTo({top: chatBody.scrollHeight,behavior:"smooth"});
-        generateBotResponse(incomingMessageDiv);
-    },600);
-}
+    const incomingMessageDiv = createMessageElement(
+      messageContent,
+      "bot-message",
+      "thinking"
+    );
+    chatBody.appendChild(incomingMessageDiv);
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+    generateBotResponse(incomingMessageDiv);
+  }, 600);
+};
 
 // Handle Enter key press for sending messages
-messageInput.addEventListener("keydown", (e) =>{
-    const userMessage = e.target.value.trim();
-    if(e.key === "Enter" && userMessage) {
-       handleOutgoingMessage(e);
-    }
+messageInput.addEventListener("keydown", (e) => {
+  const userMessage = e.target.value.trim();
+  if (e.key === "Enter" && userMessage) {
+    handleOutgoingMessage(e);
+  }
 });
 
 // Initialize emoji Picker & handle emoji selection
 const picker = new EmojiMart.Picker({
-    theme:"light",
-    skinTonePosition:"none",
-    previewPosition:"none",
-    onEmojiSelect:(emoji) => {
-        const{selectionStart:start,selectionEnd:end } = messageInput;
-        messageInput.setRangeText(emoji.native,start,end,"end");
-        messageInput.focus();
-    },
-    onClickOutside: (e) => {
-        if(e.target.id === "emoji-picker"){
-            document.body.classList.toggle("show-emoji-picker");
-        }
-        else{
-            document.body.classList.remove("show-emoji-picker");
-        }
+  theme: "light",
+  skinTonePosition: "none",
+  previewPosition: "none",
+  onEmojiSelect: (emoji) => {
+    const { selectionStart: start, selectionEnd: end } = messageInput;
+    messageInput.setRangeText(emoji.native, start, end, "end");
+    messageInput.focus();
+  },
+  onClickOutside: (e) => {
+    if (e.target.id === "emoji-picker") {
+      document.body.classList.toggle("show-emoji-picker");
+    } else {
+      document.body.classList.remove("show-emoji-picker");
     }
+  },
 });
 
 // document.querySelector(".chatbot-footer").appendChild(picker);
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
-chatbotToggler.addEventListener("click",() => document.body.classList.toggle("show-chatbot"))
-closeChatbot.addEventListener("click",() => document.body.classList.remove("show-chatbot"));
+chatbotToggler.addEventListener("click", () =>
+  document.body.classList.toggle("show-chatbot")
+);
+closeChatbot.addEventListener("click", () =>
+  document.body.classList.remove("show-chatbot")
+);

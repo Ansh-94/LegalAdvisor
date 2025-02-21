@@ -3,6 +3,19 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include('includes/header.php');
+
+
+if (isset($_POST['submit'])) {
+    echo "
+    <html>
+        <body>
+        <script>
+            alert('We will replyyou within 24 hours');
+            location.href = 'contactus.php';
+         </script>
+        <body>
+    <html> ";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,10 +76,10 @@ include('includes/header.php');
                 <h2 class="text-2xl font-bold text-purple-700 mb-2">Get in Touch</h2>
                 <p class="text-gray-600 mb-4">Have questions? Reach out to us.</p>
 
-                <form class="space-y-4 flex-grow">
+                <form class="space-y-4 flex-grow" method="POST" action="https://formsubmit.co/aryannai941@gmail.com">
                     <input type="text" placeholder="Your Name"
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
-                    <input type="email" placeholder="Your Email"
+                    <input type="email" placeholder="Your Email" name="email"
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
                     <input type="text" placeholder="Subject"
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
