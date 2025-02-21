@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
-include('includes/header.php');
+include("includes/header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,20 +47,12 @@ include('includes/header.php');
         </p>
       </div>
 
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
 
       <div class="p-6">
         <select id="lawSelect" class="w-full p-3 border rounded-lg focus:outline-none focus:border-purple-600">
           <option value="">All Categories</option>
-<<<<<<< HEAD
 
-=======
-         
->>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
           <option value="Law\ida\ida.php">Indian Divorce Act</option>
           <option value="Law\iea\iea.php">Indian Evidence Act</option>
           <option value="Law\mva\mva.php">Motor Vehicles Act</option>
@@ -70,7 +62,6 @@ include('includes/header.php');
       </div>
 
       <script>
-<<<<<<< HEAD
         function navigateToCategory() {
           let select = document.getElementById("lawSelect");
           select.addEventListener("change", function () {
@@ -82,42 +73,26 @@ include('includes/header.php');
         }
 
         navigateToCategory()
-      </script>
-=======
-    function navigateToCategory() {
-        let select = document.getElementById("lawSelect");
-        select.addEventListener("change", function () {
-            let selectedValue = select.value;
-            if (selectedValue) {
-                window.location.href = selectedValue; // Redirect to selected page
-            }
-        });
-    }
 
-    navigateToCategory()
-</script>
->>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
+      </script>
+
 
 
 
       <!-- Laws Categories Section -->
       <div id="laws-container" class="p-6 space-y-4 text-purple-700">
-<<<<<<< HEAD
-
       </div>
 
 
-=======
-     
-      </div>
+    </div>
 
-      
->>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
 
-      <!-- Footer with 10px Curviness -->
-      <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
-        <p>&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>
-      </div>
+
+
+    <!-- Footer with 10px Curviness -->
+    <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
+      <p>&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>
+    </div>
     </div>
 
     <script>
@@ -196,11 +171,7 @@ include('includes/header.php');
 
         displayLaws();
 
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> 4893f4c6960ff01675fb18055efa9a0cf38b1cd6
       });
     </script>
 </body>
