@@ -135,9 +135,9 @@ if (isset($_POST['btnRegister'])) {
                 class="border p-2 rounded" minlength="10" maxlength="15" required>
             <select class="border p-2 rounded " name="Specialization">
                 <option>Select Specialization</option>
-                <option values="Criminal Law">Criminal Law</option>
-                <option value="Civil Rights">Civil Rights</option>
-                <option value="Corporate Law">Corporate Law</option>
+                <option values="CriminalLaw">Criminal Law</option>
+                <option value="CivilRights">Civil Rights</option>
+                <option value="CorporateLaw">Corporate Law</option>
             </select>
             <input type="number" name="Experience" placeholder="Years of Experience" class="border p-2 rounded"
                 required>

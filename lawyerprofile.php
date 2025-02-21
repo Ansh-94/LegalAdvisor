@@ -132,7 +132,17 @@ if ($result && mysqli_num_rows($result) > 0) {
             </p>
             <p class="text-gray-700">
                 <strong>Recent Cases:</strong> <?= htmlspecialchars($lawyerprofile['RecentCases']); ?>
-            </p>
+                <!-- </p>
+            <form action="lawyerRegistration.php" method="POST"> -->
+
+            <form action="lawyerRegistration1.php" method="GET">
+                <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($lawyerprofile['LawyerID']); ?>">
+                <button type="submit"
+                    class="bg-purple-700 text-white rounded-lg text-lg px-4 py-2 hover:bg-purple-500 transition">
+                    Edit Profile
+                </button>
+            </form>
+            <!-- </form> -->
         </div>
     </div>
 

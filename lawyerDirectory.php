@@ -90,7 +90,7 @@ include('includes/db.php');
                         </div>
 
                         <!-- Right Side Centered Button -->
-                        <form action="lawyerprofile.php" method="POST">
+                        <form action="lawyerprofile.php" method="GET">
                             <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
                             <button type="submit"
                                 class="bg-purple-700 text-white rounded-lg text-lg px-4 py-2 hover:bg-purple-500 transition">
