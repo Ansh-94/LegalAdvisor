@@ -13,6 +13,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
 <html lang="en">
 
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +64,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         </main>
     </div>
 
+
     <div
         class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between py-16 px-6 bg-purple-700 rounded-[30px] mt-[60px]">
 
@@ -97,6 +99,44 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         <div class="flex justify-center lg:justify-end w-full lg:w-1/2 mb-8 lg:mb-0">
             <img src="img/robot.jpg" alt="AI Legal Advisor"
                 class="w-64 sm:w-80 md:w-96 rounded-[30px] transition-transform duration-500 hover:scale-110">
+        </div>
+
+    </div>
+
+    <div
+        class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between py-16 px-6 bg-purple-700 rounded-[30px] mt-[60px] shadow-xl">
+
+        <!-- Left Text Section -->
+        <div class="text-white max-w-lg w-full">
+            <h2 class="text-3xl font-bold mb-6 text-yellow-400">Explore Laws & Legal Rules</h2>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                    ✅ Explore the vast world of laws and legal rules that shape our society.
+                </li>
+                <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                    ✅ Understand your rights, duties, and the justice system in depth.
+                </li>
+                <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                    ✅ Navigate legal complexities with clarity and confidence.
+                </li>
+                <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                    ✅ Empower yourself with the knowledge to make informed decisions.
+                </li>
+            </ul>
+
+            <!-- Explore More Button -->
+            <div class="mt-6">
+                <button onclick="window.location.href='LawsRules.php'"
+                    class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    Explore More
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Image Section -->
+        <div class="flex justify-center lg:justify-end w-full lg:w-1/2 mb-8 lg:mb-0">
+            <img src="img/hammer.jpeg" alt="Legal Hammer"
+                class="w-64 sm:w-80 md:w-96 rounded-[30px] transition-transform duration-500 hover:scale-110 shadow-lg">
         </div>
 
     </div>
@@ -218,11 +258,12 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
 
     </section>
 
+
     <div class="flex items-center justify-center w-full">
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Right to Equality</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
@@ -240,12 +281,11 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         </div>
     </div>
 
-
     <div class="flex items-center justify-center w-full">
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Right to Freedom</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
@@ -262,12 +302,11 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         </div>
     </div>
 
-
     <div class="flex items-center justify-center w-full">
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Right against Exploitation</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
@@ -275,7 +314,6 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
                     labor.</li>
                 <li><span class="font-semibold text-xl">Article 24:</span> Prohibition of child labor in hazardous
                     industries and occupations.</li>
-
             </ul>
         </div>
     </div>
@@ -284,7 +322,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Right to Freedom of Religion</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
@@ -295,7 +333,6 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
                     of any religion.</li>
                 <li><span class="font-semibold text-xl">Article 28:</span> Freedom from attending religious instruction
                     in educational institutions wholly funded by the State.</li>
-
             </ul>
         </div>
     </div>
@@ -304,7 +341,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Cultural and Educational Rights</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
@@ -312,7 +349,6 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
                     preserve their culture, language, or script.</li>
                 <li><span class="font-semibold text-xl">Article 30:</span> Right of minorities to establish and
                     administer educational institutions.</li>
-
             </ul>
         </div>
     </div>
@@ -321,18 +357,15 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
-                <span class="text-blue-400 text-2xl ">🛡️</span>
+                <span class="text-blue-400 text-2xl">🛡️</span>
                 <h2 class="text-2xl font-semibold text-yellow-400">Right to Constitutional Remedies</h2>
             </div>
             <ul class="list-disc list-inside space-y-2 text-white">
                 <li><span class="font-semibold text-xl">Article 32:</span> Right to approach the Supreme Court or High
                     Courts for enforcement of Fundamental Rights.</li>
-
             </ul>
         </div>
     </div>
-
-
 
     <!-- Footer -->
     <footer class="bg-purple-900 text-white py-10 mt-10">

@@ -34,7 +34,7 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); // Ensure this pat
 <body class="bg-purple-100 flex items-center justify-center min-h-screen p-5">
 
     <div class="container mx-auto">
-        <h1 class="text-2xl font-bold text-center mt-5 mb-6">Negotiable Instruments Act</h1>
+        <h1 class="text-2xl font-bold text-center mt-5  mb-6">Negotiable Instruments Act</h1>
         <div id="data-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     </div>
 
