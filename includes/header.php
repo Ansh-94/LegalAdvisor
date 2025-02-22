@@ -136,6 +136,11 @@ if (session_status() === PHP_SESSION_NONE) {
                 </a>
 
             <?php } ?>
+
+
+           
+
+
             <button onclick="toggleMoreSidebar()" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
                   hover:bg-purple-200">
@@ -144,6 +149,58 @@ if (session_status() === PHP_SESSION_NONE) {
                 </span>
                 <span>More</span>
             </button>
+
+
+             <!-- Profile Section -->
+        <?php if (isset($_SESSION['user'])) { ?>
+            <!-- <div class="relative"> -->
+                <div id="profile-icon" class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold cursor-pointer relative"
+                    onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleDropdown()">
+                    <?php echo strtoupper(substr($_SESSION['user'], 0, 1)); ?>
+                    <span id="tooltip" class="absolute left-1/2 transform -translate-x-1/2 top-12 bg-gray-800 text-white text-xs px-2 py-1 rounded hidden">
+                        Logged in as <?php echo $_SESSION['UserType']; ?>
+                    </span>
+                </div>
+
+                <!-- Dropdown Menu -->
+                <div id="dropdown" class="absolute right-0 mt-2 w-40 bg-white shadow-md rounded hidden">
+                    <a href="logout.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Logout</a>
+                </div>
+            <!-- </div> -->
+        <?php } else { ?>
+            <a href="log.php" class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
+                <span class="material-symbols-outlined">login</span> Login
+            </a>
+        <?php } ?>
+
+
+
+        <!-- JavaScript -->
+    <script>
+        function showTooltip() {
+            document.getElementById("tooltip").classList.remove("hidden");
+        }
+
+        function hideTooltip() {
+            document.getElementById("tooltip").classList.add("hidden");
+        }
+
+        function toggleDropdown() {
+            document.getElementById("dropdown").classList.toggle("hidden");
+        }
+
+        // Prevent dropdown from closing when clicking inside it
+        document.getElementById("dropdown")?.addEventListener("click", function(event) {
+            event.stopPropagation();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            if (!document.getElementById("profile-icon")?.contains(event.target)) {
+                document.getElementById("dropdown")?.classList.add("hidden");
+            }
+        });
+    </script>
         </nav>
 
         <button class="md:hidden text-indigo-600" onclick="toggleSidebar()">

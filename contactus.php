@@ -81,9 +81,9 @@ if (isset($_POST['submit'])) {
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
                     <input type="email" placeholder="Your Email" name="email"
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
-                    <input type="text" placeholder="Subject"
+                    <input type="text" placeholder="Subject" name="subject"
                         class="w-full px-4 py-2 border-2 rounded-md focus:outline-none focus:border-purple-600">
-                    <textarea placeholder="Your Message"
+                    <textarea placeholder="Your Message" name="message"
                         class="w-full px-4 py-2 border-2 rounded-md h-28 focus:outline-none focus:border-purple-600"></textarea>
                     <button type="submit"
                         class="w-full bg-purple-700 hover:bg-purple-800 text-white py-2 rounded-md transition">
