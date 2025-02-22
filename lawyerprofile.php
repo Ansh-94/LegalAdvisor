@@ -17,20 +17,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['LawyerID'])) {
 
 // SQL Query to Fetch Patient, Doctor, Hospital, and Treatment Data
 $query = "SELECT l.LawyerID,
-            l.FullName,
-            l.BarRegistration,
-            l.Specialization,
-            l.Experience,
-            sm.StateName,
-            cm.CityName,
-            l.Email,l.Phone,
-            l.ConsultationFee,
-            l.HourlyRate,
-            l.Bio,l.RecentCases,
-            l.ProfilePicture  FROM lawyers l 
-            INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
-            INNER JOIN citymaster cm ON sm.StateMasterID = cm.StateMasterID
-            WHERE LawyerID = ? ";
+                 l.FullName,
+                 l.BarRegistration,
+                 l.Specialization,
+                 l.Experience,
+                 l.StateMasterID,
+                 l.CityMasterID,
+                 sm.StateName,
+                 cm.CityName,
+                 l.Email,
+                 l.Phone,
+                 l.ConsultationFee,
+                 l.HourlyRate,
+                 l.Bio,
+                 l.RecentCases,
+                 l.ProfilePicture  
+                 FROM lawyers l 
+                 INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
+                 INNER JOIN citymaster cm ON l.CityMasterID = cm.CityMasterID  -- FIXED JOIN
+                 WHERE l.LawyerID = ?
+ ";
 
 // Prepare and execute the query
 $stmt = mysqli_prepare($conn, $query);
@@ -73,12 +79,14 @@ if ($result && mysqli_num_rows($result) > 0) {
 <body class="bg-gradient-to-b from-purple-100 to-white min-h-screen flex flex-col items-center">
 
     <!-- Outer Container with Gradient Background -->
-    <div class="container mx-auto p-6 shadow-lg rounded-xl mt-[50px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
+    <div
+        class="container mx-auto p-6 shadow-lg rounded-xl mt-[50px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
 
         <!-- Lawyer Details Card -->
         <!-- <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200"> -->
-        <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 transition-all duration-300 hover:scale-y-105">
-    
+        <div
+            class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 transition-all duration-300 hover:scale-y-105">
+
 
             <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">👨‍⚖️ Lawyer Details</h3>
 
@@ -95,7 +103,8 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <strong>👤 Full Name:</strong> <?= htmlspecialchars($lawyerprofile['FullName']); ?>
                     </p>
                     <p class="text-black hover:bg-purple-500 py-1 rounded-full">
-                        <strong>🆔 Bar Registration:</strong> <?= htmlspecialchars($lawyerprofile['BarRegistration']); ?>
+                        <strong>🆔 Bar Registration:</strong>
+                        <?= htmlspecialchars($lawyerprofile['BarRegistration']); ?>
                     </p>
                     <p class="text-black hover:bg-purple-500 py-1 rounded-full">
                         <strong>⚖️ Specialization:</strong> <?= htmlspecialchars($lawyerprofile['Specialization']); ?>
@@ -103,41 +112,52 @@ if ($result && mysqli_num_rows($result) > 0) {
                     <p class="text-black hover:bg-purple-500 py-1 rounded-full">
                         <strong>📅 Experience:</strong> <?= htmlspecialchars($lawyerprofile['Experience']); ?> Years
                     </p>
-                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
-                        <strong>📍 State:</strong> <?= htmlspecialchars($lawyerprofile['StateName']); ?>
-                    </p>
-                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
-                        <strong>🏙️ City:</strong> <?= htmlspecialchars($lawyerprofile['CityName']); ?>
-                    </p>
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="container mx-auto p-6 shadow-lg rounded-xl mt-[10px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
-    <!-- Additional Details -->
-    <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 hover:scale-y-105 ">
-    <div class="flex-1 space-y-1">
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📧 Email:</strong> <?= htmlspecialchars($lawyerprofile['Email']); ?></p>
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📞 Contact No:</strong> <?= htmlspecialchars($lawyerprofile['Phone']); ?></p>
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>💰 Consultation Fee:</strong> <?= htmlspecialchars($lawyerprofile['ConsultationFee']); ?></p>
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⏳ Hourly Rate:</strong> <?= htmlspecialchars($lawyerprofile['HourlyRate']); ?></p>
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📖 Bio:</strong> <?= htmlspecialchars($lawyerprofile['Bio']); ?></p>
-            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⚖️ Recent Cases:</strong> <?= htmlspecialchars($lawyerprofile['RecentCases']); ?></p>
-</div>
-            <!-- Edit Profile Button -->
-            <form action="lawyerRegistration1.php" method="GET" class="mt-4 text-center">
-                <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($lawyerprofile['LawyerID']); ?>">
-                <button type="submit"
-                    class="bg-purple-700 text-white rounded-xl text-lg px-6 py-2 hover:bg-purple-500 transition duration-300 shadow-md transform hover:scale-105">
-                    ✏️ Edit Profile
-                </button>
-            </form>
-       
-    </div>
+    <div
+        class="container mx-auto p-6 shadow-lg rounded-xl mt-[10px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
+        <!-- Additional Details -->
+        <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 hover:scale-y-105 ">
+            <div class="flex-1 space-y-1">
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                    <strong>📍 State:</strong> <?= htmlspecialchars($lawyerprofile['StateName']); ?>
+                </p>
 
-</div>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                    <strong>🏙️ City:</strong> <?= htmlspecialchars($lawyerprofile['CityName']) ?>
+                </p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📧 Email:</strong>
+                    <?= htmlspecialchars($lawyerprofile['Email']); ?></p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📞 Contact No:</strong>
+                    <?= htmlspecialchars($lawyerprofile['Phone']); ?></p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>💰 Consultation Fee:</strong>
+                    <?= htmlspecialchars($lawyerprofile['ConsultationFee']); ?></p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⏳ Hourly Rate:</strong>
+                    <?= htmlspecialchars($lawyerprofile['HourlyRate']); ?></p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📖 Bio:</strong>
+                    <?= htmlspecialchars($lawyerprofile['Bio']); ?></p>
+                <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⚖️ Recent Cases:</strong>
+                    <?= htmlspecialchars($lawyerprofile['RecentCases']); ?></p>
+            </div>
+            <!-- Edit Profile Button -->
+            <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
+                <form action="lawyerRegistration1.php" method="GET" class="mt-4 text-center">
+                    <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($lawyerprofile['LawyerID']); ?>">
+                    <button type="submit"
+                        class="bg-purple-700 text-white rounded-xl text-lg px-6 py-2 hover:bg-purple-500 transition duration-300 shadow-md transform hover:scale-105">
+                        ✏️ Edit Profile
+                    </button>
+                </form>
+            <?php } else {
+            } ?>
+        </div>
+
+    </div>
 </body>
 
 

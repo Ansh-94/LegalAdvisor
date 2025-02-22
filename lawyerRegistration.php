@@ -133,7 +133,7 @@ if (isset($_POST['btnRegister'])) {
 
             <input type="text" placeholder="Bar Council Registration Number" name="BarRegistration"
                 class="border p-2 rounded" minlength="10" maxlength="15" required>
-            <select class="border p-2 rounded " name="Specialization">
+            <select class="border p-2 rounded " name="Specialization" id="Specialization">
                 <option>Select Specialization</option>
                 <option values="CriminalLaw">Criminal Law</option>
                 <option value="CivilRights">Civil Rights</option>
@@ -181,20 +181,6 @@ if (isset($_POST['btnRegister'])) {
                     })
                 });
 
-                /*$.ajax({
-                    url: 'Loadtable.php',
-                    type: 'POST',
-                    data: {Sel: v1,FID: v},
-                    beforeSend: function(){
-                        $('#loader').show();
-                    },
-                    success: function(data) {
-                        $('#a1').html(data);
-                    },
-                    complete: function(){
-                        $('#loader').hide();
-                    }
-                 });*/
             </script>
 
 

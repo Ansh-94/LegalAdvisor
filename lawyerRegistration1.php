@@ -21,39 +21,58 @@ $Bio = "";
 $RecentCases = "";
 $ProfilePicture = "";
 $CreatedAt = "";
-$btn = "Register";
+
 $message = "";
 
+if (isset($_GET['LawyerID'])) {
+    $LawyerID = intval($_GET['LawyerID']);
+    if (isset($_POST['btnUpdate'])) {
+        if ('Update' == $_POST["btnUpdate"]) {
 
-if (isset($_POST["btnRegister"]) && $_POST["btnRegister"] == 'Update') {
 
+            $LawyerID = intval($_POST["LawyerID"]);
+            $FullName = $_POST["FullName"];
+            $BarRegistration = $_POST["BarRegistration"];
+            $Specialization = $_POST["Specialization"];
+            $Experience = intval($_POST["Experience"]);
+            $StateMasterID = intval($_POST["StateName"]);
+            $CityMasterID = intval($_POST["CityName"]);
+            $Email = $_POST["Email"];
+            $Phone = $_POST["Phone"];
+            $ConsultationFee = floatval($_POST["ConsultationFee"]);
+            $HourlyRate = floatval($_POST["HourlyRate"]);
+            $Bio = $_POST["Bio"];
+            $RecentCases = $_POST["RecentCases"];
+            $ProfilePicture = $_POST["ProfilePicture"];
 
-    $LawyerID = $_POST["LawyerID"];
-    $FullName = $_POST["FullName"];
-    $BarRegistration = $_POST["BarRegistration"];
-    $Specialization = $_POST["Specialization"];
-    $Experience = $_POST["Experience"];
-    $StateName = $_POST["StateName"];
-    $CityName = $_POST["CityName"];
-    $Email = $_POST["Email"];
-    $Phone = $_POST["Phone"];
-    $ConsultationFee = $_POST["ConsultationFee"];
-    $HourlyRate = $_POST["HourlyRate"];
-    $Bio = $_POST["Bio"];
-    $RecentCases = $_POST["RecentCases"];
+            // Fetch existing profile picture if no new image is uploaded
+            $stmt = $conn->prepare("SELECT ProfilePicture FROM lawyers WHERE LawyerID = ?");
+            if (!$stmt) {
+                die("Prepare failed: " . $conn->error);
+            }
+            $stmt->bind_param("i", $LawyerID);
+            $stmt->execute();
+            $stmt->bind_result($existingProfilePicture);
+            $stmt->fetch();
+            $stmt->close();
 
-    // Handle file upload
-    $ProfilePicture = $_FILES["ProfilePicture"]["name"];
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["ProfilePicture"]["name"]);
+            $ProfilePicture = $existingProfilePicture;
 
-    if (!empty($ProfilePicture)) {
-        move_uploaded_file($_FILES["ProfilePicture"]["tmp_name"], $target_file);
-    }
+            // Handle file upload
+            if (!empty($_FILES["ProfilePicture"]["name"])) {
+                $target_dir = "uploads/";
+                $ProfilePicture = basename($_FILES["ProfilePicture"]["name"]);
+                $target_file = $target_dir . $ProfilePicture;
 
-    // Use prepared statement to prevent SQL injection
-    $stmt = $conn->prepare("
-        UPDATE lawyers SET 
+                if (move_uploaded_file($_FILES["ProfilePicture"]["tmp_name"], $target_file)) {
+                    echo "File uploaded successfully.";
+                } else {
+                    echo "File upload failed.";
+                }
+            }
+
+            // Update query
+            $stmt = $conn->prepare("UPDATE lawyers SET 
             FullName = ?, 
             BarRegistration = ?, 
             Specialization = ?, 
@@ -61,41 +80,52 @@ if (isset($_POST["btnRegister"]) && $_POST["btnRegister"] == 'Update') {
             StateMasterID = ?, 
             CityMasterID = ?, 
             Email = ?, 
+            Phone = ?, 
             ConsultationFee = ?, 
             HourlyRate = ?, 
             Bio = ?, 
             RecentCases = ?, 
             ProfilePicture = ? 
-        WHERE LawyerID = ?
-    ");
+        WHERE LawyerID = ?"); // Use ? placeholder
 
-    $stmt->bind_param(
-        "ssssssssssssi",
-        $FullName,
-        $BarRegistration,
-        $Specialization,
-        $Experience,
-        $StateName,
-        $CityName,
-        $Email,
-        $ConsultationFee,
-        $HourlyRate,
-        $Bio,
-        $RecentCases,
-        $ProfilePicture,
-        $LawyerID
-    );
+            if (!$stmt) {
+                die("Prepare failed: " . $conn->error);
+            }
 
-    if ($stmt->execute()) {
-        echo "<script>alert('Record Updated Successfully'); window.location.href='lawyers_list.php';</script>";
-    } else {
-        echo "<script>alert('Error updating record: " . $conn->error . "');</script>";
+            $stmt->bind_param(
+                "sssisissddsssi", // Note: last 'i' is for LawyerID (integer)
+                $FullName,
+                $BarRegistration,
+                $Specialization,
+                $Experience,
+                $StateMasterID,
+                $CityMasterID,
+                $Email,
+                $Phone,
+                $ConsultationFee,
+                $HourlyRate,
+                $Bio,
+                $RecentCases,
+                $ProfilePicture,
+                $LawyerID // Binding LawyerID as last parameter
+            );
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Record Updated Successfully'); window.location.href='lawyerDirectory.php';</script>";
+            } else {
+                die("Execution failed: " . $stmt->error);
+            }
+
+            $stmt->close();
+            $conn->close();
+        } else {
+            if (!$stmt->execute()) {
+                die("Execution failed: " . $stmt->error . " | SQL: " . $stmt->sqlstate);
+            }
+
+        }
     }
-
-    $stmt->close();
-    $conn->close();
 }
-
 
 if (empty($_GET["LawyerID"])) {
 } else {
@@ -155,8 +185,8 @@ if (empty($_GET["LawyerID"])) {
 
     <div class="max-w-4xl mx-auto bg-white p-8 mt-10 rounded shadow">
         <h2 class="text-2xl font-bold">Lawyer Registration</h2>
-        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="lawyerRegistration.php"
-            enctype="multipart/form-data">
+        <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="" enctype="multipart/form-data">
+            <input type="hidden" name="LawyerID" value="<?php echo $LawyerID; ?>">
 
             <input type="text" placeholder="Full Name" name="FullName" class="border p-2 rounded"
                 value="<?php echo "$FullName"; ?>" required>
@@ -164,12 +194,19 @@ if (empty($_GET["LawyerID"])) {
             <input type="text" placeholder="Bar Council Registration Number" name="BarRegistration"
                 class="border p-2 rounded" value="<?php echo "$BarRegistration"; ?>" minlength="10" maxlength="15"
                 required>
-            <select class="border p-2 rounded " name="Specialization" value="<?php echo "$Specialization"; ?>">
+            <select class="border p-2 rounded" name="Specialization" id="Specialization">
                 <option>Select Specialization</option>
-                <option values="CriminalLaw">Criminal Law</option>
-                <option value="CivilRights">Civil Rights</option>
-                <option value="CorporateLaw">Corporate Law</option>
+                <option value="CriminalLaw" <?php if ($Specialization == "CriminalLaw")
+                    echo "selected"; ?>>Criminal Law
+                </option>
+                <option value="CivilRights" <?php if ($Specialization == "CivilRights")
+                    echo "selected"; ?>>Civil Rights
+                </option>
+                <option value="CorporateLaw" <?php if ($Specialization == "CorporateLaw")
+                    echo "selected"; ?>>Corporate
+                    Law</option>
             </select>
+
             <input type="number" name="Experience" placeholder="Years of Experience"
                 value="<?php echo "$Experience"; ?>" class="border p-2 rounded" required>
             <?php
@@ -192,6 +229,41 @@ if (empty($_GET["LawyerID"])) {
                 ?>
 
             </select>
+            <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    function loadData(type, StateMasterID) {
+                        $.ajax({
+                            url: "load-cs.php",
+                            type: "POST",
+                            data: { type: type, id: StateMasterID },
+                            success: function (data) {
+                                if (type == "CityData") {
+                                    $("#S2").html(data);
+                                } else {
+                                    $("#S1").append(data);
+                                }
+
+                            }
+                        });
+                    }
+
+                    loadData();
+
+                    $("#S1").on("change", function () {
+                        var country = $("#S1").val();
+
+                        if (country != "") {
+                            loadData("CityData", country);
+                        } else {
+                            $("#S2").html("");
+                        }
+
+
+                    })
+                });
+
+            </script>
 
             <?php
 
@@ -203,7 +275,8 @@ if (empty($_GET["LawyerID"])) {
 
             ?>
 
-            <select name="CityName" required="" class="border p-2 rounded" value='<?php echo "$CityMasterID"; ?>'>
+            <select name="CityName" required="" id="S2" class="border p-2 rounded"
+                value='<?php echo "$CityMasterID"; ?>'>
                 <option value="" selected>-----All City Name-----</option>
                 <?php
                 while ($data = mysqli_fetch_array($result)) {
@@ -235,13 +308,35 @@ if (empty($_GET["LawyerID"])) {
             <div class="border-dashed border-2 p-4 rounded col-span-2 text-center">
                 <p class="text-gray-600">Upload a file or drag and drop</p>
                 <p class="text-sm text-gray-400">PNG, JPG, GIF up to 10MB</p>
-                <input type="file" name="ProfilePicture" accept="image/*" class="mt-2">
+
+                <!-- Image Preview -->
+                <?php if (!empty($ProfilePicture)) { ?>
+                    <img id="imagePreview" src="uploads/<?php echo $ProfilePicture; ?>"
+                        class="mt-2 mx-auto w-32 h-32 rounded-full object-cover">
+                <?php } else { ?>
+                    <img id="imagePreview" src="default.png"
+                        class="mt-2 mx-auto w-32 h-32 rounded-full object-cover hidden">
+                <?php } ?>
+
+                <input type="file" name="ProfilePicture" accept="image/*" class="mt-2" onchange="previewImage(event)">
             </div>
+
+            <script>
+                function previewImage(event) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        var img = document.getElementById('imagePreview');
+                        img.src = reader.result;
+                        img.classList.remove("hidden"); // Show image when selected
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            </script>
+
             <!-- <button type="Submit" name="btnRegister" value="Register"
                 class="bg-purple-700 text-white py-2 rounded col-span-2">Register</button> -->
-            <input class="bg-purple-700 text-white py-2 rounded col-span-2" type="submit" name="btnRegister"
-                id="btnRegister" value="<?php echo $btn; ?>" input type='hidden' value='".$row["LawyerID"]."'
-                name='LawyerID' id='LayerID'></input>
+            <button type="Submit" name="btnUpdate" value="Update"
+                class="bg-purple-700 text-white py-2 rounded col-span-2">Update</button>
 
 
         </form>
