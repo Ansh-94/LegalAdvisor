@@ -70,40 +70,44 @@ if ($result && mysqli_num_rows($result) > 0) {
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-b from-purple-100 to-white">
-    <!-- Outer Container with Gradient Background -->
-    <div
-        class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50 lg:w-[80vw]">
-        <!-- Lawyer Details Card -->
-        <div class="bg-white/70 shadow-lg p-6 rounded-lg border border-gray-200">
-            <h3 class="text-xl font-semibold text-blue-900 mb-4">Lawyer Details</h3>
+<body class="bg-gradient-to-b from-purple-100 to-white min-h-screen flex flex-col items-center">
 
-            <div class="flex flex-wrap md:flex-nowrap gap-6 items-start">
+    <!-- Outer Container with Gradient Background -->
+    <div class="container mx-auto p-6 shadow-lg rounded-xl mt-[50px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
+
+        <!-- Lawyer Details Card -->
+        <!-- <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200"> -->
+        <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 transition-all duration-300 hover:scale-y-105">
+    
+
+            <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">👨‍⚖️ Lawyer Details</h3>
+
+            <div class="flex flex-wrap md:flex-nowrap gap-6 items-center">
                 <!-- Lawyer Image -->
-                <div class="w-40 h-40 flex-shrink-0">
+                <div class="w-40 h-40 flex-shrink-0 rounded-xl overflow-hidden shadow-md border border-gray-300">
                     <img src="uploads/<?= htmlspecialchars($lawyerprofile['ProfilePicture']) ?>" alt="Lawyer Image"
-                        class="w-full h-full rounded-lg object-cover shadow-md border">
+                        class="w-full h-full object-cover">
                 </div>
 
                 <!-- Lawyer Details -->
-                <div class="flex-1">
-                    <p class="text-lg font-semibold text-gray-800">
-                        <strong>Full Name:</strong> <?= htmlspecialchars($lawyerprofile['FullName']); ?>
+                <div class="flex-1 space-y-2">
+                    <p class="text-lg font-semibold text-black">
+                        <strong>👤 Full Name:</strong> <?= htmlspecialchars($lawyerprofile['FullName']); ?>
                     </p>
-                    <p class="text-gray-700 mt-[8px]">
-                        <strong>Bar Registration:</strong> <?= htmlspecialchars($lawyerprofile['BarRegistration']); ?>
+                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                        <strong>🆔 Bar Registration:</strong> <?= htmlspecialchars($lawyerprofile['BarRegistration']); ?>
                     </p>
-                    <p class="text-gray-700">
-                        <strong>Specialization:</strong> <?= htmlspecialchars($lawyerprofile['Specialization']); ?>
+                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                        <strong>⚖️ Specialization:</strong> <?= htmlspecialchars($lawyerprofile['Specialization']); ?>
                     </p>
-                    <p class="text-gray-700 mt-[8px]">
-                        <strong>Experience:</strong> <?= htmlspecialchars($lawyerprofile['Experience']); ?> Years
+                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                        <strong>📅 Experience:</strong> <?= htmlspecialchars($lawyerprofile['Experience']); ?> Years
                     </p>
-                    <p class="text-gray-700">
-                        <strong>State Name:</strong> <?= htmlspecialchars($lawyerprofile['StateName']); ?>
+                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                        <strong>📍 State:</strong> <?= htmlspecialchars($lawyerprofile['StateName']); ?>
                     </p>
-                    <p class="text-gray-700">
-                        <strong>City Name:</strong> <?= htmlspecialchars($lawyerprofile['CityName']); ?>
+                    <p class="text-black hover:bg-purple-500 py-1 rounded-full">
+                        <strong>🏙️ City:</strong> <?= htmlspecialchars($lawyerprofile['CityName']); ?>
                     </p>
                 </div>
             </div>
@@ -111,41 +115,30 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
 
 
-    <!-- Hospital Information Card -->
-    <div class="container mx-auto lg:w-[80vw]">
-        <div class="mt-6 bg-white/70 shadow-lg p-6 rounded-lg border border-gray-200">
-            <p class="text-gray-700">
-                <strong>Email:</strong> <?= htmlspecialchars($lawyerprofile['Email']); ?>
-            </p>
-            <p class="text-gray-700">
-                <strong>Contact No:</strong> <?= htmlspecialchars($lawyerprofile['Phone']); ?>
-            </p>
-            <p class="text-gray-700">
-                <strong>Consultation Fee:</strong>
-                <?= htmlspecialchars($lawyerprofile['ConsultationFee']); ?>
-            </p>
-            <p class="text-gray-700">
-                <strong>Hourly Rate:</strong> <?= htmlspecialchars($lawyerprofile['HourlyRate']); ?>
-            </p>
-            <p class="text-gray-700">
-                <strong>Bio :</strong> <?= htmlspecialchars($lawyerprofile['Bio']); ?>
-            </p>
-            <p class="text-gray-700">
-                <strong>Recent Cases:</strong> <?= htmlspecialchars($lawyerprofile['RecentCases']); ?>
-                <!-- </p>
-            <form action="lawyerRegistration.php" method="POST"> -->
-
-            <form action="lawyerRegistration1.php" method="GET">
+    <div class="container mx-auto p-6 shadow-lg rounded-xl mt-[10px] bg-purple-700 backdrop-blur-lg border border-gray-300 lg:w-[80vw]">
+    <!-- Additional Details -->
+    <div class="bg-white/80 shadow-lg p-6 rounded-xl border border-purple-200 hover:scale-y-105 ">
+    <div class="flex-1 space-y-1">
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📧 Email:</strong> <?= htmlspecialchars($lawyerprofile['Email']); ?></p>
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📞 Contact No:</strong> <?= htmlspecialchars($lawyerprofile['Phone']); ?></p>
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>💰 Consultation Fee:</strong> <?= htmlspecialchars($lawyerprofile['ConsultationFee']); ?></p>
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⏳ Hourly Rate:</strong> <?= htmlspecialchars($lawyerprofile['HourlyRate']); ?></p>
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📖 Bio:</strong> <?= htmlspecialchars($lawyerprofile['Bio']); ?></p>
+            <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⚖️ Recent Cases:</strong> <?= htmlspecialchars($lawyerprofile['RecentCases']); ?></p>
+</div>
+            <!-- Edit Profile Button -->
+            <form action="lawyerRegistration1.php" method="GET" class="mt-4 text-center">
                 <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($lawyerprofile['LawyerID']); ?>">
                 <button type="submit"
-                    class="bg-purple-700 text-white rounded-lg text-lg px-4 py-2 hover:bg-purple-500 transition">
-                    Edit Profile
+                    class="bg-purple-700 text-white rounded-xl text-lg px-6 py-2 hover:bg-purple-500 transition duration-300 shadow-md transform hover:scale-105">
+                    ✏️ Edit Profile
                 </button>
             </form>
-            <!-- </form> -->
-        </div>
+       
     </div>
 
+</div>
 </body>
+
 
 </html>
