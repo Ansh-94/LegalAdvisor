@@ -50,8 +50,7 @@ if (!isset($_SESSION['user'])) {
             <h1 class="text-xl font-bold mb-6">AnyChat</h1>
             <ul class="space-y-2">
                 <li class="p-2 rounded hover:bg-gray-700 cursor-pointer">New Chat</li>
-                <li class="p-2 rounded hover:bg-gray-700 cursor-pointer">Photo Generation</li>
-                <li class="p-2 rounded hover:bg-gray-700 cursor-pointer">Weather Updates</li>
+                
             </ul>
         </div>
 
