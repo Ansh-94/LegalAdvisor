@@ -144,7 +144,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⚖️ Recent Cases:</strong>
                     <?= htmlspecialchars($lawyerprofile['RecentCases']); ?></p>
             </div>
-            <!-- Edit Profile Button -->
+            <!-- Edit Profile Button hello -->
             <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
                 <form action="lawyerRegistration1.php" method="GET" class="mt-4 text-center">
                     <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($lawyerprofile['LawyerID']); ?>">
