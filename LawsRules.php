@@ -60,6 +60,7 @@ include("includes/header.php");
             <option value="" class="h-10 bg-purple-500 text-white text-xl">📜 All Categories</option>
             <option value="Law/ida/ida.php" class=" h-10 bg-purple-500 text-white text-xl">⚖️ Indian Divorce Act</option>
             <option value="Law/iea/iea.php" class=" h-10 bg-purple-500 text-white text-xl">📖 Indian Evidence Act</option>
+            <option value="Law/ipc/ipc.php" class=" h-10 bg-purple-500 text-white text-xl">📖 Indian Penal Code</option>
             <option value="Law/mva/mva.php" class=" h-10 bg-purple-500 text-white text-xl">🚗 Motor Vehicles Act</option>
             <option value="Law/nia/nia.php" class=" h-10 bg-purple-500 text-white text-xl">💰 Negotiable Instruments Act</option>
             <option value="Law/crpc/crpc.php" class=" h-10 bg-purple-500 text-white text-xl">👮 Code of Criminal Procedure</option>
