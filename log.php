@@ -147,6 +147,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
+
+  <style>
+    .drop {
+      background-color: #e0e0e0;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  </style>
 </head>
 
 <body>
@@ -174,11 +183,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <select name="UserType" value="UserType" placeholder="User Type" required>
+
+            <select name="UserType" class=" drop" value="UserType" placeholder="User Type" required>
               <option>Select User Type</option>
               <option values="User">User</option>
               <option value="Lawyer">Lawyer</option>
             </select>
+
           </div>
 
           <input type="submit" value="Login" name="btnLogin" class="btn solid" />
@@ -212,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <!-- User Type -->
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <select name="UserType" value="UserType" Placeholder="UserType" required">
+            <select name="UserType" value="UserType" class="drop" Placeholder="UserType" required">
               <option>Select User Type</option>
               <option values="User">User</option>
               <option value="Lawyer">Lawyer</option>

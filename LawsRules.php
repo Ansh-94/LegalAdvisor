@@ -14,13 +14,12 @@ include("includes/header.php");
   <title>Laws & Rules - AI Lawyer Advisor</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="script.js"></script>
-  
+
   <style>
     .law-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
-
   </style>
 </head>
 
@@ -52,26 +51,30 @@ include("includes/header.php");
 
 
       <div class="p-6">
-    <div class="relative">
-        <select id="lawSelect" 
-            class="w-full p-4 border border-purple-500 rounded-lg bg-white shadow-lg text-gray-800 
+        <div class="relative">
+          <select id="lawSelect" class="w-full p-4 border border-purple-500 rounded-lg bg-white shadow-lg text-gray-800 
             focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all duration-200 ease-in-out 
             appearance-none cursor-pointer font-semibold ">
             <option value="" class="h-10 bg-purple-500 text-white text-xl">📜 All Categories</option>
-            <option value="Law/ida/ida.php" class=" h-10 bg-purple-500 text-white text-xl">⚖️ Indian Divorce Act</option>
-            <option value="Law/iea/iea.php" class=" h-10 bg-purple-500 text-white text-xl">📖 Indian Evidence Act</option>
+            <option value="Law/ida/ida.php" class=" h-10 bg-purple-500 text-white text-xl">⚖️ Indian Divorce Act
+            </option>
+            <option value="Law/iea/iea.php" class=" h-10 bg-purple-500 text-white text-xl">📖 Indian Evidence Act
+            </option>
             <option value="Law/ipc/ipc.php" class=" h-10 bg-purple-500 text-white text-xl">📖 Indian Penal Code</option>
-            <option value="Law/mva/mva.php" class=" h-10 bg-purple-500 text-white text-xl">🚗 Motor Vehicles Act</option>
-            <option value="Law/nia/nia.php" class=" h-10 bg-purple-500 text-white text-xl">💰 Negotiable Instruments Act</option>
-            <option value="Law/crpc/crpc.php" class=" h-10 bg-purple-500 text-white text-xl">👮 Code of Criminal Procedure</option>
-        </select>
+            <option value="Law/mva/mva.php" class=" h-10 bg-purple-500 text-white text-xl">🚗 Motor Vehicles Act
+            </option>
+            <option value="Law/nia/nia.php" class=" h-10 bg-purple-500 text-white text-xl">💰 Negotiable Instruments Act
+            </option>
+            <option value="Law/crpc/crpc.php" class=" h-10 bg-purple-500 text-white text-xl">👮 Code of Criminal
+              Procedure</option>
+          </select>
 
-        <!-- Custom Dropdown Arrow -->
-        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-purple-700 text-xl">
-        <span class="material-symbols-outlined text-purple-700">arrow_drop_down</span>
+          <!-- Custom Dropdown Arrow -->
+          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-purple-700 text-xl">
+            <span class="material-symbols-outlined text-purple-700">arrow_drop_down</span>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
       <script>
         function navigateToCategory() {

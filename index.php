@@ -156,7 +156,8 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Card 1 -->
             <div
                 class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
-                <div class="text-2xl"><span class="material-symbols-outlined text-white">person</span></div>
+                <div class="text-2xl"><span class="material-symbols-outlined text-white"
+                        style="font-size:larger">person</span></div>
                 <h3 class="text-lg font-semibold text-white">AI for Legal Consumers</h3>
                 <p class="text-white">
                     From deciphering complex terms to understanding rights, we've got you covered.
@@ -167,7 +168,8 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Card 2 -->
             <div
                 class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
-                <div class="text-2xl"><span class="material-symbols-outlined text-white">balance</span></div>
+                <div class="text-2xl"><span class="material-symbols-outlined text-white"
+                        style="font-size:larger">balance</span></div>
                 <h3 class="text-lg font-semibold text-white">AI for Lawyers</h3>
                 <p class="text-white">
                     Let us handle the research and paperwork while you elevate client relationships.
@@ -178,7 +180,8 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Card 3 -->
             <div
                 class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
-                <div class="text-2xl"><span class="material-symbols-outlined text-white">home</span></div>
+                <div class="text-2xl"><span class="material-symbols-outlined text-white"
+                        style="font-size:larger">home</span></div>
                 <h3 class="text-lg font-semibold text-white">AI for Law Firms</h3>
                 <p class="text-white">
                     Streamlining processes and boosting efficiency, we're revolutionizing the way law firms operate.
@@ -189,7 +192,9 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Card 4 -->
             <div
                 class="bg-purple-700 p-6 rounded-xl shadow-lg text-center transition-transform duration-300 transform hover:scale-105 flex flex-col justify-between min-h-[400px]">
-                <div class="text-2xl"><span class="material-symbols-outlined text-white">import_contacts</span></div>
+                <div class="text-2xl"><span class="material-symbols-outlined text-white"
+                        style="font-size:larger">import_contacts</span>
+                </div>
                 <h3 class="text-lg font-semibold text-white">AI for Law Students</h3>
                 <p class="text-white">
                     We've made a perfect learning tool. It helps students prepare for a career in law.
@@ -390,7 +395,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Column 3 -->
             <div>
                 <h3 class="text-lg font-semibold text-blue-400">Contact Info</h3>
-                <p class="mt-2 text-gray-400">Email: contact@legaladvisory.com</p>
+                <p class="mt-2 text-gray-400">Email: ailegaladvidsor01.com</p>
                 <p class="text-gray-400">Phone: (555) 123-4567</p>
             </div>
         </div>

@@ -129,6 +129,12 @@ if (isset($_POST['btnRegister'])) {
         <form class="grid grid-cols-2 gap-4 mt-6 " method="POST" action="lawyerRegistration.php"
             enctype="multipart/form-data">
 
+            <!-- <div class="flex flex-col">
+    <label for="fullname" class="mb-1 font-medium">Full Name</label>
+    <input type="text" id="fullname" name="FullName" placeholder="Full Name" 
+           class="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+</div> -->
+
             <input type="text" placeholder="Full Name" name="FullName" class="border p-2 rounded" required>
 
             <input type="text" placeholder="Bar Council Registration Number" name="BarRegistration"
