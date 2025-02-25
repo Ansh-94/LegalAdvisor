@@ -83,7 +83,7 @@ if (isset($_POST['btnRegister'])) {
 
 
         if ($conn->query($stmt) === true) {
-            echo "<script>alert('Registration Successful!'); window.location.href='lawyerRegistration.php';</script>";
+            echo "<script>alert('Registration Successful!'); window.location.href='lawyerDirectory.php';</script>";
 
         } else {
             echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.history.back();</script>";

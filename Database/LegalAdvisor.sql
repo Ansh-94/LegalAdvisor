@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2025 at 07:57 PM
+-- Generation Time: Feb 24, 2025 at 06:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -584,18 +584,11 @@ CREATE TABLE `lawyers` (
 --
 
 INSERT INTO `lawyers` (`LawyerID`, `FullName`, `BarRegistration`, `Specialization`, `Experience`, `StateMasterID`, `CityMasterID`, `Email`, `Phone`, `ConsultationFee`, `HourlyRate`, `Bio`, `RecentCases`, `ProfilePicture`, `CreatedAt`) VALUES
-(3, 'Nai Aryan', '76786786', 'Criminal Law', 5, 0, 0, 'scacas@gmail.com', '6484894854', 510000.00, 1000.00, 'ewhuehwiughuew', '', '', '2025-02-16 07:54:44'),
-(4, 'ansh meghani', '5544545454', 'Criminal Law', 5, 0, 0, '1248@sbcsrbox.com', '6484894857', 10000000.00, 1000.00, 'efhuewhuewhuew', '', '', '2025-02-16 08:13:16'),
-(5, 'kartik', '4645465484', 'Civil Rights', 4, 0, 0, 'hixav73307@daypey.com', '6445454545', 10000000.00, 11111.00, 'fdndfndfndfn', '', '', '2025-02-16 08:15:47'),
-(6, 'paresh kukadiya', '6487468484', 'Criminal Law', 7, 0, 0, '1150@sbcsrbox.com', '27684687846', 300000.00, 300.00, 'mehgbvdsjgfchvsmn bcvefrjkekvsdkjvgjerbgvjkhsgdvjkvb', '', '', '2025-02-16 09:05:18'),
-(7, 'Microsoft', '78645353', 'Criminal Law', 44, 0, 0, 'meghaniansh942005@gmail.com', '27684687846', 654654.00, 0.00, '', '', '', '2025-02-16 10:09:27'),
-(15, 'kamlesh', '987645654654646', 'Corporate Law', 5, 0, 0, 'asa@gmail.com', '2768468784', 365.00, 465.00, 'fgdgl;sndfg;lhdf;rkdjhtgjklrntdh', '', '', '2025-02-16 12:41:43'),
-(16, 'rakesh', '545465468465489', 'Civil Rights', 45, 0, 0, 'xsdfyz@gmail.com', '1546546546', 4242.00, 4524.00, 'sjdfvjksvdfsabbfjogsajfasdfhasvfysgafhsbauygfjbwafkgufsakbfuysgfhkwgjabuy', '', '', '2025-02-16 12:44:43'),
-(17, 'Vivek Vara', '684665798764', 'civil', 5, 7, 1, 'vhsd@gmail.com', '8978456245', 6456554.00, NULL, NULL, '', NULL, '2025-02-18 18:07:40'),
-(20, 'Vivek Vara', '6835247586', 'civil', 5, 7, 159, 'vhasd@gmail.com', '8979456245', 6456554.00, 321.00, 'sdafgasgfdiasyufgsagdu', '', NULL, '2025-02-18 18:09:50'),
-(21, 'gsdgsfd', '987654321852147', 'civil', 4, 1, 1, 'fuy@gmail.com', '4653219781', 978465.00, 4654.00, 'fgdhfdghfdh', 'dfghfgdhfh', '\".$ProfilePicture.\"', '2025-02-18 18:45:12'),
-(22, '', '', '', 0, 0, 0, '', '', 0.00, 0.00, '', '', '', '2025-02-18 18:46:22'),
-(23, 'zdzdfvd xz', '656545665446546', 'Criminal Law', 65, 15, 396, 'Kartxvcik@gmail.com', '6786786554', 99999999.99, 465.00, 'fhdfhdfghdfgsfg', 'fghfghfghdfghd', '', '2025-02-18 18:46:51');
+(36, 'Ansh', '789784654654654', 'CivilRights', 5, 7, 125, 'meghandfiansh@gmail.com', '9784654545', 498465.00, 465464.00, '                    jkfgdsfgdhsfgdjlsfgdnjklsfg            ', 'kjbfabfgafliaguifyghlaergyueagbfjgearogsdrgsorbgosdighrtgisbtgbstkldjg', 'my pic.jpg', '2025-02-20 17:55:30'),
+(37, 'Paresh', '787874521787878', 'CorporatLaw', 5, 13, 339, 'meghanisdfansh@gmail.com', '7894554521', 785454.00, 789.00, 'jhbdfsdshujbdfs', 'jbshgfnmgfnms', 'EOS_6102.JPG', '2025-02-20 19:01:14'),
+(38, 'Piyush', '978987456446565', 'CriminalLaw', 2, 7, 129, 'aryaninai5dfd1@gmail.com', '9788846589', 9845145.00, 4456.00, 'fdgfdghfdghfdghfd', 'ghfdghfdghfdghfd', 'EOS_8910.JPG', '2025-02-21 19:40:20'),
+(39, 'Urvisha', '978456321546465', 'CriminalLaw', 8, 1, 14, 'sghvvf@gmail.com', '9876543211', 987456.00, 789.00, '                    dsbjhsfdsfgbdbjhsfgsfg                                    ', '                    jsfgdbjhfgdbjh                                    ', 'Screenshot 2024-10-09 223621.png', '2025-02-21 20:41:30'),
+(40, 'Aryan Nai', '874545412332132', 'CivilRights', 2, 7, 126, 'aryaninai51@gmail.com', '8787545452', 789854.00, 7887.00, 'kjesihdfhfnmdhjkrsdf', 'ddjfuhirdnfjjigdrkf', 'EOS_7904.JPG', '2025-02-24 07:56:19');
 
 -- --------------------------------------------------------
 
@@ -653,16 +646,19 @@ CREATE TABLE `usermaster` (
   `UserMasterID` int(10) NOT NULL,
   `UserName` varchar(50) NOT NULL,
   `Password` varchar(100) NOT NULL,
-  `Email` varchar(20) NOT NULL
+  `Email` varchar(20) NOT NULL,
+  `UserType` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `usermaster`
 --
 
-INSERT INTO `usermaster` (`UserMasterID`, `UserName`, `Password`, `Email`) VALUES
-(1, 'Kartik', '12345', 'Kartik@gmail.com'),
-(2, 'Ansh', '11111', 'meghaniansh@gmail.co');
+INSERT INTO `usermaster` (`UserMasterID`, `UserName`, `Password`, `Email`, `UserType`) VALUES
+(1, 'Kartik', '12345', 'Kartik@gmail.com', 'User'),
+(2, 'Ansh', '11111', 'meghaniansh@gmail.co', 'User'),
+(4, 'Aryan11', '33333', 'dsfg@gmail.com', 'Lawyer'),
+(6, 'Aryan', '78945', 'aryaninaci51@gmail.c', 'Lawyer');
 
 --
 -- Indexes for dumped tables
@@ -681,7 +677,9 @@ ALTER TABLE `citymaster`
 ALTER TABLE `lawyers`
   ADD PRIMARY KEY (`LawyerID`),
   ADD UNIQUE KEY `bar_registration` (`BarRegistration`),
-  ADD UNIQUE KEY `email` (`Email`);
+  ADD UNIQUE KEY `email` (`Email`),
+  ADD KEY `StateMasterID` (`StateMasterID`),
+  ADD KEY `CityMasterID` (`CityMasterID`);
 
 --
 -- Indexes for table `statemaster`
@@ -711,7 +709,7 @@ ALTER TABLE `citymaster`
 -- AUTO_INCREMENT for table `lawyers`
 --
 ALTER TABLE `lawyers`
-  MODIFY `LawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `LawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `statemaster`
@@ -723,7 +721,7 @@ ALTER TABLE `statemaster`
 -- AUTO_INCREMENT for table `usermaster`
 --
 ALTER TABLE `usermaster`
-  MODIFY `UserMasterID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UserMasterID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

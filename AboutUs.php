@@ -7,7 +7,6 @@ include('includes/header.php');
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,14 +24,9 @@ include('includes/header.php');
   </style>
 </head>
 
-<body class="bg-gradient-to-b from-purple-100 to-white min-h-screen ml-[30px] mr-[30px]">
+<body class="bg-gradient-to-b from-purple-100 to-white min-h-screen mx-8">
   <header class="mt-[15px] mb-[15px] ml-[30px] mr-[30px]">
     <script>
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("-translate-x-full");
-      }
-
       function toggleSidebar() {
         document.getElementById('sidebar').classList.toggle('-translate-x-full');
       }
@@ -41,33 +35,100 @@ include('includes/header.php');
       }
     </script>
 
-
-
     <div class="bg-white w-full rounded-lg shadow-lg overflow-hidden">
-      <!-- Header Section with 10px Rounded Top Corners -->
+      <!-- Header Section with Rounded Top Corners -->
       <div class="bg-purple-700 text-white text-center py-8 rounded-t-[10px]">
         <h1 class="text-3xl font-bold">About Us</h1>
         <p class="text-lg mt-2 px-6">
-          Welcome to <strong>AI Lawyer Advisor</strong>, a project designed to provide citizens with AI-powered legal
-          guidance.
-          Our mission is to make legal information accessible, accurate, and user-friendly for everyone.
+          Welcome to <strong>AI Lawyer Advisor</strong>—your trusted partner in AI-powered legal guidance.
+          We are dedicated to making legal information accessible, accurate, and user-friendly.
         </p>
       </div>
 
-      <!-- Project Description -->
-      <div class="p-8 text-gray-700">
-        <h2 class="text-2xl font-bold text-purple-700 mb-4">What is AI Lawyer Advisor?</h2>
-        <p class="mb-4">
-          AI Lawyer Advisor is a cutting-edge platform that helps individuals understand their legal rights
-          and take informed actions when facing legal issues. Users can describe their situations, and our
-          AI chatbot provides instant legal guidance based on applicable laws and regulations.
-        </p>
-        <h2 class="text-2xl font-bold text-purple-700 mb-4">Our Mission</h2>
-        <p>
-          Our mission is to bridge the gap between legal knowledge and the general public by leveraging
-          artificial intelligence. We aim to create an easy-to-use, secure, and accurate legal advisory
-          system for citizens worldwide.
-        </p>
+      <!-- Main Content Section -->
+      <div class="p-8 text-gray-700 space-y-8">
+        <!-- About Section -->
+        <section>
+          <h2 class="text-2xl font-bold text-purple-700 mb-4">What is AI Lawyer Advisor?</h2>
+          <p class="mb-4">
+            AI Lawyer Advisor is a cutting-edge platform that empowers individuals with the legal insights they need.
+            Whether you're seeking to understand your rights or need help navigating complex legal issues, our AI-driven
+            system provides instant guidance based on the most current laws and regulations.
+          </p>
+        </section>
+
+        <!-- Our Offerings Section -->
+        <section>
+          <h2 class="text-2xl font-bold text-purple-700 mb-4">Our Offerings</h2>
+          <ul class="list-disc ml-6 mb-4 space-y-2">
+            <li>
+              <strong>AI-Powered Legal Chatbot:</strong> Get instant legal insights and guidance around the clock.
+            </li>
+            <li>
+              <strong>Personalized Legal Assistance:</strong> Receive tailored advice specific to your situation.
+            </li>
+            <li>
+              <strong>Find and Connect with Lawyers:</strong> Browse and connect with verified legal professionals.
+            </li>
+            <li>
+              <strong>Legal Document Generator:</strong> Easily generate contracts, affidavits, and more in a compliant
+              format.
+            </li>
+            <li>
+              <strong>Case Tracking & Management:</strong> Stay updated on your legal proceedings with our tracking
+              system.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section>
+          <h2 class="text-2xl font-bold text-purple-700 mb-4">Why Choose AI Lawyer Advisor?</h2>
+          <ul class="list-disc ml-6 mb-4 space-y-2">
+            <li>
+              <strong>24/7 Legal Support:</strong> Access legal guidance anytime, anywhere.
+            </li>
+            <li>
+              <strong>User-Friendly Interface:</strong> Navigate our platform with ease.
+            </li>
+            <li>
+              <strong>Cost-Effective:</strong> Save time and money with our free initial legal insights.
+            </li>
+            <li>
+              <strong>Verified Legal Professionals:</strong> Connect with trusted experts when you need personalized
+              help.
+            </li>
+            <li>
+              <strong>Data Privacy & Security:</strong> We ensure your information remains secure and confidential.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section>
+          <h2 class="text-2xl font-bold text-purple-700 mb-4">Our Mission</h2>
+          <p class="mb-4">
+            Our mission is to bridge the gap between legal knowledge and the general public by leveraging advanced AI
+            technologies. We are committed to simplifying legal processes, educating citizens about their rights, and
+            ensuring that legal assistance is accessible to everyone.
+          </p>
+        </section>
+
+        <!-- Get Started Section -->
+        <section class="text-center">
+          <h2 class="text-2xl font-bold text-purple-700 mb-4">Get Started Today</h2>
+          <p class="mb-4">
+            Begin your legal journey with <strong>AI Lawyer Advisor</strong>—your smart partner for legal empowerment.
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a href="chatbot.php" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">
+              Chat with Our AI
+            </a>
+            <a href="lawyerDirectory.php" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">
+              Connect with a Lawyer
+            </a>
+          </div>
+        </section>
       </div>
 
       <!-- Team Section -->
@@ -76,8 +137,7 @@ include('includes/header.php');
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <!-- Ansh Card -->
           <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
-            <img src="C:\Users\Meghani Ansh\Pictures\My Phtotos\EOS_8913" alt="Ansh"
-              class="w-24 h-24 rounded-full mx-auto">
+            <img src="img/Ansh.jpg" alt="Ansh" class="w-24 h-24 rounded-full mx-auto">
             <h3 class="text-lg font-bold mt-4">Ansh</h3>
             <p class="text-sm text-gray-600">Full Stack Developer</p>
           </div>
@@ -96,11 +156,12 @@ include('includes/header.php');
         </div>
       </div>
 
-      <!-- Footer with 10px Rounded Bottom Corners -->
+      <!-- Footer Section with Rounded Bottom Corners -->
       <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
         <p>&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>
       </div>
     </div>
+  </header>
 </body>
 
 </html>

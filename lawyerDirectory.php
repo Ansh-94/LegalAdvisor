@@ -77,13 +77,14 @@ include('includes/db.php');
                         data-city="<?= $row['CityName'] ?>">
                         <!-- Lawyer Details -->
                         <div class="flex space-x-4">
-                            <img src="uploads/<?= htmlspecialchars($row['ProfilePicture']) ?>" class="rounded-lg w-24 h-24"
-                                alt="Profile Image">
+                            <img src="<?= isset($row['ProfilePicture']) && !empty($row['ProfilePicture']) ? 'uploads/' . htmlspecialchars($row['ProfilePicture']) : 'img/advocate.png' ?>"
+                                alt="Doctor Image" class="w-24 h-24 rounded-lg mr-6">
+
                             <div>
                                 <h3 class="text-lg font-bold"><?= $row['FullName'] ?></h3>
                                 <p class="text-gray-500"><?= $row['Specialization'] ?></p>
                                 <p class="text-gray-500">
-                                    <?= $row['CityName'] ?> | <?= $row['StateName'] ?> <br>
+                                    <?= $row['CityName'] ?> #lawyer-list| <?= $row['StateName'] ?> <br>
                                     <?= $row['Experience'] ?> years experience
                                 </p>
                             </div>

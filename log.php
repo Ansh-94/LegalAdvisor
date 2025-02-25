@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($password == $user['Password']) {
         $_SESSION['user'] = $user['UserName'];
         $_SESSION['UserType'] = $user['UserType'];
+        $_SESSION['UserMasterID'] = $user['UserMasterID'];
         $_SESSION['LoginActivity'] = time();
         header("Location: index.php");
         exit;
