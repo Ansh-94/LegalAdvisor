@@ -395,7 +395,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- Column 3 -->
             <div>
                 <h3 class="text-lg font-semibold text-blue-400">Contact Info</h3>
-                <p class="mt-2 text-gray-400">Email: ailegaladvidsor01.com</p>
+                <p class="mt-2 text-gray-400">Email: ailegaladvisor01.com</p>
                 <p class="text-gray-400">Phone: (555) 123-4567</p>
             </div>
         </div>

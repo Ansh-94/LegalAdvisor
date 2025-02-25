@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
                         <span>📧</span>
-                        <p class="text-sm">support@legaldirectory.com</p>
+                        <p class="text-sm">ailegaladvisor01@gmail.com</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <span>📞</span>
