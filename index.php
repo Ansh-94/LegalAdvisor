@@ -23,7 +23,18 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
+<style>
+    html, body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
+</style>
+
+    
 </head>
 
 <body class="bg-purple-100  bg-cover bg-center w-full">
