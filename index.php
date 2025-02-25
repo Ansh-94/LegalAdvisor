@@ -57,7 +57,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <p class="text-white text-xl  mx-auto w-[50%] mt-10 ">Get expert guidence and connect with qualified legal
                 professionals to protect your rights and intrests.</p>
             <button onclick="window.location.href='chatbot.php'"
-                class="mt-10 bg-purple-700 text-white hover:text-purple-400  text-[15px] px-5 py-2 rounded mb-20">Get
+                class="mt-10 bg-purple-700 text-white   text-[15px] px-5 py-2 rounded mb-20 transition-transform duration-300 hover:scale-105 hover:shadow-2xl">Get
                 Legal Guidance</button>
 
 
@@ -89,7 +89,7 @@ if (time() - $_SESSION['LoginActivity'] > 3600) {
             <!-- AI Legal Advisor Button -->
             <div class="mt-8">
                 <button onclick="window.location.href='chatbot.php'"
-                    class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg">
+                    class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                     AI Legal Advisor
                 </button>
             </div>
