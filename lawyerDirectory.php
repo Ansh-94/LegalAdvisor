@@ -46,64 +46,74 @@ include('includes/db.php');
 
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="lawyer-list">
-            <?php
-            $query = "SELECT 
-                      l.LawyerID,
-                      l.FullName,
-                      l.BarRegistration,
-                      l.Specialization,
-                      l.Experience,
-                      sm.StateName,
-                      cm.CityName,
-                      l.Email,
-                      l.Phone,
-                      l.ConsultationFee,
-                      l.HourlyRate,
-                      l.Bio,
-                      l.RecentCases,
-                      l.ProfilePicture  
-                      FROM lawyers l
-                      INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
-                      INNER JOIN citymaster cm ON l.CityMasterID = cm.CityMasterID";
-            $result = mysqli_query($conn, $query);
+        <div class="flex flex-wrap justify-center gap-6 w-full" id="lawyer-list">
+    <?php
+    $query = "SELECT 
+              l.LawyerID,
+              l.FullName,
+              l.Specialization,
+              l.Experience,
+              sm.StateName,
+              cm.CityName,
+              l.ProfilePicture  
+              FROM lawyers l
+              INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
+              INNER JOIN citymaster cm ON l.CityMasterID = cm.CityMasterID";
+    $result = mysqli_query($conn, $query);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                // Use the provided profile image, or a default image if missing
-                // $ProfilePicture = (!empty($row['ProfilePicture'])) ? $row['ProfilePicture'] : 'img/advocate.png';
-                ?>
-                <div class="bg-white rounded-lg shadow-md p-4">
-                    <div class="flex justify-between w-full items-center" data-state="<?= $row['StateName'] ?>"
-                        data-city="<?= $row['CityName'] ?>">
-                        <!-- Lawyer Details -->
-                        <div class="flex space-x-4">
-                            <img src="<?= isset($row['ProfilePicture']) && !empty($row['ProfilePicture']) ? 'uploads/' . htmlspecialchars($row['ProfilePicture']) : 'img/advocate.png' ?>"
-                                alt="Doctor Image" class="w-24 h-24 rounded-lg mr-6">
+    while ($row = mysqli_fetch_assoc($result)) {
+        $ProfilePicture = !empty($row['ProfilePicture']) ? 'uploads/' . htmlspecialchars($row['ProfilePicture']) : 'img/advocate.png';
+    ?>
+    
+    <div class="bg-white rounded-lg shadow-md w-[350px] flex flex-col transition-all duration-300 search-card">
+        <!-- Combined Image and Content -->
+        <img src="<?= $ProfilePicture ?>" alt="Lawyer Profile Picture" 
+     class="w-full h-48 rounded-t-lg object-cover">
 
-                            <div>
-                                <h3 class="text-lg font-bold"><?= $row['FullName'] ?></h3>
-                                <p class="text-gray-500"><?= $row['Specialization'] ?></p>
-                                <p class="text-gray-500">
-                                    <?= $row['CityName'] ?> #lawyer-list| <?= $row['StateName'] ?> <br>
-                                    <?= $row['Experience'] ?> years experience
-                                </p>
-                            </div>
-                        </div>
 
-                        <!-- Right Side Centered Button -->
-                        <form action="lawyerprofile.php" method="GET">
-                            <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
-                            <button type="submit"
-                                class="bg-purple-700 text-white rounded-lg text-lg px-4 py-2 hover:bg-purple-500 transition">
-                                View More
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <?php
+        <h3 class="text-lg font-bold p-4"><?= $row['FullName'] ?></h3>
+        <p class="text-gray-500 px-4"><?= $row['Specialization'] ?></p>
+        <p class="text-gray-500 px-4"><?= $row['CityName'] ?>, <?= $row['StateName'] ?></p>
+        <p class="text-gray-500 px-4"><?= $row['Experience'] ?> years experience</p>
+
+        <!-- View More Button  -->
+        <form action="lawyerprofile.php" method="GET" class="mt-auto p-4">
+            <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
+            <button type="submit" 
+                class="w-full bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-500 transition">
+                View More
+            </button>
+        </form>
+    </div>
+
+    <?php } ?>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector("#search-input"); 
+    const lawyerCards = document.querySelectorAll(".search-card");
+
+    searchInput.addEventListener("input", function () {
+        const searchValue = searchInput.value.trim().toLowerCase();
+
+        lawyerCards.forEach(card => {
+            const name = card.querySelector(".lawyer-name").innerText.toLowerCase();
+            if (searchValue === "" || name.includes(searchValue)) {
+                card.style.opacity = "1"; 
+                card.style.position = "relative";
+                card.style.pointerEvents = "auto";
+            } else {
+                card.style.opacity = "0"; 
+                card.style.position = "absolute";
+                card.style.pointerEvents = "none";
             }
-            ?>
-        </div>
+        });
+    });
+});
+</script>
+
 
 
 

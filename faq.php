@@ -36,7 +36,7 @@ include('includes/header.php');
             }
         </script>
         <div class="bg-white w-full rounded-lg shadow-lg overflow-hidden">
-            <!-- Header Section with 10px Curviness -->
+            <!-- Header Section  -->
             <div class="bg-purple-700 text-white text-center py-8 rounded-t-[10px]">
                 <h1 class="display-4"><b>AI Legal Advisor</b></h1>
                 <p class="lead"><i>FAQ which use for your general knowledge or help you how to operate and makinging you
@@ -96,13 +96,14 @@ include('includes/header.php');
                     </div>
                 </div>
             </div>
-            <!-- Footer with 5px Purple Rounded Border -->
+            <!-- Footer  -->
             <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
                 <p class="text-center">&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>
                 </footer>
             </div>
+
             <script>
-                //<![CDATA[
+              
                 let toggles = document.getElementsByClassName("toggle");
                 let contentDiv = document.getElementsByClassName("content");
                 let icons = document.getElementsByClassName("icon");
@@ -131,7 +132,7 @@ include('includes/header.php');
                         }
                     });
                 }
-                //]]>ṇ  
+                 
             </script>
 
 

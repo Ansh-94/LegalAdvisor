@@ -40,7 +40,7 @@ include("includes/header.php");
       }
     </script>
     <div class="bg-white w-full rounded-lg shadow-lg overflow-hidden">
-      <!-- Header Section with 10px Curviness -->
+      <!-- Header Section-->
       <div class="bg-purple-700 text-white text-center py-8 rounded-t-[10px]">
         <h1 class="text-3xl font-bold">Laws & Rules</h1>
         <p class="text-lg mt-2 px-6">
@@ -82,7 +82,7 @@ include("includes/header.php");
           select.addEventListener("change", function () {
             let selectedValue = select.value;
             if (selectedValue) {
-              window.location.href = selectedValue; // Redirect to selected page
+              window.location.href = selectedValue; 
             }
           });
         }
@@ -104,7 +104,7 @@ include("includes/header.php");
 
 
 
-    <!-- Footer with 10px Curviness -->
+    <!-- Footer -->
     <div class="bg-purple-700 text-white text-center py-4 rounded-b-[10px]">
       <p>&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>
     </div>
@@ -160,7 +160,7 @@ include("includes/header.php");
         };
 
         const lawsContainer = document.getElementById("laws-container");
-        // const categorySelect = document.getElementById("categorySelect");
+        
 
         function displayLaws(categoryFilter = "All") {
           lawsContainer.innerHTML = "";

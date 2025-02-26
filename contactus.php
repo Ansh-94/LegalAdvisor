@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="flex items-center gap-3">
                         <span>📍</span>
-                        <p class="text-sm">123 Legal Street, New York, NY 10001</p>
+                        <p class="text-sm">GEC Modasa</p>
                     </div>
                 </div>
             </div>
