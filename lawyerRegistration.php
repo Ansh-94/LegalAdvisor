@@ -46,7 +46,7 @@ if (isset($_POST['btnRegister'])) {
         }
         move_uploaded_file($_FILES['ProfilePicture']['tmp_name'], $target_dir . $ProfilePicture);
 
-      
+
 
         // Check for duplicates
         $duplicate_message = "";

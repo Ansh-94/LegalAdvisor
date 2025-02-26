@@ -103,7 +103,7 @@ include('includes/header.php');
             </div>
 
             <script>
-              
+
                 let toggles = document.getElementsByClassName("toggle");
                 let contentDiv = document.getElementsByClassName("content");
                 let icons = document.getElementsByClassName("icon");
@@ -132,7 +132,7 @@ include('includes/header.php');
                         }
                     });
                 }
-                 
+
             </script>
 
 

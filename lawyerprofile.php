@@ -8,9 +8,9 @@ include('includes/db.php');
 
 // Check if LawyerID is set in GET or POST request
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['LawyerID'])) {
-    $LawyerID = intval($_POST['LawyerID']);  
+    $LawyerID = intval($_POST['LawyerID']);
 } elseif (isset($_GET['LawyerID'])) {
-    $LawyerID = intval($_GET['LawyerID']);  
+    $LawyerID = intval($_GET['LawyerID']);
 } else {
     die("❌ Error: No Lawyer selected! Please go back and select a Lawyer.");
 }

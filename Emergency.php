@@ -47,7 +47,7 @@ include('includes/header.php');
       <div class="p-8">
         <h2 class="text-2xl font-bold text-purple-700 text-center mb-6">Important Contacts</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚔</span>
             <div>
@@ -55,7 +55,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 100</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🔥</span>
             <div>
@@ -63,7 +63,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 101</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚑</span>
             <div>
@@ -71,7 +71,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 102</p>
             </div>
           </div>
-   
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🌪️</span>
             <div>
@@ -79,7 +79,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 108</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👩</span>
             <div>
@@ -87,7 +87,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1091</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👶</span>
             <div>
@@ -95,7 +95,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1098</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">💻</span>
             <div>
@@ -103,7 +103,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 155260</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👴</span>
             <div>
@@ -111,7 +111,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 14567</p>
             </div>
           </div>
-         
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚗</span>
             <div>
@@ -119,7 +119,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1073</p>
             </div>
           </div>
-         
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🧠</span>
             <div>
@@ -127,7 +127,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-599-0019</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">☠️</span>
             <div>
@@ -135,7 +135,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-180-1104</p>
             </div>
           </div>
-         
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">⚖️</span>
             <div>
@@ -143,7 +143,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-XYZ-1234</p>
             </div>
           </div>
-          
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🙅</span>
             <div>
@@ -151,7 +151,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 181</p>
             </div>
           </div>
-       
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚫</span>
             <div>
@@ -159,7 +159,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 181</p>
             </div>
           </div>
-       
+
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🎓</span>
             <div>

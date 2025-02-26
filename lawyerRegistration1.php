@@ -86,14 +86,14 @@ if (isset($_GET['LawyerID'])) {
             Bio = ?, 
             RecentCases = ?, 
             ProfilePicture = ? 
-        WHERE LawyerID = ?"); 
+        WHERE LawyerID = ?");
 
             if (!$stmt) {
                 die("Prepare failed: " . $conn->error);
             }
 
             $stmt->bind_param(
-                "sssisissddsssi", 
+                "sssisissddsssi",
                 $FullName,
                 $BarRegistration,
                 $Specialization,
@@ -107,7 +107,7 @@ if (isset($_GET['LawyerID'])) {
                 $Bio,
                 $RecentCases,
                 $ProfilePicture,
-                $LawyerID 
+                $LawyerID
             );
 
             if ($stmt->execute()) {
@@ -327,7 +327,7 @@ if (empty($_GET["LawyerID"])) {
                     reader.onload = function () {
                         var img = document.getElementById('imagePreview');
                         img.src = reader.result;
-                        img.classList.remove("hidden"); 
+                        img.classList.remove("hidden");
                     };
                     reader.readAsDataURL(event.target.files[0]);
                 }

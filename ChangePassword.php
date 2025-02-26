@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <h2 class="h4 text-gray-900 mb-2">
                 <?php echo $_SESSION['user']; ?>, do you want to change your password?
             </h2>
-            
+
             <form method="post" class="mt-4">
                 <input type="password" name="OldPassword" placeholder="Enter Old Password..."
                     class="w-full p-3 border rounded-lg mb-4">

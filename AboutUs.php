@@ -36,7 +36,7 @@ include('includes/header.php');
     </script>
 
     <div class="bg-white w-full rounded-lg shadow-lg overflow-hidden">
-     
+
       <div class="bg-purple-700 text-white text-center py-8 rounded-t-[10px]">
         <h1 class="text-3xl font-bold">About Us</h1>
         <p class="text-lg mt-2 px-6">
