@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body class="bg-purple-100 min-h-screen flex flex-col">
-    
+
     <?php include('includes/header.php'); ?>
 
     <div class="flex flex-grow items-center justify-center p-4">
@@ -54,26 +54,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <?php echo $_SESSION['user']; ?>, do you want to change your password?
             </h2>
 
-            
+
             <form method="post" class="space-y-4">
 
 
-            <form method="post" class="mt-4">
+                <form method="post" class="mt-4">
 
-                <input type="password" name="OldPassword" placeholder="Enter Old Password..."
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
-                <input type="password" name="NewPassword" placeholder="Enter New Password..."
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
-                <input type="password" name="ConfirmPassword" placeholder="Confirm New Password..."
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
-                <button type="submit" name="CPassword"
-                    class="w-full bg-purple-500 text-white font-semibold p-3 rounded-lg hover:bg-purple-700 transition">
-                    Change Password
-                </button>
-            </form>
+                    <input type="password" name="OldPassword" placeholder="Enter Old Password..."
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <input type="password" name="NewPassword" placeholder="Enter New Password..."
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <input type="password" name="ConfirmPassword" placeholder="Confirm New Password..."
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <button type="submit" name="CPassword"
+                        class="w-full bg-purple-500 text-white font-semibold p-3 rounded-lg hover:bg-purple-700 transition">
+                        Change Password
+                    </button>
+                </form>
         </div>
     </div>
 
 </body>
-</html>
 
+</html>
