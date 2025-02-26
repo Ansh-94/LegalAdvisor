@@ -47,8 +47,8 @@ include('includes/db.php');
         </div>
 
         <div class="flex flex-wrap justify-center gap-6 w-full" id="lawyer-list">
-    <?php
-    $query = "SELECT 
+            <?php
+            $query = "SELECT 
               l.LawyerID,
               l.FullName,
               l.Specialization,
@@ -59,60 +59,60 @@ include('includes/db.php');
               FROM lawyers l
               INNER JOIN statemaster sm ON l.StateMasterID = sm.StateMasterID
               INNER JOIN citymaster cm ON l.CityMasterID = cm.CityMasterID";
-    $result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $query);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $ProfilePicture = !empty($row['ProfilePicture']) ? 'uploads/' . htmlspecialchars($row['ProfilePicture']) : 'img/advocate.png';
-    ?>
-    
-    <div class="bg-white rounded-lg shadow-md w-[350px] flex flex-col transition-all duration-300 search-card">
-        <!-- Combined Image and Content -->
-        <img src="<?= $ProfilePicture ?>" alt="Lawyer Profile Picture" 
-     class="w-full h-48 rounded-t-lg object-cover">
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ProfilePicture = !empty($row['ProfilePicture']) ? 'uploads/' . htmlspecialchars($row['ProfilePicture']) : 'img/advocate.png';
+                ?>
 
-
-        <h3 class="text-lg font-bold p-4"><?= $row['FullName'] ?></h3>
-        <p class="text-gray-500 px-4"><?= $row['Specialization'] ?></p>
-        <p class="text-gray-500 px-4"><?= $row['CityName'] ?>, <?= $row['StateName'] ?></p>
-        <p class="text-gray-500 px-4"><?= $row['Experience'] ?> years experience</p>
-
-        <!-- View More Button  -->
-        <form action="lawyerprofile.php" method="GET" class="mt-auto p-4">
-            <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
-            <button type="submit" 
-                class="w-full bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-500 transition">
-                View More
-            </button>
-        </form>
-    </div>
-
-    <?php } ?>
-</div>
+                <div class="bg-white rounded-lg shadow-md w-[350px] flex flex-col transition-all duration-300 search-card">
+                    <!-- Combined Image and Content -->
+                    <img src="<?= $ProfilePicture ?>" alt="Lawyer Profile Picture"
+                        class="w-full h-48 rounded-t-lg object-cover">
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector("#search-input"); 
-    const lawyerCards = document.querySelectorAll(".search-card");
+                    <h3 class="text-lg font-bold p-4"><?= $row['FullName'] ?></h3>
+                    <p class="text-gray-500 px-4"><?= $row['Specialization'] ?></p>
+                    <p class="text-gray-500 px-4"><?= $row['CityName'] ?>, <?= $row['StateName'] ?></p>
+                    <p class="text-gray-500 px-4"><?= $row['Experience'] ?> years experience</p>
 
-    searchInput.addEventListener("input", function () {
-        const searchValue = searchInput.value.trim().toLowerCase();
+                    <!-- View More Button  -->
+                    <form action="lawyerprofile.php" method="GET" class="mt-auto p-4">
+                        <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
+                        <button type="submit"
+                            class="w-full bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-500 transition">
+                            View More
+                        </button>
+                    </form>
+                </div>
 
-        lawyerCards.forEach(card => {
-            const name = card.querySelector(".lawyer-name").innerText.toLowerCase();
-            if (searchValue === "" || name.includes(searchValue)) {
-                card.style.opacity = "1"; 
-                card.style.position = "relative";
-                card.style.pointerEvents = "auto";
-            } else {
-                card.style.opacity = "0"; 
-                card.style.position = "absolute";
-                card.style.pointerEvents = "none";
-            }
-        });
-    });
-});
-</script>
+            <?php } ?>
+        </div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const searchInput = document.querySelector("#search-input");
+                const lawyerCards = document.querySelectorAll(".search-card");
+
+                searchInput.addEventListener("input", function () {
+                    const searchValue = searchInput.value.trim().toLowerCase();
+
+                    lawyerCards.forEach(card => {
+                        const name = card.querySelector(".lawyer-name").innerText.toLowerCase();
+                        if (searchValue === "" || name.includes(searchValue)) {
+                            card.style.opacity = "1";
+                            card.style.position = "relative";
+                            card.style.pointerEvents = "auto";
+                        } else {
+                            card.style.opacity = "0";
+                            card.style.position = "absolute";
+                            card.style.pointerEvents = "none";
+                        }
+                    });
+                });
+            });
+        </script>
 
 
 

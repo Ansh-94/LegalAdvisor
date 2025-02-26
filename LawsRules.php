@@ -82,7 +82,7 @@ include("includes/header.php");
           select.addEventListener("change", function () {
             let selectedValue = select.value;
             if (selectedValue) {
-              window.location.href = selectedValue; 
+              window.location.href = selectedValue;
             }
           });
         }
@@ -160,7 +160,7 @@ include("includes/header.php");
         };
 
         const lawsContainer = document.getElementById("laws-container");
-        
+
 
         function displayLaws(categoryFilter = "All") {
           lawsContainer.innerHTML = "";

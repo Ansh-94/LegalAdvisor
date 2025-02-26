@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); 
+include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

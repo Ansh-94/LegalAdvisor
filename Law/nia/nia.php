@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); 
+include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +15,17 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php');
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        
         .scrollable-content {
             max-height: 100px;
             overflow-y: auto;
             padding-right: 8px;
             scrollbar-width: none;
-           
+
         }
 
         .scrollable-content::-webkit-scrollbar {
             display: none;
-           
+
         }
     </style>
 </head>
@@ -40,7 +39,7 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php');
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("nia.json") 
+            fetch("nia.json")
                 .then(response => response.json())
                 .then(data => {
                     let container = document.getElementById("data-container");
@@ -72,7 +71,7 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php');
 
                         container.appendChild(card);
 
-                    
+
                         let toggleBtn = card.querySelector(".toggle-btn");
                         let description = card.querySelector(".scrollable-content");
 
