@@ -86,14 +86,14 @@ if (isset($_GET['LawyerID'])) {
             Bio = ?, 
             RecentCases = ?, 
             ProfilePicture = ? 
-        WHERE LawyerID = ?"); // Use ? placeholder
+        WHERE LawyerID = ?"); 
 
             if (!$stmt) {
                 die("Prepare failed: " . $conn->error);
             }
 
             $stmt->bind_param(
-                "sssisissddsssi", // Note: last 'i' is for LawyerID (integer)
+                "sssisissddsssi", 
                 $FullName,
                 $BarRegistration,
                 $Specialization,
@@ -107,7 +107,7 @@ if (isset($_GET['LawyerID'])) {
                 $Bio,
                 $RecentCases,
                 $ProfilePicture,
-                $LawyerID // Binding LawyerID as last parameter
+                $LawyerID 
             );
 
             if ($stmt->execute()) {
@@ -327,14 +327,12 @@ if (empty($_GET["LawyerID"])) {
                     reader.onload = function () {
                         var img = document.getElementById('imagePreview');
                         img.src = reader.result;
-                        img.classList.remove("hidden"); // Show image when selected
+                        img.classList.remove("hidden"); 
                     };
                     reader.readAsDataURL(event.target.files[0]);
                 }
             </script>
 
-            <!-- <button type="Submit" name="btnRegister" value="Register"
-                class="bg-purple-700 text-white py-2 rounded col-span-2">Register</button> -->
             <button type="Submit" name="btnUpdate" value="Update"
                 class="bg-purple-700 text-white py-2 rounded col-span-2">Update</button>
 

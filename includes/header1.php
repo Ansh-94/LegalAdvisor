@@ -19,7 +19,6 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 
 <body class="bg-purple-100  bg-cover bg-center w-full">
-    <!-- <img class="h-[50%]" src="justice.jpg" alt=""> -->
 
     <header class="bg-white bg shadow-md p-4 flex justify-between items-center ">
         <h1 class="text-xl font-bold text-purple-700 flex items-center space-x-2">
@@ -90,7 +89,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         // Redirect to the login page after the alert
                         window.location.href = 'log.php';
                     <?php } ?>
-                    // If session is set, no extra JavaScript runs and the link behaves normally.
+                    
                 });
             </script>
             <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
@@ -111,7 +110,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             // Redirect to the login page after the alert
                             window.location.href = 'log.php';
                         <?php } ?>
-                        // If session is set, no extra JavaScript runs and the link behaves normally.
+                     
                     });
                 </script>
             <?php } ?>
@@ -147,7 +146,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <!-- Profile Section -->
             <?php if (isset($_SESSION['user'])) { ?>
-                <!-- <div class="relative"> -->
+            
                 <div id="profile-icon"
                     class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold cursor-pointer relative"
                     onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleDropdown()">
@@ -164,7 +163,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a href="ChangePassword.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Change
                         Password</a>
                 </div>
-                <!-- </div> -->
+               
             <?php } else { ?>
                 <a href="log.php"
                     class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
@@ -173,8 +172,6 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php } ?>
 
 
-
-            <!-- JavaScript -->
             <script>
                 function showTooltip() {
                     document.getElementById("tooltip").classList.remove("hidden");
@@ -205,7 +202,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <!-- Profile Section -->
         <?php if (isset($_SESSION['user'])) { ?>
-                <!-- <div class="relative"> -->
+                
                 <div id="profile-icon"
                     class=" md:hidden w-10 h-10 rounded-full  ml-[70px] bg-purple-500 flex items-center justify-center text-white font-bold cursor-pointer relative"
                     onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleDropdown()">
@@ -222,7 +219,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a href="ChangePassword.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Change
                         Password</a>
                 </div>
-                <!-- </div> -->
+
             <?php } else { ?>
                 <a href="log.php"
                     class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">

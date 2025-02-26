@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['user'])) {
-    // echo "<script>  alert('Login Required!');});</script>";
+   
     header("Location: log.php");
     exit();
 }
@@ -62,7 +62,7 @@ if (!isset($_SESSION['user'])) {
             <div class="mt-4">
                 <input type="text" placeholder="Enter your message..."
                     class="message-input w-full p-3 border rounded-lg mb-2">
-                <!-- <input type="text" placeholder="Enter Image URL (optional)" class="w-full p-3 border rounded-lg mb-2"> -->
+                
                 <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700"
                     id="send-message">Send</button>
             </div>

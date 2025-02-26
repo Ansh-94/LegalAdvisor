@@ -76,7 +76,7 @@ include('includes/db.php');
         <p class="text-gray-500 px-4"><?= $row['CityName'] ?>, <?= $row['StateName'] ?></p>
         <p class="text-gray-500 px-4"><?= $row['Experience'] ?> years experience</p>
 
-        <!-- View More Button (Sticks to Bottom) -->
+        <!-- View More Button  -->
         <form action="lawyerprofile.php" method="GET" class="mt-auto p-4">
             <input type="hidden" name="LawyerID" value="<?= htmlspecialchars($row['LawyerID']); ?>">
             <button type="submit" 
@@ -92,7 +92,7 @@ include('includes/db.php');
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector("#search-input"); // Your search input ID
+    const searchInput = document.querySelector("#search-input"); 
     const lawyerCards = document.querySelectorAll(".search-card");
 
     searchInput.addEventListener("input", function () {
@@ -101,11 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
         lawyerCards.forEach(card => {
             const name = card.querySelector(".lawyer-name").innerText.toLowerCase();
             if (searchValue === "" || name.includes(searchValue)) {
-                card.style.opacity = "1"; // Make it visible
+                card.style.opacity = "1"; 
                 card.style.position = "relative";
                 card.style.pointerEvents = "auto";
             } else {
-                card.style.opacity = "0"; // Hide smoothly without breaking layout
+                card.style.opacity = "0"; 
                 card.style.position = "absolute";
                 card.style.pointerEvents = "none";
             }

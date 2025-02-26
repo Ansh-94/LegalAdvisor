@@ -32,7 +32,7 @@ include('includes/header.php');
       }
     </script>
     <div class="border-l-2 border-r-2 border-gray-300 bg-white w-full rounded-lg shadow-lg overflow-hidden">
-      <!-- Header Section with 5px Purple Rounded Border -->
+      <!-- Header Section  -->
       <header class="bg-purple-700 text-white py-8 w-full"
         style="border: 5px solid #6b46c1; border-radius: 10px 5px 0 0;">
         <div class="px-6">
@@ -47,7 +47,7 @@ include('includes/header.php');
       <div class="p-8">
         <h2 class="text-2xl font-bold text-purple-700 text-center mb-6">Important Contacts</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Police -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚔</span>
             <div>
@@ -55,7 +55,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 100</p>
             </div>
           </div>
-          <!-- Fire Department -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🔥</span>
             <div>
@@ -63,7 +63,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 101</p>
             </div>
           </div>
-          <!-- Ambulance -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚑</span>
             <div>
@@ -71,7 +71,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 102</p>
             </div>
           </div>
-          <!-- Disaster Management -->
+   
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🌪️</span>
             <div>
@@ -79,7 +79,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 108</p>
             </div>
           </div>
-          <!-- Women’s Helpline -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👩</span>
             <div>
@@ -87,7 +87,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1091</p>
             </div>
           </div>
-          <!-- Child Helpline -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👶</span>
             <div>
@@ -95,7 +95,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1098</p>
             </div>
           </div>
-          <!-- Cyber Crime Helpline -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">💻</span>
             <div>
@@ -103,7 +103,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 155260</p>
             </div>
           </div>
-          <!-- Senior Citizens Helpline -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">👴</span>
             <div>
@@ -111,7 +111,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 14567</p>
             </div>
           </div>
-          <!-- Road Accident Emergency -->
+         
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚗</span>
             <div>
@@ -119,7 +119,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1073</p>
             </div>
           </div>
-          <!-- Mental Health Helpline -->
+         
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🧠</span>
             <div>
@@ -127,7 +127,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-599-0019</p>
             </div>
           </div>
-          <!-- Poison Control -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">☠️</span>
             <div>
@@ -135,7 +135,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-180-1104</p>
             </div>
           </div>
-          <!-- Legal Aid Helpline -->
+         
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">⚖️</span>
             <div>
@@ -143,7 +143,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 1800-XYZ-1234</p>
             </div>
           </div>
-          <!-- Sexual Harassment Helpline -->
+          
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🙅</span>
             <div>
@@ -151,7 +151,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 181</p>
             </div>
           </div>
-          <!-- Domestic Violence Helpline -->
+       
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🚫</span>
             <div>
@@ -159,7 +159,7 @@ include('includes/header.php');
               <p class="text-sm text-gray-600">Call: 181</p>
             </div>
           </div>
-          <!-- Anti-Ragging Helpline -->
+       
           <div class="bg-gray-200 rounded-2xl shadow-md p-4 flex items-center gap-4">
             <span class="text-3xl">🎓</span>
             <div>
@@ -171,7 +171,7 @@ include('includes/header.php');
       </div>
 
 
-      <!-- Footer with 5px Purple Rounded Border -->
+      <!-- Footer -->
       <footer class="bg-purple-700 text-white py-4 w-full"
         style="border: 5px solid #6b46c1; border-radius: 0 0 5px 5px;">
         <p class="text-center">&copy; 2025 AI Lawyer Advisor. All Rights Reserved.</p>

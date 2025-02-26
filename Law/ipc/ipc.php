@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); // Ensure this path is correct
+include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +15,18 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); // Ensure this pat
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* Hide scrollbar but allow scrolling */
+       
         .scrollable-content {
             max-height: 100px;
             overflow-y: auto;
             padding-right: 8px;
             scrollbar-width: none;
-            /* Firefox */
+         
         }
 
         .scrollable-content::-webkit-scrollbar {
             display: none;
-            /* Chrome, Safari */
+     
         }
     </style>
 </head>
@@ -40,7 +40,7 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); // Ensure this pat
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("ipc.json") // Replace with actual JSON file if using locally
+            fetch("ipc.json") 
                 .then(response => response.json())
                 .then(data => {
                     let container = document.getElementById("data-container");
@@ -72,7 +72,7 @@ include('C:\xampp\htdocs\LegalAdvisor\includes\header1.php'); // Ensure this pat
 
                         container.appendChild(card);
 
-                        // Add event listener for toggle button
+                      
                         let toggleBtn = card.querySelector(".toggle-btn");
                         let description = card.querySelector(".scrollable-content");
 

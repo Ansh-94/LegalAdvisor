@@ -36,7 +36,7 @@ include('includes/header.php');
     </script>
 
     <div class="bg-white w-full rounded-lg shadow-lg overflow-hidden">
-      <!-- Header Section with Rounded Top Corners -->
+     
       <div class="bg-purple-700 text-white text-center py-8 rounded-t-[10px]">
         <h1 class="text-3xl font-bold">About Us</h1>
         <p class="text-lg mt-2 px-6">
@@ -136,22 +136,22 @@ include('includes/header.php');
         <h2 class="text-2xl font-bold text-purple-700 text-center mb-6">Meet Our Team</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <!-- Ansh Card -->
-          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
+          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center bg-purple-700">
             <img src="img/Ansh.jpg" alt="Ansh" class="w-24 h-24 rounded-full mx-auto">
-            <h3 class="text-lg font-bold mt-4">Ansh</h3>
-            <p class="text-sm text-gray-600">Full Stack Developer</p>
+            <h3 class="text-lg text-white  font-bold mt-4">Ansh</h3>
+            <p class="text-sm text-white">Full Stack Developer</p>
           </div>
           <!-- Aryan Card -->
-          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
+          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center bg-purple-700">
             <img src="img/aryan2.jpg" alt="Aryan" class="w-24 h-24 rounded-full mx-auto">
-            <h3 class="text-lg font-bold mt-4">Aryan</h3>
-            <p class="text-sm text-gray-600">Full Stack Developer</p>
+            <h3 class="text-lg text-white font-bold mt-4">Aryan</h3>
+            <p class="text-sm text-white">Full Stack Developer</p>
           </div>
           <!-- Paresh Card -->
-          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
+          <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center bg-purple-700">
             <img src="img/paresh.jpg" alt="Paresh" class="w-24 h-24 rounded-full mx-auto">
-            <h3 class="text-lg font-bold mt-4">Paresh</h3>
-            <p class="text-sm text-gray-600">Full Stack Developer</p>
+            <h3 class="text-lg text-white font-bold mt-4">Paresh</h3>
+            <p class="text-sm text-white">Full Stack Developer</p>
           </div>
         </div>
       </div>
