@@ -143,15 +143,15 @@ include('includes/header.php');
           </div>
           <!-- Aryan Card -->
           <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
-            <img src="https://via.placeholder.com/100" alt="Aryan" class="w-24 h-24 rounded-full mx-auto">
+            <img src="img/aryan2.jpg" alt="Aryan" class="w-24 h-24 rounded-full mx-auto">
             <h3 class="text-lg font-bold mt-4">Aryan</h3>
-            <p class="text-sm text-gray-600">UI/UX Designer</p>
+            <p class="text-sm text-gray-600">Full Stack Developer</p>
           </div>
           <!-- Paresh Card -->
           <div class="team-card bg-gray-200 rounded-lg shadow-md p-4 text-center">
-            <img src="https://via.placeholder.com/100" alt="Paresh" class="w-24 h-24 rounded-full mx-auto">
+            <img src="img/paresh.jpg" alt="Paresh" class="w-24 h-24 rounded-full mx-auto">
             <h3 class="text-lg font-bold mt-4">Paresh</h3>
-            <p class="text-sm text-gray-600">Backend Engineer</p>
+            <p class="text-sm text-gray-600">Full Stack Developer</p>
           </div>
         </div>
       </div>
