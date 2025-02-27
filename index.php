@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include('includes/header.php');
-if (time() - $_SESSION['LoginActivity'] > 86400) {
+if (time() - $_SESSION['LoginActivity'] > 3600) {
     echo "<script>alert('Session Expired Please Login Again!');</script>";
     echo '<script>window.location.href=`log.php`</script>  ';
 }

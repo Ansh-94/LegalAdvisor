@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 include("./includes/db.php");
 
 // Define placeholders for messages
@@ -33,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user'] = $user['UserName'];
         $_SESSION['UserType'] = $user['UserType'];
         $_SESSION['UserMasterID'] = $user['UserMasterID'];
-        $_SESSION['LoginActivity'] = time();
+        // $_SESSION['LoginActivity'] = time();
         header("Location: index.php");
         exit;
       } else {

@@ -1,0 +1,11 @@
+ <script>
+                document.getElementById("legal").addEventListener("click", function (event) {
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        // Prevent the link's default behavior
+                        event.preventDefault();
+                        alert('Login Required!');
+                        // Redirect to the login page after the alert
+                        window.location.href = 'log.php';
+                    <?php } ?>
+                });
+            </script>

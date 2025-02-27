@@ -41,7 +41,7 @@ include('includes/db.php');
         <h2 class="text-3xl font-bold mb-4">Find a Lawyer</h2>
 
         <div class="flex items-center space-x-4 mb-6">
-            <input type="text" id="search" placeholder="Search by name or specialization..."
+            <input type="text" id="search" placeholder="Search by Name / State / City or Specialization..."
                 class="border p-2 w-full rounded-md">
 
         </div>

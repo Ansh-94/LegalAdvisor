@@ -93,7 +93,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 });
             </script>
-            <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
+            <?php if (isset($_SESSION['UserType']) == 'Lawyer') { ?>
 
                 <a href="lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
@@ -118,28 +118,21 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <?php if (isset($_SESSION['user'])) { ?>
 
-                <a href="logout.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
- text-purple-700 font-bold hover:text-purple-900 
-  hover:bg-purple-200">
+                <a href="logout.php"
+                    class="flex items-center px-4 py-2 rounded-lg transition duration-300 text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200">
                     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
                     <span class="material-symbols-outlined">logout</span>
                     <span>Logout</span>
                 </a>
 
             <?php } else { ?>
-                <a href="log.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
- text-purple-700 font-bold hover:text-purple-900 
-  hover:bg-purple-200">
+                <a href="log.php"
+                    class="flex items-center px-4 py-2 rounded-lg transition duration-300 text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200">
                     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
                     <span class="material-symbols-outlined">login</span>
                     <span>Login</span>
                 </a>
-
             <?php } ?>
-
-
-
-
 
             <button onclick="toggleMoreSidebar()" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
@@ -149,7 +142,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 </span>
                 <span>More</span>
             </button>
-
 
             <!-- Profile Section -->
             <?php if (isset($_SESSION['user'])) { ?>
@@ -164,18 +156,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     </span>
                 </div>
 
-                <!-- Dropdown Menu -->
-                <div id="dropdown" class="absolute right-0 mt-2 w-40 bg-white shadow-md rounded hidden">
-                    <a href="logout.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Logout</a>
-                    <a href="ChangePassword.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Change
-                        Password</a>
-                </div>
-
-            <?php } else { ?>
-                <a href="log.php"
-                    class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
-                    <span class="material-symbols-outlined">login</span> Login
-                </a>
             <?php } ?>
 
             <script>
@@ -226,11 +206,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     Password</a>
             </div>
 
-        <?php } else { ?>
-            <a href="log.php"
-                class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
-                <span class="material-symbols-outlined">login</span> Login
-            </a>
         <?php } ?>
 
 

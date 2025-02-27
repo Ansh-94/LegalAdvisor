@@ -92,7 +92,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 });
             </script>
-            <?php if ($_SESSION['UserType'] == 'Lawyer') { ?>
+            <?php if (isset($_SESSION['UserType']) == 'Lawyer') { ?>
 
                 <a href="/LegalAdvisor/lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
@@ -164,14 +164,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         Password</a>
                 </div>
 
-            <?php } else { ?>
-                <a href="log.php"
-                    class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
-                    <span class="material-symbols-outlined">login</span> Login
-                </a>
             <?php } ?>
-
-
             <script>
                 function showTooltip() {
                     document.getElementById("tooltip").classList.remove("hidden");
@@ -219,12 +212,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="ChangePassword.php" class="block px-4 py-2 text-purple-700 hover:bg-gray-200 rounded">Change
                     Password</a>
             </div>
-
-        <?php } else { ?>
-            <a href="log.php"
-                class="text-purple-700 font-bold hover:text-purple-900 hover:bg-purple-200 px-4 py-2 rounded-lg">
-                <span class="material-symbols-outlined">login</span> Login
-            </a>
         <?php } ?>
 
 

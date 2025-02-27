@@ -147,6 +147,7 @@ if (empty($_GET["LawyerID"])) {
         $HourlyRate = $row["HourlyRate"];
         $Bio = $row["Bio"];
         $RecentCases = $row["RecentCases"];
+        $ProfilePicture = $row["ProfilePicture"];
     }
 }
 ?>
@@ -205,6 +206,20 @@ if (empty($_GET["LawyerID"])) {
                 <option value="CorporateLaw" <?php if ($Specialization == "CorporateLaw")
                     echo "selected"; ?>>Corporate
                     Law</option>
+                <option value="CyberLaw" <?php if ($Specialization == "CyberLaw")
+                    echo "selected"; ?>>Cyber Law</option>
+                <option value="FamilyLaw" <?php if ($Specialization == "FamilyLaw")
+                    echo "selected"; ?>>Family Law
+                </option>
+                <option value="TaxLaw" <?php if ($Specialization == "TaxLaw")
+                    echo "selected"; ?>>Tax Law</option>
+                <option value="IntellectualPropertyLaw" <?php if ($Specialization == "IntellectualPropertyLaw")
+                    echo "selected"; ?>>Intellectual Property Law</option>
+                <option value="RealEstateLaw" <?php if ($Specialization == "RealEstateLaw")
+                    echo "selected"; ?>>RealEstate
+                    Law</option>
+                <option value="ImmigrationLaw" <?php if ($Specialization == "ImmigrationLaw")
+                    echo "selected"; ?>>Immigration Law</option>
             </select>
 
             <input type="number" name="Experience" placeholder="Years of Experience"
@@ -298,7 +313,7 @@ if (empty($_GET["LawyerID"])) {
             <input type="number" name="HourlyRate" placeholder="Hourly Rate" value="<?php echo "$HourlyRate"; ?>"
                 class="border p-2 rounded">
             <textarea placeholder="Professional Bio" name="Bio" class="border p-2 rounded col-span-2">
-                    <?php echo htmlspecialchars("$Bio"); ?>
+                    <?php echo htmlspecialchars($Bio); ?>
             </textarea>
 
             <textarea placeholder="About Recent Cases" name="RecentCases" class="border p-2 rounded col-span-2">
@@ -311,14 +326,15 @@ if (empty($_GET["LawyerID"])) {
 
                 <!-- Image Preview -->
                 <?php if (!empty($ProfilePicture)) { ?>
-                    <img id="imagePreview" src="uploads/<?php echo $ProfilePicture; ?>"
-                        class="mt-2 mx-auto w-32 h-32 rounded-full object-cover">
+                    <img src="uploads/<?= htmlspecialchars($ProfilePicture) ?>" alt="Lawyer Image"
+                        class="w-[120px] h-[120px] object-cover ml-[330px] mt-2 mb-2">
                 <?php } else { ?>
                     <img id="imagePreview" src="default.png"
                         class="mt-2 mx-auto w-32 h-32 rounded-full object-cover hidden">
                 <?php } ?>
 
-                <input type="file" name="ProfilePicture" accept="image/*" class="mt-2" onchange="previewImage(event)">
+                <input type="file" name="ProfilePicture" accept="image/*" class="mt-2 ml-[70px]"
+                    onchange="previewImage(event)">
             </div>
 
             <script>

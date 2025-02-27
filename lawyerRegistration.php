@@ -139,6 +139,14 @@ if (isset($_POST['btnRegister'])) {
                 <option values="CriminalLaw">Criminal Law</option>
                 <option value="CivilRights">Civil Rights</option>
                 <option value="CorporateLaw">Corporate Law</option>
+                <option value="CyberLaw">Cyber Law</option>
+                <option value="FamilyLaw">Family Law</option>
+                <option value="TaxLaw">Tax Law</option>
+                <option value="IntellectualPropertyLaw">Intellectual Property Law</option>
+                <option value="RealEstateLaw">RealEstate Law</option>
+                <option value="ImmigrationLaw">Immigration Law</option>
+                <option value="ImmigrationLaw">Immigration Law</option>
+
             </select>
             <input type="number" name="Experience" placeholder="Years of Experience" class="border p-2 rounded"
                 required>
@@ -198,8 +206,10 @@ if (isset($_POST['btnRegister'])) {
             <textarea placeholder="About Recent Cases" name="RecentCases"
                 class="border p-2 rounded col-span-2"></textarea>
             <div class="border-dashed border-2 p-4 rounded col-span-2 text-center">
-                <p class="text-gray-600">Upload a file or drag and drop</p>
-                <p class="text-sm text-gray-400">PNG, JPG, GIF up to 10MB</p>
+                <b>
+                    <p class="text-gray-600">Upload a file or drag and drop</p>
+                    <p class="text-sm text-black">PNG, JPG, GIF up to 2MB</p>
+                </b>
                 <input type="file" name="ProfilePicture" accept="image/*" class="mt-2">
             </div>
             <button type="Submit" name="btnRegister" value="Register"
