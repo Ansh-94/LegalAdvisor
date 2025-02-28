@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2025 at 06:24 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Feb 28, 2025 at 07:25 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +33,7 @@ CREATE TABLE `citymaster` (
   `StateMasterID` int(10) NOT NULL,
   `CityName` varchar(50) NOT NULL,
   `Flag` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `citymaster`
@@ -573,22 +574,23 @@ CREATE TABLE `lawyers` (
   `Phone` varchar(20) NOT NULL,
   `ConsultationFee` decimal(10,2) DEFAULT NULL,
   `HourlyRate` decimal(10,2) DEFAULT NULL,
-  `Bio` text DEFAULT NULL,
+  `Bio` text,
   `RecentCases` varchar(255) NOT NULL,
   `ProfilePicture` varchar(255) DEFAULT NULL,
-  `CreatedAt` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `CreatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lawyers`
 --
 
 INSERT INTO `lawyers` (`LawyerID`, `FullName`, `BarRegistration`, `Specialization`, `Experience`, `StateMasterID`, `CityMasterID`, `Email`, `Phone`, `ConsultationFee`, `HourlyRate`, `Bio`, `RecentCases`, `ProfilePicture`, `CreatedAt`) VALUES
-(36, 'Ansh', '789784654654654', 'CivilRights', 5, 7, 125, 'meghandfiansh@gmail.com', '9784654545', 498465.00, 465464.00, '                    jkfgdsfgdhsfgdjlsfgdnjklsfg            ', 'kjbfabfgafliaguifyghlaergyueagbfjgearogsdrgsorbgosdighrtgisbtgbstkldjg', 'my pic.jpg', '2025-02-20 17:55:30'),
-(37, 'Paresh', '787874521787878', 'CorporatLaw', 5, 13, 339, 'meghanisdfansh@gmail.com', '7894554521', 785454.00, 789.00, 'jhbdfsdshujbdfs', 'jbshgfnmgfnms', 'EOS_6102.JPG', '2025-02-20 19:01:14'),
-(38, 'Piyush', '978987456446565', 'CriminalLaw', 2, 7, 129, 'aryaninai5dfd1@gmail.com', '9788846589', 9845145.00, 4456.00, 'fdgfdghfdghfdghfd', 'ghfdghfdghfdghfd', 'EOS_8910.JPG', '2025-02-21 19:40:20'),
-(39, 'Urvisha', '978456321546465', 'CriminalLaw', 8, 1, 14, 'sghvvf@gmail.com', '9876543211', 987456.00, 789.00, '                    dsbjhsfdsfgbdbjhsfgsfg                                    ', '                    jsfgdbjhfgdbjh                                    ', 'Screenshot 2024-10-09 223621.png', '2025-02-21 20:41:30'),
-(40, 'Aryan Nai', '874545412332132', 'CivilRights', 2, 7, 126, 'aryaninai51@gmail.com', '8787545452', 789854.00, 7887.00, 'kjesihdfhfnmdhjkrsdf', 'ddjfuhirdnfjjigdrkf', 'EOS_7904.JPG', '2025-02-24 07:56:19');
+(36, 'Ansh', '789784654654654', 'TaxLaw', 5, 7, 125, 'meghandfiansh@gmail.com', '9784654545', '498465.00', '465464.00', 'A Tax Lawyer specializes in legal matters related to taxation, helping individuals, businesses, and organizations navigate complex tax laws and regulations. They provide expert advice on tax planning, compliance, audits, and dispute resolution with tax authorities.', 'Case Name: Gujarat v. James Carter\r\nCase Number: GJ-CR-2024-1056\r\nDate: February 2024\r\nClient: Paresh Parekh (Defendant)\r\nCharges: Wrongful accusation of financial fraud (Value: $2.5M)', 'my pic.jpg', '2025-02-20 17:55:30'),
+(42, 'Paresh bb', '576546465465465', 'Criminal Law', 465, 14, 379, 'meghfgdaniansh@gmail.com', '9784846546', '45.00', '345.00', 'fjfjfgjjhgxfghfghfghsfgh', 'dddjggjgffgh', '', '2025-02-25 17:30:39'),
+(46, 'Paresh kukadiya', '545778888888888', 'CyberLaw', 2, 4, 103, 'pp@gmail.com', '5487878545', '450000.00', '4500.00', 'A Cyber Lawyer specializes in legal matters related to cybercrime, data privacy, intellectual property (IP), and digital transactions under Indian laws such as the Information Technology (IT) Act, 2000, and related statutes. They provide legal counsel on cyber fraud, hacking, data breaches, digital evidence, online defamation, and cybersecurity compliance for individuals, businesses, and government entities.', 'Case Name: State of Maharashtra v. XYZ Hacker Group\r\nCase Number: CYB/2024/5678\r\nDate: February 2024\r\nClient: Government of Maharashtra (Prosecution Counsel)\r\nIssue: Hacking & Ransomware Attack on a Government Website', 'paresh.jpg', '2025-02-28 05:27:58'),
+(47, 'Aryan nai', '787878787878787', 'RealEstateLaw', 3, 7, 125, 'aa@gmail.com', '4545454545', '450000.00', '4500.00', 'A Real Estate Lawyer in India specializes in legal matters related to property transactions, land disputes, real estate contracts, and compliance with property laws such as the Real Estate (Regulation and Development) Act (RERA), 2016, Transfer of Property Act, 1882, and Indian Contract Act, 1872. They assist individuals, businesses, and developers in property purchases, lease agreements, title verification, and litigation involving real estate disputes.', 'Case Name: Ramesh Gupta v. XYZ Builders Pvt. Ltd.\r\nCase Number: RERA/MH/2024/1123\r\nDate: January 2024\r\nClient: Homebuyer (Petitioner)\r\nIssue: Delay in Property Possession under RERA', 'mee.jpg', '2025-02-28 05:32:19'),
+(48, 'Kartik', '787897845465454', 'IntellectualPropertyLaw', 2, 7, 128, 'kartik11@gmail.com', '7878894456', '9874.00', '785.00', 'An Intellectual Property (IP) Lawyer in India specializes in protecting and enforcing intellectual property rights such as patents, trademarks, copyrights, and trade secrets under laws like the Indian Patent Act, 1970, Copyright Act, 1957, and Trademarks Act, 1999. They assist clients in filing applications, defending IP rights, preventing infringement, and handling IP litigation.', 'Name: Adv. Rajiv Menon\r\nSpecialization: Intellectual Property Law (Patents, Trademarks, Copyrights)\r\nExperience: 15+ years in IP litigation & corporate advisory\r\nEducation: LL.M. in Intellectual Property Law, National Law University, Delhi\r\nBar Admission:', 'kartik.jpg', '2025-02-28 06:16:44'),
+(49, 'Bhargav', '789789876546546', 'ImmigrationLaw', 5, 13, 340, 'aed@gmail.com', '7896546897', '7854.00', '987.00', 'An Immigration Lawyer in India specializes in visa applications, residency permits, citizenship laws, deportation defense, and legal compliance for individuals and businesses dealing with immigration matters. They assist clients in obtaining work permits, student visas, business visas, asylum claims, and permanent residency under Indian immigration laws such as the Citizenship Act, 1955, Foreigners Act, 1946, and Visa Regulations by the Ministry of External Affairs.', 'Name: Adv. Rajiv Menon\r\nSpecialization: Immigration Law, Visa Appeals, Citizenship & Residency Laws\r\nExperience: 15+ years in Indian and international immigration law\r\nEducation: LL.M. in International Law, Delhi University\r\nBar Admission: Enrolled with t', 'Bhargav.jpg', '2025-02-28 06:20:07');
 
 -- --------------------------------------------------------
 
@@ -600,7 +602,7 @@ CREATE TABLE `statemaster` (
   `StateMasterID` int(10) NOT NULL,
   `StateName` varchar(50) NOT NULL,
   `Flag` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `statemaster`
@@ -648,7 +650,7 @@ CREATE TABLE `usermaster` (
   `Password` varchar(100) NOT NULL,
   `Email` varchar(20) NOT NULL,
   `UserType` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usermaster`
@@ -709,7 +711,7 @@ ALTER TABLE `citymaster`
 -- AUTO_INCREMENT for table `lawyers`
 --
 ALTER TABLE `lawyers`
-  MODIFY `LawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `LawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `statemaster`

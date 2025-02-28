@@ -93,11 +93,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 });
             </script>
-            <?php if (isset($_SESSION['UserType']) == 'Lawyer') { ?>
-
+            <?php if (isset($_SESSION['UserType']) && $_SESSION['UserType'] === 'Lawyer') { ?>
                 <a href="lawyerRegistration.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
                  text-purple-700 font-bold hover:text-purple-900 
-                  hover:bg-purple-200">
+                hover:bg-purple-200">
                     <span class="material-symbols-outlined">person_add</span>
                     <span>Lawyer Registration</span>
                 </a>
@@ -246,6 +245,12 @@ if (session_status() === PHP_SESSION_NONE) {
                              hover:bg-purple-500 gap-3"><span class="material-symbols-outlined">
                         contact_support
                     </span>FAQ</a></li>
+
+            <li><a href="feedback.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+                            text-purple-700 font-bold hover:text-purple-900 
+                             hover:bg-purple-500 gap-3"><span class="material-symbols-outlined">
+                        contact_support
+                    </span> User Feedback</a></li>
         </ul>
     </div>
 
@@ -288,6 +293,11 @@ if (session_status() === PHP_SESSION_NONE) {
                          hover:bg-purple-200 gap-3"><span class="material-symbols-outlined">
                         contact_support
                     </span>FAQ</a></li>
+            <li><a href="feedback.php" class="flex items-center px-4 py-2 rounded-lg transition duration-300 
+                            text-purple-700 font-bold hover:text-purple-900 
+                             hover:bg-purple-500 gap-3"><span class="material-symbols-outlined">
+                        contact_support
+                    </span>User Feedback</a></li>
         </ul>
     </div>
 

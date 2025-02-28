@@ -4,25 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include('includes/header.php');
 include('includes/db.php');
+include('includes/security.php'); // Include security functions
 
-
-$LawyerID = "";
-$FullName = "";
-$BarRegistration = "";
-$Specialization = "";
-$Experience = "";
-$StateMasterID = "";
-$CityMasterID = "";
-$Email = "";
-$Phone = "";
-$ConsultationFee = "";
-$HourlyRate = "";
-$Bio = "";
-$RecentCases = "";
-$ProfilePicture = "";
-$CreatedAt = "";
-$btn = "Register";
 $message = "";
+$btn = "Register";
 
 if (isset($_POST['btnRegister'])) {
     if ('Register' == $_POST["btnRegister"]) {
@@ -40,21 +25,20 @@ if (isset($_POST['btnRegister'])) {
         $Bio = $_POST["Bio"];
         $RecentCases = $_POST["RecentCases"];
         $ProfilePicture = $_FILES["ProfilePicture"]['name'];
+
         $target_dir = 'uploads/';
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
         move_uploaded_file($_FILES['ProfilePicture']['tmp_name'], $target_dir . $ProfilePicture);
 
+        // Encrypt Email & Phone
+        $EncryptedEmail = encryptData($Email);
+        $EncryptedPhone = encryptData($Phone);
 
-
-        // Check for duplicates
+        // Check for duplicate records
         $duplicate_message = "";
-        $fields = [
-            "Email" => $Email,
-            "Phone" => $Phone,
-            "BarRegistration" => $BarRegistration
-        ];
+        $fields = ["Email" => $EncryptedEmail, "Phone" => $EncryptedPhone, "BarRegistration" => $BarRegistration];
 
         foreach ($fields as $column => $value) {
             $query = "SELECT 1 FROM lawyers WHERE $column = ?";
@@ -74,23 +58,38 @@ if (isset($_POST['btnRegister'])) {
             exit();
         }
 
+        // Insert Encrypted Data
+        $stmt = "INSERT INTO lawyers (FullName, BarRegistration, Specialization, Experience, StateMasterID, CityMasterID, Email, Phone, ConsultationFee, HourlyRate, Bio, RecentCases, ProfilePicture) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = "Insert into lawyers(FullName,BarRegistration,Specialization,Experience,StateMasterID,
-        CityMasterID,Email,Phone,ConsultationFee,HourlyRate,Bio,RecentCases,ProfilePicture)values
-        ('" . $FullName . "','" . $BarRegistration . "','" . $Specialization . "','" . $Experience . "'
-        ,'" . $StateName . "','" . $CityName . "','" . $Email . "','" . $Phone . "','" . $ConsultationFee . "'
-        , '" . $HourlyRate . "','" . $Bio . "','" . $RecentCases . "','" . $ProfilePicture . "' ) ";
+        $query = mysqli_prepare($conn, $stmt);
+        mysqli_stmt_bind_param(
+            $query,
+            "sssssssssssss",
+            $FullName,
+            $BarRegistration,
+            $Specialization,
+            $Experience,
+            $StateName,
+            $CityName,
+            $EncryptedEmail,
+            $EncryptedPhone,
+            $ConsultationFee,
+            $HourlyRate,
+            $Bio,
+            $RecentCases,
+            $ProfilePicture
+        );
 
-
-        if ($conn->query($stmt) === true) {
+        if (mysqli_stmt_execute($query)) {
             echo "<script>alert('Registration Successful!'); window.location.href='lawyerDirectory.php';</script>";
-
         } else {
             echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.history.back();</script>";
         }
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -145,7 +144,7 @@ if (isset($_POST['btnRegister'])) {
                 <option value="IntellectualPropertyLaw">Intellectual Property Law</option>
                 <option value="RealEstateLaw">RealEstate Law</option>
                 <option value="ImmigrationLaw">Immigration Law</option>
-                <option value="ImmigrationLaw">Immigration Law</option>
+
 
             </select>
             <input type="number" name="Experience" placeholder="Years of Experience" class="border p-2 rounded"

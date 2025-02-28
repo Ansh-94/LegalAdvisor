@@ -9,6 +9,7 @@ if (!isset($_SESSION['user'])) {
 
 include('includes/header.php');
 include('includes/db.php');
+include('includes/security.php');
 
 ?>
 

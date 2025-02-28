@@ -5,20 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// if (isset($_SESSION['LoginActivity'])) {
-//     if (time() - $_SESSION['LoginActivity'] > 3600) {
-//         echo "<script>alert('Session Expired. Please Login Again!');</script>";
-//         echo '<script>window.location.href="log.php";</script>';
-//         exit;
-//     }
-// } 
-
-// else {
-//     // Allow access without login or redirect to login page
-//      echo '<script>window.location.href="index1.php";</script>';
-// }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

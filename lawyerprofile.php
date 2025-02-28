@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include('includes/header.php');
 include('includes/db.php');
+include('includes/security.php');
 
 
 // Check if LawyerID is set in GET or POST request
@@ -132,9 +133,9 @@ if ($result && mysqli_num_rows($result) > 0) {
                     <strong>🏙️ City:</strong> <?= htmlspecialchars($lawyerprofile['CityName']) ?>
                 </p>
                 <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📧 Email:</strong>
-                    <?= htmlspecialchars($lawyerprofile['Email']); ?></p>
+                    <?= htmlspecialchars(decryptData($lawyerprofile['Email'])); ?></p>
                 <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>📞 Contact No:</strong>
-                    <?= htmlspecialchars($lawyerprofile['Phone']); ?></p>
+                    <?= htmlspecialchars(decryptData($lawyerprofile['Phone'])); ?></p>
                 <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>💰 Consultation Fee:</strong>
                     <?= htmlspecialchars($lawyerprofile['ConsultationFee']); ?></p>
                 <p class="text-black hover:bg-purple-500 py-1 rounded-full"><strong>⏳ Hourly Rate:</strong>
