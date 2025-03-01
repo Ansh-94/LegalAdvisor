@@ -286,7 +286,25 @@ if (session_status() === PHP_SESSION_NONE) {
     </section>
 
 
-    <div class="flex items-center justify-center w-full">
+    <!-- <button onclick="window.location.href='chatbot.php'"
+        class="fixed bottom-12 right-5 bg-yellow-400 text-purple-700 text-[15px] px-6 py-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
+        <span class="material-symbols-outlined">chat</span>
+    </button> -->
+
+
+    <div class="fixed bottom-12 right-5 group">
+        <span
+            class="absolute bottom-full right-0 mb-2 hidden group-hover:flex bg-gray-800 text-white text-xs px-3 py-1 rounded-lg shadow-lg transition-opacity duration-300">
+            Chat with me!
+        </span>
+        <button onclick="window.location.href='chatbot.php'"
+            class="bg-[#00BCD4] text-white text-[15px] px-6 py-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
+            <span class="material-symbols-outlined text-4xl text-white">3p</span>
+        </button>
+    </div>
+
+
+    <!-- <div class="flex items-center justify-center w-full">
         <div
             class="bg-purple-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 max-w-6xl w-full m-3">
             <div class="flex items-center mb-4">
@@ -392,7 +410,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     Courts for enforcement of Fundamental Rights.</li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
     <footer class="bg-purple-900 text-white py-10 mt-10">

@@ -1,7 +1,5 @@
 <?php
-// define('ENCRYPTION_KEY', 'your-strong-secret-key'); // Change this to a secure key
 
-// Encrypt Function
 define('ENCRYPTION_KEY', 'your-secure-32-byte-key'); // Ensure this is exactly 32 bytes for AES-256
 
 function encryptData($data)
