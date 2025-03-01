@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include('includes/header.php');
 include('includes/db.php');
+include('includes/security.php');
 
 
 $LawyerID = "";
@@ -37,8 +38,9 @@ if (isset($_GET['LawyerID'])) {
             $Experience = intval($_POST["Experience"]);
             $StateMasterID = intval($_POST["StateName"]);
             $CityMasterID = intval($_POST["CityName"]);
-            $Email = $_POST["Email"];
-            $Phone = $_POST["Phone"];
+            $Email = encryptData($_POST["Email"]);
+            $Phone = encryptData($_POST["Phone"]);
+
             $ConsultationFee = floatval($_POST["ConsultationFee"]);
             $HourlyRate = floatval($_POST["HourlyRate"]);
             $Bio = $_POST["Bio"];
@@ -141,8 +143,8 @@ if (empty($_GET["LawyerID"])) {
         $Experience = $row["Experience"];
         $StateMasterID = $row["StateMasterID"];
         $CityMasterID = $row["CityMasterID"];
-        $Email = $row["Email"];
-        $Phone = $row["Phone"];
+        $Email = decryptData($row["Email"]);
+        $Phone = decryptData($row["Phone"]);
         $ConsultationFee = $row["ConsultationFee"];
         $HourlyRate = $row["HourlyRate"];
         $Bio = $row["Bio"];
