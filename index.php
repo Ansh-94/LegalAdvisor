@@ -32,6 +32,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="css/minichatbot.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
         html,
@@ -164,6 +166,46 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
 
 
+    <div
+    class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between py-16 px-6 bg-purple-700 rounded-[30px] mt-[60px] shadow-xl">
+
+    <!-- Left Text Section -->
+    <div class="text-white max-w-lg w-full">
+        <h2 class="text-3xl font-bold mb-6 text-yellow-400">Explore Legal Rights</h2>
+        <p class="mb-4 text-xl text-gray-200">
+            Every citizen has fundamental rights that protect their freedom, dignity, and access to justice. 
+        </p>
+
+        <ul class="space-y-3">
+            <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                ✅ Right to Equality: Protection against discrimination based on race, gender, religion, or social status.
+            </li>
+            <li class="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
+                ✅ Right to Freedom: Includes freedom of speech, expression, and peaceful assembly.
+            </li>
+            
+            
+        </ul>
+
+        <!-- Explore More Button -->
+        <div class="mt-6">
+            <button onclick="window.location.href='LegalRights.php'"
+                class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                Learn More
+            </button>
+        </div>
+    </div>
+
+    <!-- Right Image Section -->
+    <div class="flex justify-center lg:justify-end w-full lg:w-1/2 mb-8 lg:mb-0">
+        <img src="img/right.jpg" alt="Legal Hammer"
+            class="w-64 sm:w-80 md:w-96 rounded-[30px] transition-transform duration-500 hover:scale-110 shadow-lg">
+    </div>
+
+</div>
+
+
+
 
 
     <section class="text-center py-16">
@@ -292,7 +334,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </button> -->
 
 
-    <div class="fixed bottom-12 right-5 group">
+    <!-- <div class="fixed bottom-12 right-5 group">
         <span
             class="absolute bottom-full right-0 mb-2 hidden group-hover:flex bg-gray-800 text-white text-xs px-3 py-1 rounded-lg shadow-lg transition-opacity duration-300">
             Chat with me!
@@ -301,7 +343,48 @@ if (session_status() === PHP_SESSION_NONE) {
             class="bg-[#00BCD4] text-white text-[15px] px-6 py-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
             <span class="material-symbols-outlined text-4xl text-white">3p</span>
         </button>
+    </div> -->
+
+
+
+    <!-- Chatbot Button -->
+<button id="chatbot-toggler">
+    <span class="ri-chat-4-line"></span>
+    <span class="ri-close-line"></span>
+</button>
+
+<!-- Chatbot Popup -->
+<div class="chatbot-popup">
+    <div class="chatbot">
+        <div class="chatbot-header">
+            <div class="header-content">
+                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Robot Logo" class="robot-icon">
+                <span class="chatbot-name">LegalAdvisor</span>
+            </div>
+            <button class="dropdown-button" id="close-chatbot">&#9662;</button>
+        </div>
+
+        <div class="chatbot-body">
+            <div class="message bot-message">
+                <div class="text-box">
+                    <p>Hey there 👾 <br>How can i help you today?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type your command..." class="message-input" required>
+            <div class="footer-icons">
+                <button type="button" class="emoji-button" id="emoji-picker">😊</button>
+                <button type="submit" class="send-button" id="send-message">&#8593;</button>
+            </div>
+        </div>
     </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+  <script src="js/minichatbot.js"></script>
 
 
     <!-- <div class="flex items-center justify-center w-full">
