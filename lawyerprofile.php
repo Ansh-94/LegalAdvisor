@@ -60,7 +60,7 @@ $result = mysqli_stmt_get_result($stmt);
 if ($result && mysqli_num_rows($result) > 0) {
     $lawyerprofile = mysqli_fetch_assoc($result);
 } else {
-    die("❌ Error: No records found for Cancer ID $LawyerID.");
+    die("❌ Error: No records found for Lawyer ID $LawyerID.");
 }
 
 
