@@ -342,13 +342,21 @@ if (session_status() === PHP_SESSION_NONE) {
     </div> -->
 
 
-
+    <div class="group fixed bottom-12 right-5">
     <!-- Chatbot Button -->
-    <button id="chatbot-toggler" class="transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
-
+    <button id="chatbot-toggler" class="relative transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
         <span class="material-symbols-outlined text-4xl text-white">3p</span>
         <span class="ri-close-line"></span>
     </button>
+
+    <!-- Tooltip -->
+    <span
+        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs px-3 py-1 rounded-lg shadow-lg transition-all duration-300">
+        Chat with me!
+    </span>
+</div>
+
+
 
     <!-- Chatbot Popup -->
     <div class="chatbot-popup">
@@ -374,7 +382,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <input type="text" placeholder="Type your command..." class="message-input" required>
                 <div class="footer-icons">
                     <button type="button" class="emoji-button" id="emoji-picker">😊</button>
-                    <button type="submit" class="send-button" id="send-message">&#8593;</button>
+                    <button type="submit" class="send-button w-[25px]" id="send-message" >&#8593;</button>
                 </div>
             </div>
         </div>

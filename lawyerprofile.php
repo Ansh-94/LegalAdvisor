@@ -105,7 +105,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                     </p>
                     <p class="text-black hover:bg-purple-500 py-1 rounded-full">
                         <strong>🆔 Bar Registration:</strong>
-                        <?= htmlspecialchars($lawyerprofile['BarRegistration']); ?>
+                        <?= htmlspecialchars(decryptData($lawyerprofile['BarRegistration'])); ?>
                     </p>
                     <p class="text-black hover:bg-purple-500 py-1 rounded-full">
                         <strong>⚖️ Specialization:</strong> <?= htmlspecialchars($lawyerprofile['Specialization']); ?>

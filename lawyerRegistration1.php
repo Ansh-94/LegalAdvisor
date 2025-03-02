@@ -33,7 +33,7 @@ if (isset($_GET['LawyerID'])) {
 
             $LawyerID = intval($_POST["LawyerID"]);
             $FullName = $_POST["FullName"];
-            $BarRegistration = $_POST["BarRegistration"];
+            $BarRegistration = encryptData($_POST["BarRegistration"]);
             $Specialization = $_POST["Specialization"];
             $Experience = intval($_POST["Experience"]);
             $StateMasterID = intval($_POST["StateName"]);
@@ -138,7 +138,7 @@ if (empty($_GET["LawyerID"])) {
 
         $LawyerID = $row['LawyerID'];
         $FullName = $row['FullName'];
-        $BarRegistration = $row["BarRegistration"];
+        $BarRegistration = decryptData($row["BarRegistration"]);
         $Specialization = $row["Specialization"];
         $Experience = $row["Experience"];
         $StateMasterID = $row["StateMasterID"];
