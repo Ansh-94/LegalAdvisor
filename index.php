@@ -328,11 +328,6 @@ if (session_status() === PHP_SESSION_NONE) {
     </section>
 
 
-    <!-- <button onclick="window.location.href='chatbot.php'"
-        class="fixed bottom-12 right-5 bg-yellow-400 text-purple-700 text-[15px] px-6 py-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-2xl z-50">
-        <span class="material-symbols-outlined">chat</span>
-    </button> -->
-
 
     <!-- <div class="fixed bottom-12 right-5 group">
         <span
