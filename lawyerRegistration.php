@@ -32,13 +32,14 @@ if (isset($_POST['btnRegister'])) {
         }
         move_uploaded_file($_FILES['ProfilePicture']['tmp_name'], $target_dir . $ProfilePicture);
 
-        // Encrypt Email & Phone
+        // Encrypt Email & Phone,bar registration
         $EncryptedEmail = encryptData($Email);
         $EncryptedPhone = encryptData($Phone);
+        $EncryptedBarRegistration = encryptData($BarRegistration);
 
         // Check for duplicate records
         $duplicate_message = "";
-        $fields = ["Email" => $EncryptedEmail, "Phone" => $EncryptedPhone, "BarRegistration" => $BarRegistration];
+        $fields = ["Email" => $EncryptedEmail, "Phone" => $EncryptedPhone, "BarRegistration" => $EncryptedBarRegistration];
 
         foreach ($fields as $column => $value) {
             $query = "SELECT 1 FROM lawyers WHERE $column = ?";
@@ -67,7 +68,7 @@ if (isset($_POST['btnRegister'])) {
             $query,
             "sssssssssssss",
             $FullName,
-            $BarRegistration,
+            $EncryptedBarRegistration,
             $Specialization,
             $Experience,
             $StateName,
