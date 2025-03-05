@@ -1,35 +1,13 @@
-const chatBody = document.querySelector(".chatbot-body");
-const messageInput = document.querySelector(".message-input");
-const sendMessageButton = document.querySelector("#send-message");
-const chatbotToggler = document.querySelector("#chatbot-toggler");
-const closeChatbot = document.querySelector("#close-chatbot");
-
-// API setup
-const API_KEY = "AIzaSyAJkHi7zMVqLSpsQrsAkF1yNBjeL2mk4aU";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-
-const userData = {
-  message: null,
-};
-
-const chatHistory = [];
-
-// Create message element with dynamic classes & return it
-const createMessageElement = (content, ...classes) => {
-  const div = document.createElement("div");
-  div.classList.add("message", ...classes);
-  div.innerHTML = content;
-  return div;
-};
-
-// Generate Response using bot API
 const generateBotResponse = async (incomingMessageDiv) => {
   const messageElement = incomingMessageDiv.querySelector(".text-box");
+
+  // Modify user query to be India-specific
+  const indiaSpecificQuery = `Provide information related to "${userData.message}" with a focus on India, Indian law, Indian government regulations,Indian Police,Indian Culture,Indian Constitution and relevant Indian data.`;
 
   // Add user message to chat history
   chatHistory.push({
     role: "user",
-    parts: [{ text: userData.message }],
+    parts: [{ text: indiaSpecificQuery }], // Ensure query is India-specific
   });
 
   // API request options
@@ -42,7 +20,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
   };
 
   try {
-    //Fetch bot response from API
+    // Fetch bot response from API
     const response = await fetch(API_URL, requestOptions);
     const data = await response.json();
     if (!response.ok) throw new Error(data.error.message);
@@ -61,87 +39,10 @@ const generateBotResponse = async (incomingMessageDiv) => {
   } catch (error) {
     // Handle error in API response
     console.log(error);
-    messageElement.innerText = error.message;
+    messageElement.innerText = "An error occurred while fetching India-specific data.";
     messageElement.style.color = "#ff0000";
   } finally {
     incomingMessageDiv.classList.remove("thinking");
     chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
   }
 };
-
-// Handle Outgoing user messages
-const handleOutgoingMessage = (e) => {
-  e.preventDefault();
-  userData.message = messageInput.value.trim();
-  messageInput.value = "";
-
-  // Create and display user message
-  const messageContent = `<div class="text-box bg-purple-600 rounded-full text-white  px-4 p-2"><p></p></div>`;
-
-  const outgoingMessageDiv = createMessageElement(
-    messageContent,
-    "user-message"
-  );
-  outgoingMessageDiv.querySelector(".text-box").textContent = userData.message;
-  chatBody.appendChild(outgoingMessageDiv);
-  chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-
-  // Simulate bot response with thinking indicator after a delay
-  setTimeout(() => {
-    const messageContent = `<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" class="chat-icon">
-        <div class="text-box">
-          <div class="thinking-indicator">
-            <div style="display: flex; gap: 5px;">
-        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230);  border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0s;"></div>
-        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230); border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0.2s;"></div>
-        <div style="width: 8px; height: 8px; background: rgb(40, 59, 230); border-radius: 50%; animation: typing 1.5s infinite ease-in-out; animation-delay: 0.4s;"></div>
-    </div>
-          </div>
-        </div>`;
-
-    const incomingMessageDiv = createMessageElement(
-      messageContent,
-      "bot-message",
-      "thinking"
-    );
-    chatBody.appendChild(incomingMessageDiv);
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-    generateBotResponse(incomingMessageDiv);
-  }, 600);
-};
-
-// Handle Enter key press for sending messages
-messageInput.addEventListener("keydown", (e) => {
-  const userMessage = e.target.value.trim();
-  if (e.key === "Enter" && userMessage) {
-    handleOutgoingMessage(e);
-  }
-});
-
-// Initialize emoji Picker & handle emoji selection
-const picker = new EmojiMart.Picker({
-  theme: "light",
-  skinTonePosition: "none",
-  previewPosition: "none",
-  onEmojiSelect: (emoji) => {
-    const { selectionStart: start, selectionEnd: end } = messageInput;
-    messageInput.setRangeText(emoji.native, start, end, "end");
-    messageInput.focus();
-  },
-  onClickOutside: (e) => {
-    if (e.target.id === "emoji-picker") {
-      document.body.classList.toggle("show-emoji-picker");
-    } else {
-      document.body.classList.remove("show-emoji-picker");
-    }
-  },
-});
-
-// document.querySelector(".chatbot-footer").appendChild(picker);
-sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
-chatbotToggler.addEventListener("click", () =>
-  document.body.classList.toggle("show-chatbot")
-);
-closeChatbot.addEventListener("click", () =>
-  document.body.classList.remove("show-chatbot")
-);
